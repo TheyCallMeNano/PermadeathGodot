@@ -10,6 +10,7 @@ height = 1.99999
 [sub_resource type="Animation" id=2]
 resource_name = "Idle"
 length = 0.5
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -50,6 +51,7 @@ __meta__ = {
 position = Vector2( 0, -12 )
 texture = ExtResource( 1 )
 hframes = 8
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
