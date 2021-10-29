@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/scrStamina.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/fntGUI.TTF" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 12
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="Label" type="Label"]
+anchor_left = 0.062
+anchor_top = 0.936
+anchor_right = 0.062
+anchor_bottom = 0.936
+margin_left = -19.84
+margin_top = -8.48001
+margin_right = 20.16
+margin_bottom = 8.51999
+custom_fonts/font = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

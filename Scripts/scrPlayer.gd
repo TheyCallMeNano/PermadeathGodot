@@ -1,8 +1,10 @@
+#This is essentially what we are modifiying
 extends KinematicBody2D
 
 # These vars configure how ice like the surface is
 const MAX_SPEED = 150
 const ACCELERATION = 500
+
 #Friction acts at the rate the speed decreases
 const FRICTION = 1000
 
@@ -18,6 +20,8 @@ var state = MOVE
 
 # This is the velocity calculation
 var vel = Vector2.ZERO
+
+var inputVector = Vector2.ZERO
 
 #Which direction to dash in
 var dashVector = Vector2.RIGHT
@@ -37,7 +41,6 @@ func _physics_process(delta):
 
 #Calculate Movement when in the right state
 func moveState(delta):
-	var inputVector = Vector2.ZERO
 	inputVector.x = Input.get_action_strength("moveRight") - Input.get_action_strength("moveLeft")
 	inputVector.y = Input.get_action_strength("moveDown") - Input.get_action_strength("moveUp")
 	inputVector = inputVector.normalized()
@@ -56,11 +59,15 @@ func moveState(delta):
 		if inputVector.y < 0:
 			animationPlayer.play("Run")
 			
-		vel = vel.move_toward(inputVector * MAX_SPEED, ACCELERATION * delta)
+		#Check if we're sprinting, then manage all movement in that state until end
+		if global.plrStamina != 0 && Input.is_action_pressed("sprint") && Input.is_action_pressed("moveDown") || global.plrStamina != 0 && Input.is_action_pressed("moveUp") && Input.is_action_pressed("sprint") || global.plrStamina != 0 && Input.is_action_pressed("moveLeft") && Input.is_action_pressed("sprint") || global.plrStamina != 0 &&  Input.is_action_pressed("moveRight") && Input.is_action_pressed("sprint"):
+			vel = vel.move_toward(inputVector * MAX_SPEED * 2, ACCELERATION * delta)
+		else:
+			#We aren't sprinting
+			vel = vel.move_toward(inputVector * MAX_SPEED, ACCELERATION * delta)
 	else:
 		animationPlayer.play("Idle")
 		vel = vel.move_toward(Vector2.ZERO, FRICTION * delta)
-		
 	
 	#Check if attacking
 	if Input.is_action_just_pressed("primaryAttack"):
@@ -69,8 +76,9 @@ func moveState(delta):
 	#Check if dashing
 	if Input.is_action_just_pressed("dash"):
 		state = DASH
-		
+	
 	move()
+	sprinting()
 
 #What to do when the player attacks
 func attackState(delta):
@@ -86,10 +94,30 @@ func move():
 	#Apply movement
 	vel = move_and_slide(vel)
 	
+#What to do when dashing
 func dashState(delta):
-	vel = dashVector * MAX_SPEED * 1.5
+	vel = dashVector * MAX_SPEED * 2.5
 	move()
 	dashStateFinished()
-	
+
+#Reset to normal state
 func dashStateFinished():
 	state = MOVE
+
+#Run these checks to refil stamina
+func sprinting():
+	#Is the player running?
+	if global.plrStamina != 0 && Input.is_action_pressed("sprint") && Input.is_action_pressed("moveDown") || global.plrStamina != 0 && Input.is_action_pressed("moveUp") && Input.is_action_pressed("sprint") || global.plrStamina != 0 && Input.is_action_pressed("moveLeft") && Input.is_action_pressed("sprint") || global.plrStamina != 0 &&  Input.is_action_pressed("moveRight") && Input.is_action_pressed("sprint"):
+		global.plrStamina -= global.plrStaminaRecharge
+	
+	#Have they stopped running?
+	if global.plrStamina != global.plrMaxStamina && !Input.is_action_pressed("sprint") && global.plrStaminaRechargeDelay != global.plrStaminaDelayTime:
+		global.plrStaminaRechargeDelay += global.plrStaminaRecharge
+	
+	#Give them more stamina
+	if global.plrStaminaRechargeDelay == global.plrStaminaDelayTime && global.plrStamina != global.plrMaxStamina:
+		global.plrStamina += global.plrStaminaRecharge
+	
+	#Reset the recharge to prevent overflow
+	if global.plrStamina == global.plrMaxStamina:
+		global.plrStaminaRechargeDelay = 0
