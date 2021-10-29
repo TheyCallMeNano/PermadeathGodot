@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spritesheet.png-1399de8deb470eb96ced341cfc0de8ec.stex"
+path="res://.import/Goblin.png-81cd8f0f67b2077854643b1581772703.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Player/spritesheet.png"
-dest_files=[ "res://.import/spritesheet.png-1399de8deb470eb96ced341cfc0de8ec.stex" ]
+source_file="res://Sprites/NPC'S/Goblin.png"
+dest_files=[ "res://.import/Goblin.png-81cd8f0f67b2077854643b1581772703.stex" ]
 
 [params]
 
