@@ -16,3 +16,4 @@ func _physics_process(delta):
 		vel = Vector2.ZERO
 	
 	move_and_collide(vel * delta * MAX_SPEED)
+#Hello
