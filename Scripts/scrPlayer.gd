@@ -60,8 +60,17 @@ func moveState(delta):
 			animationPlayer.play("Run")
 			
 		#Check if we're sprinting, then manage all movement in that state until end
-		if global.plrStamina != 0 && Input.is_action_pressed("sprint") && Input.is_action_pressed("moveDown") || global.plrStamina != 0 && Input.is_action_pressed("moveUp") && Input.is_action_pressed("sprint") || global.plrStamina != 0 && Input.is_action_pressed("moveLeft") && Input.is_action_pressed("sprint") || global.plrStamina != 0 &&  Input.is_action_pressed("moveRight") && Input.is_action_pressed("sprint"):
-			vel = vel.move_toward(inputVector * MAX_SPEED * 2, ACCELERATION * delta)
+		#if global.plrStamina != 0 && Input.is_action_pressed("sprint") && Input.is_action_pressed("moveDown") || global.plrStamina != 0 && Input.is_action_pressed("moveUp") && Input.is_action_pressed("sprint") || global.plrStamina != 0 && Input.is_action_pressed("moveLeft") && Input.is_action_pressed("sprint") || global.plrStamina != 0 &&  Input.is_action_pressed("moveRight") && Input.is_action_pressed("sprint"):
+		if Input.is_action_pressed("sprint") && global.plrStamina != 0:
+			if Input.is_action_pressed("moveDown"):
+				vel = vel.move_toward(inputVector * MAX_SPEED * 2, ACCELERATION * delta)
+			elif Input.is_action_pressed("moveLeft"):
+				vel = vel.move_toward(inputVector * MAX_SPEED * 2, ACCELERATION * delta)
+			elif Input.is_action_pressed("moveUp"):
+				vel = vel.move_toward(inputVector * MAX_SPEED * 2, ACCELERATION * delta)			
+			elif Input.is_action_pressed("moveRight"):
+				vel = vel.move_toward(inputVector * MAX_SPEED * 2, ACCELERATION * delta)
+	#vel = vel.move_toward(inputVector * MAX_SPEED * 2, ACCELERATION * delta)
 		else:
 			#We aren't sprinting
 			vel = vel.move_toward(inputVector * MAX_SPEED, ACCELERATION * delta)
@@ -78,7 +87,7 @@ func moveState(delta):
 		state = DASH
 	
 	move()
-	sprinting()
+	stamina()
 
 #What to do when the player attacks
 func attackState(delta):
@@ -105,10 +114,21 @@ func dashStateFinished():
 	state = MOVE
 
 #Run these checks to refil stamina
-func sprinting():
+func stamina():
 	#Is the player running?
-	if global.plrStamina != 0 && Input.is_action_pressed("sprint") && Input.is_action_pressed("moveDown") || global.plrStamina != 0 && Input.is_action_pressed("moveUp") && Input.is_action_pressed("sprint") || global.plrStamina != 0 && Input.is_action_pressed("moveLeft") && Input.is_action_pressed("sprint") || global.plrStamina != 0 &&  Input.is_action_pressed("moveRight") && Input.is_action_pressed("sprint"):
-		global.plrStamina -= global.plrStaminaRecharge
+	if Input.is_action_pressed("sprint") && global.plrStamina != 0:
+			if Input.is_action_pressed("moveDown"):
+				global.plrStaminaRechargeDelay = 0
+				global.plrStamina -= global.plrStaminaRecharge 
+			elif Input.is_action_pressed("moveLeft"):
+				global.plrStaminaRechargeDelay = 0
+				global.plrStamina -= global.plrStaminaRecharge
+			elif Input.is_action_pressed("moveUp"):
+				global.plrStaminaRechargeDelay = 0
+				global.plrStamina -= global.plrStaminaRecharge
+			elif Input.is_action_pressed("moveRight"):
+				global.plrStaminaRechargeDelay = 0
+				global.plrStamina -= global.plrStaminaRecharge
 	
 	#Have they stopped running?
 	if global.plrStamina != global.plrMaxStamina && !Input.is_action_pressed("sprint") && global.plrStaminaRechargeDelay != global.plrStaminaDelayTime:
