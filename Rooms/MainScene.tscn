@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Objects/objPause.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/objStamina.tscn" type="PackedScene" id=2]
@@ -7,8 +7,28 @@
 [ext_resource path="res://Objects/objPlayer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://TileSets/tsBase.tres" type="TileSet" id=6]
 [ext_resource path="res://Scripts/scrGoblin.gd" type="Script" id=7]
+[ext_resource path="res://Objects/objCollisionRectangle.tscn" type="PackedScene" id=8]
 
 [node name="Hub" type="Node2D"]
+
+[node name="CollisionRectangle" parent="." instance=ExtResource( 8 )]
+position = Vector2( -120, -104 )
+scale = Vector2( 9, 1 )
+
+[node name="CollisionRectangle3" parent="." instance=ExtResource( 8 )]
+position = Vector2( -288, -72 )
+scale = Vector2( 6, 1 )
+
+[node name="CollisionRectangle2" parent="." instance=ExtResource( 8 )]
+position = Vector2( -216, -88 )
+scale = Vector2( 3, 1 )
+
+[node name="CollisionRectangle4" parent="." instance=ExtResource( 8 )]
+position = Vector2( -344, -56 )
+
+[node name="CollisionRectangle5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 0, -120 )
+scale = Vector2( 6, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -37,6 +57,18 @@ position = Vector2( 120, 32 )
 [node name="Goblin3" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 112, 48 )
 script = ExtResource( 7 )
+
+[node name="Goblin2" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( -168, 56 )
+
+[node name="Goblin4" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( -112, 56 )
+
+[node name="Goblin5" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( -104, -8 )
+
+[node name="Goblin6" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( -8, 72 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( -32, 16 )

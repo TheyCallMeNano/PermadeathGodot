@@ -5,7 +5,7 @@ func _process(delta):
 	if global.plrStamina > 0:
 		add_color_override("font_color", Color(1,1,1,1))
 		set_text("Stamina: " + str(global.plrStamina))
-	#Print text as red when holding shift
+	#Print text as red when holding shift and empty
 	elif global.plrStamina == 0 && Input.is_action_pressed("sprint"):
 		add_color_override("font_color", Color(255,0,0,1))
 		set_text("Stamina: " + str(global.plrStamina))

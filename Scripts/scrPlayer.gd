@@ -45,7 +45,7 @@ func moveState(delta):
 	inputVector.y = Input.get_action_strength("moveDown") - Input.get_action_strength("moveUp")
 	inputVector = inputVector.normalized()
 	
-	#Check if we're moving
+	#Check if we're moving then play running animation
 	if inputVector != Vector2.ZERO:
 		dashVector = inputVector
 		if inputVector.x > 0:
@@ -59,15 +59,14 @@ func moveState(delta):
 		if inputVector.y < 0:
 			animationPlayer.play("Run")
 			
-		#Check if we're sprinting, then manage all movement in that state until end
-		#if global.plrStamina != 0 && Input.is_action_pressed("sprint") && Input.is_action_pressed("moveDown") || global.plrStamina != 0 && Input.is_action_pressed("moveUp") && Input.is_action_pressed("sprint") || global.plrStamina != 0 && Input.is_action_pressed("moveLeft") && Input.is_action_pressed("sprint") || global.plrStamina != 0 &&  Input.is_action_pressed("moveRight") && Input.is_action_pressed("sprint"):
+		#Check if we're sprinting, then manage all movement in that state until end (Perhaps speed up run animation?)
 		if Input.is_action_pressed("sprint") && global.plrStamina != 0:
 			if Input.is_action_pressed("moveDown"):
 				vel = vel.move_toward(inputVector * MAX_SPEED * 2, ACCELERATION * delta)
 			elif Input.is_action_pressed("moveLeft"):
 				vel = vel.move_toward(inputVector * MAX_SPEED * 2, ACCELERATION * delta)
 			elif Input.is_action_pressed("moveUp"):
-				vel = vel.move_toward(inputVector * MAX_SPEED * 2, ACCELERATION * delta)			
+				vel = vel.move_toward(inputVector * MAX_SPEED * 2, ACCELERATION * delta)
 			elif Input.is_action_pressed("moveRight"):
 				vel = vel.move_toward(inputVector * MAX_SPEED * 2, ACCELERATION * delta)
 	#vel = vel.move_toward(inputVector * MAX_SPEED * 2, ACCELERATION * delta)
