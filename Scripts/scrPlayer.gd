@@ -81,8 +81,8 @@ func moveState(delta):
 	if Input.is_action_just_pressed("primaryAttack"):
 		state = ATTACK
 	
-	#Check if dashing
-	if Input.is_action_just_pressed("dash"):
+	#Check if dashing and if we have enough stamina to dash
+	if Input.is_action_just_pressed("dash") && global.plrStamina > global.plrStaminaRecharge*30:
 		state = DASH
 	
 	move()
@@ -105,6 +105,8 @@ func move():
 #What to do when dashing
 func dashState(delta):
 	vel = dashVector * MAX_SPEED * 2.5
+	global.plrStaminaRechargeDelay = 0
+	global.plrStamina -= global.plrStaminaRecharge*30
 	move()
 	dashStateFinished()
 
@@ -112,7 +114,7 @@ func dashState(delta):
 func dashStateFinished():
 	state = MOVE
 
-#Run these checks to refil stamina
+#Run these checks to refill stamina
 func stamina():
 	#Is the player running?
 	if Input.is_action_pressed("sprint") && global.plrStamina != 0:

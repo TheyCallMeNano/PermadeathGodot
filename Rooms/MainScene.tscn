@@ -36,9 +36,10 @@ scale = Vector2( 6, 1 )
 
 [node name="Label" parent="CanvasLayer" instance=ExtResource( 2 )]
 margin_left = -11.84
-margin_top = -16.48
-margin_right = 28.16
-margin_bottom = 0.52002
+margin_top = -3.48
+margin_right = 23.16
+margin_bottom = 9.52
+rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 6 )
