@@ -10,14 +10,14 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
 [node name="Label" type="Label"]
-anchor_left = 0.062
-anchor_top = 0.936
-anchor_right = 0.062
-anchor_bottom = 0.936
-margin_left = -19.84
-margin_top = -8.48001
-margin_right = 20.16
-margin_bottom = 8.51999
+anchor_left = 0.075
+anchor_top = 0.933
+anchor_right = 0.075
+anchor_bottom = 0.933
+margin_left = -16.0
+margin_top = -7.94
+margin_right = 24.0
+margin_bottom = 8.06
 custom_fonts/font = SubResource( 1 )
 script = ExtResource( 1 )
 __meta__ = {
