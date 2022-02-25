@@ -23,9 +23,6 @@ var vel = Vector2.ZERO
 
 var inputVector = Vector2.ZERO
 
-#Which direction to dash in
-var dashVector = Vector2.RIGHT
-
 #Check state and run according funcitons
 func _physics_process(delta):
 	match state:

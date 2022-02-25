@@ -12,25 +12,6 @@
 
 [node name="Hub" type="Node2D"]
 
-[node name="CollisionRectangle" parent="." instance=ExtResource( 8 )]
-position = Vector2( -120, -104 )
-scale = Vector2( 9, 1 )
-
-[node name="CollisionRectangle3" parent="." instance=ExtResource( 8 )]
-position = Vector2( -288, -72 )
-scale = Vector2( 6, 1 )
-
-[node name="CollisionRectangle2" parent="." instance=ExtResource( 8 )]
-position = Vector2( -216, -88 )
-scale = Vector2( 3, 1 )
-
-[node name="CollisionRectangle4" parent="." instance=ExtResource( 8 )]
-position = Vector2( -344, -56 )
-
-[node name="CollisionRectangle5" parent="." instance=ExtResource( 8 )]
-position = Vector2( 0, -120 )
-scale = Vector2( 6, 1 )
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource( 1 )]
@@ -61,6 +42,25 @@ tile_data = PoolIntArray( -589826, 1, 0, -589825, 1, 1, -655360, 1, 2, -524290, 
 
 [node name="StaticBody2D" parent="." instance=ExtResource( 4 )]
 position = Vector2( -8, -104 )
+
+[node name="CollisionRectangle" parent="." instance=ExtResource( 8 )]
+position = Vector2( -120, -104 )
+scale = Vector2( 9, 1 )
+
+[node name="CollisionRectangle3" parent="." instance=ExtResource( 8 )]
+position = Vector2( -288, -72 )
+scale = Vector2( 6, 1 )
+
+[node name="CollisionRectangle2" parent="." instance=ExtResource( 8 )]
+position = Vector2( -216, -88 )
+scale = Vector2( 3, 1 )
+
+[node name="CollisionRectangle4" parent="." instance=ExtResource( 8 )]
+position = Vector2( -344, -56 )
+
+[node name="CollisionRectangle5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 0, -120 )
+scale = Vector2( 6, 1 )
 
 [node name="YSort" type="YSort" parent="."]
 
