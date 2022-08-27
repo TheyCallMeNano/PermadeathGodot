@@ -26,6 +26,9 @@ var inputVector = Vector2.ZERO
 #Which direction to dash in
 var dashVector = Vector2.RIGHT
 
+#Grab the weapon and get it ready for the Attack state
+onready var slash = $Slash
+
 #Animation Manager
 onready var animationPlayer = $AnimationPlayer
 
@@ -59,6 +62,13 @@ func moveState(delta):
 		if inputVector.y < 0:
 			animationPlayer.play("Run")
 			
+		if Input.is_action_pressed("moveLeft"):
+			slash.position.x = -15
+			slash.scale.x = -1
+		if Input.is_action_pressed("moveRight"):
+			slash.position.x = 15
+			slash.scale.x = 1
+			
 		#Check if we're sprinting, then manage all movement in that state until end (Perhaps speed up run animation?)
 		if Input.is_action_pressed("sprint") && global.plrStamina != 0:
 			if Input.is_action_pressed("moveDown"):
@@ -69,7 +79,6 @@ func moveState(delta):
 				vel = vel.move_toward(inputVector * MAX_SPEED * 2, ACCELERATION * delta)
 			elif Input.is_action_pressed("moveRight"):
 				vel = vel.move_toward(inputVector * MAX_SPEED * 2, ACCELERATION * delta)
-	#vel = vel.move_toward(inputVector * MAX_SPEED * 2, ACCELERATION * delta)
 		else:
 			#We aren't sprinting
 			vel = vel.move_toward(inputVector * MAX_SPEED, ACCELERATION * delta)
@@ -89,11 +98,16 @@ func moveState(delta):
 	stamina()
 
 #What to do when the player attacks
+func _unhandled_input(event: InputEvent) -> void:
+		if event.is_action_pressed("primaryAttack"):
+			slash.attack()
+	
+#Attack Extended
 func attackState(delta):
 	vel = Vector2.ZERO
 	animationPlayer.play("Idle")
 	attackStateFinished()
-	
+
 #Reset the player to the moving state
 func attackStateFinished():
 	state = MOVE
