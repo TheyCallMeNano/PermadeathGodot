@@ -9,7 +9,6 @@
 [node name="Hub" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="Walls" type="TileMap" parent="."]

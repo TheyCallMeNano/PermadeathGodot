@@ -10,7 +10,7 @@
 [ext_resource path="res://TileSets/tsBase.tres" type="TileSet" id=8]
 [ext_resource path="res://Objects/objDebugMenu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Objects/objDummy.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Objects/objSlash.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Objects/Slash.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scripts/scrDummy.gd" type="Script" id=12]
 
 [node name="Hub" type="Node2D"]

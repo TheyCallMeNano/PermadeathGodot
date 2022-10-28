@@ -13,3 +13,4 @@ var plrStaminaRecharge = 0.5;
 var plrStaminaRechargeDelay = 0;
 var plrStaminaDelayTime = 120;
 var baseDMG = 15;
+
