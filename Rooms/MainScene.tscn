@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Objects/objPause.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/objStamina.tscn" type="PackedScene" id=2]
@@ -10,8 +10,9 @@
 [ext_resource path="res://TileSets/tsBase.tres" type="TileSet" id=8]
 [ext_resource path="res://Objects/objDebugMenu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Objects/objDummy.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Objects/Slash.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Objects/objPrimary.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scripts/scrDummy.gd" type="Script" id=12]
+[ext_resource path="res://Objects/objSight.tscn" type="PackedScene" id=13]
 
 [node name="Hub" type="Node2D"]
 
@@ -82,5 +83,7 @@ tile_data = PoolIntArray( -851979, 1, 0, -851975, 1, 0, -851971, 1, 0, -917502, 
 [node name="Dummy" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( -99, -1 )
 script = ExtResource( 12 )
+
+[node name="Area2D" parent="YSort/Dummy" instance=ExtResource( 13 )]
 
 [connection signal="body_entered" from="YSort/Player/Slash" to="YSort/Player/Slash" method="_on_Slash_body_entered"]

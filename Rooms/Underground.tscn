@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Objects/objPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/objDebugMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://TileSets/tsCatacombs.tres" type="TileSet" id=3]
+[ext_resource path="res://Objects/objPrimary.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/objPause.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/objStamina.tscn" type="PackedScene" id=6]
 
@@ -62,3 +63,6 @@ rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
+
+[node name="Slash" parent="Player" instance=ExtResource( 4 )]
+position = Vector2( 15, -4 )

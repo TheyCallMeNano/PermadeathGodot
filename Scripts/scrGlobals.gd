@@ -4,8 +4,8 @@ extends Node
 var gameSaveSlot = 0
 
 #Player Vars
-var classInt = 0;
-var className = "";
+var classInt = 0; #Int to name ID, 0 = Assassin, 1 = Alchemist, 2 = Dualist, 3 = Paladin
+var className = "Assassin";
 var plrHP = 100;
 var plrMaxStamina = 100;
 var plrStamina = 100;
