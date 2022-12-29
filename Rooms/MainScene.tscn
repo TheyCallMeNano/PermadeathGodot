@@ -84,6 +84,11 @@ tile_data = PoolIntArray( -851979, 1, 0, -851975, 1, 0, -851971, 1, 0, -917502, 
 position = Vector2( -99, -1 )
 script = ExtResource( 12 )
 
-[node name="Area2D" parent="YSort/Dummy" instance=ExtResource( 13 )]
+[node name="Sight" parent="YSort/Dummy" instance=ExtResource( 13 )]
 
+[connection signal="ready" from="YSort/Player" to="YSort/Player" method="_on_Player_ready"]
 [connection signal="body_entered" from="YSort/Player/Slash" to="YSort/Player/Slash" method="_on_Slash_body_entered"]
+[connection signal="body_entered" from="YSort/Dummy/Sight" to="YSort/Dummy/Sight" method="_on_Sight_body_entered"]
+[connection signal="body_exited" from="YSort/Dummy/Sight" to="YSort/Dummy/Sight" method="_on_Sight_body_exited"]
+
+[editable path="YSort/Player"]

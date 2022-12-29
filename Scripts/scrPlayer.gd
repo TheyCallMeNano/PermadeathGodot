@@ -15,6 +15,9 @@ enum{
 	ATTACK
 }
 
+#Stealth
+var detected = false
+
 #Manages what state we are in
 var state = MOVE
 
@@ -31,6 +34,11 @@ onready var slash = $Slash
 
 #Animation Manager
 onready var animationPlayer = $AnimationPlayer
+
+func classAssignment():
+	if global.classInt == 0:
+		global.plrHP = 90
+		global.plrMaxStamina = 125
 
 #Check state and run according funcitons
 func _physics_process(delta):
@@ -103,6 +111,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			slash.attack()
 	
 #Attack Extended
+# warning-ignore:unused_argument
 func attackState(delta):
 	vel = Vector2.ZERO
 	animationPlayer.play("Idle")
@@ -117,14 +126,24 @@ func move():
 	vel = move_and_slide(vel)
 	
 #What to do when dashing
+# warning-ignore:unused_argument
 func dashState(delta):
-	vel = dashVector * MAX_SPEED * 2.5
-	global.plrStaminaRechargeDelay = 0
-	global.plrStamina -= global.plrStaminaRecharge*30
-	move()
-	dashStateFinished()
+	if global.classInt == 0:
+		vel = dashVector * MAX_SPEED * 3
+		global.plrStaminaRechargeDelay = 0
+		global.plrStamina -= global.plrStaminaRecharge*15
+		move()
+		dashStateFinished()
+		
+	else:
+		vel = dashVector * MAX_SPEED * 2.5
+		global.plrStaminaRechargeDelay = 0
+		global.plrStamina -= global.plrStaminaRecharge*30
+		move()
+		dashStateFinished()
 
 #Reset to normal state
+#For I-Frames use an if statement to avoid deloading and loading the player object
 func dashStateFinished():
 	state = MOVE
 
@@ -156,3 +175,26 @@ func stamina():
 	#Reset the recharge to prevent overflow
 	if global.plrStamina == global.plrMaxStamina:
 		global.plrStaminaRechargeDelay = 0
+
+#Player is in a sightline
+func seen():
+	detected = true
+	global.baseDMG = 15
+	stealth()
+
+#Player is not in a sightline
+func hidden():
+	detected = false
+	global.baseDMG = 15
+	stealth()
+
+#Modify based on status of sightline/stealth
+func stealth():
+	if detected == false:
+		global.baseDMG = global.baseDMG*3
+	elif detected == true:
+		global.baseDMG = global.baseDMG*0.85
+
+
+func _on_Player_ready():
+	classAssignment()
