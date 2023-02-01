@@ -88,7 +88,5 @@ script = ExtResource( 12 )
 
 [connection signal="ready" from="YSort/Player" to="YSort/Player" method="_on_Player_ready"]
 [connection signal="body_entered" from="YSort/Player/Slash" to="YSort/Player/Slash" method="_on_Slash_body_entered"]
-[connection signal="body_entered" from="YSort/Dummy/Sight" to="YSort/Dummy/Sight" method="_on_Sight_body_entered"]
-[connection signal="body_exited" from="YSort/Dummy/Sight" to="YSort/Dummy/Sight" method="_on_Sight_body_exited"]
 
 [editable path="YSort/Player"]

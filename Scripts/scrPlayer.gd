@@ -191,10 +191,11 @@ func hidden():
 #Modify based on status of sightline/stealth
 func stealth():
 	if detected == false:
-		global.baseDMG = global.baseDMG*3
+		global.baseDMG = global.baseDMG*3 #global.baseDMG = global.baseDMG + lvlDMG * 3
 	elif detected == true:
-		global.baseDMG = global.baseDMG*0.85
+		global.baseDMG = global.baseDMG*0.85 #global.baseDMG = global.baseDMG + lvlDMG * 0.85
 
 
 func _on_Player_ready():
 	classAssignment()
+	global.plrStamina = global.plrMaxStamina

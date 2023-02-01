@@ -3,10 +3,10 @@ extends Area2D
 #Is the player colliding with any of the sightline?
 ##Player is colliding with the sightline
 func _on_Area2D_area_entered(area):
-	if area.has_method("seen"):
-		$"/root/Hub/YSort/Player".seen()
+	#if area.has_method("seen"):
+	$"/root/Hub/YSort/Player".seen()
 
 ##Player is not colliding with the sightline
 func _on_Area2D_area_exited(area):
-	if area.has_method("hidden"):
-		$"/root/Hub/YSort/Player".hidden()
+	#if area.has_method("hidden"):
+	$"/root/Hub/YSort/Player".hidden()

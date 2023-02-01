@@ -10,7 +10,7 @@ func _process(delta):
 		"\nRecharge Delay: " + str(global.plrStaminaRechargeDelay) + 
 		"\nMouse X/Y: " + str(get_viewport().get_mouse_position()) + 
 		"\nFPS: " + str(Performance.get_monitor(Performance.TIME_FPS)) +
-		"\nRaw Damage: " + str(global.baseDMG)) 
+		"\nRaw Damage: " + str(global.baseDMG))
 	#Reset text to nothing so that the player doesn't have the debug info
 	else:
 		set_text("")
