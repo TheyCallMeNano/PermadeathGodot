@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 # These vars configure how ice like the surface is
 const MAX_SPEED = 150
@@ -48,7 +48,9 @@ func moveState(delta):
 
 func move():
 	#Apply movement
-	vel = move_and_slide(vel)
+	set_velocity(vel)
+	move_and_slide()
+	vel = velocity
 	state = STANDBY
 
 func standbyState():

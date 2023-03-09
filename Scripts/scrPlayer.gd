@@ -1,5 +1,5 @@
 #This is essentially what we are modifiying
-extends KinematicBody2D
+extends CharacterBody2D
 
 # These vars configure how ice like the surface is
 const MAX_SPEED = 150
@@ -30,10 +30,10 @@ var inputVector = Vector2.ZERO
 var dashVector = Vector2.RIGHT
 
 #Grab the weapon and get it ready for the Attack state
-onready var slash = $Slash
+@onready var slash = $Slash
 
 #Animation Manager
-onready var animationPlayer = $AnimationPlayer
+@onready var animationPlayer = $AnimationPlayer
 
 func classAssignment():
 	if global.classInt == 0:
@@ -60,10 +60,10 @@ func moveState(delta):
 	if inputVector != Vector2.ZERO:
 		dashVector = inputVector
 		if inputVector.x > 0:
-			get_node("Sprite").set_flip_h(false)
+			get_node("Sprite2D").set_flip_h(false)
 			animationPlayer.play("Run")
 		if inputVector.x < 0:
-			get_node("Sprite").set_flip_h(true)
+			get_node("Sprite2D").set_flip_h(true)
 			animationPlayer.play("Run")
 		if inputVector.y > 0:
 			animationPlayer.play("Run")
@@ -123,7 +123,9 @@ func attackStateFinished():
 	
 func move():
 	#Apply movement
-	vel = move_and_slide(vel)
+	set_velocity(vel)
+	move_and_slide()
+	vel = velocity
 	
 #What to do when dashing
 # warning-ignore:unused_argument

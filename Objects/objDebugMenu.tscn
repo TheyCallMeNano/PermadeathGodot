@@ -1,14 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://d24kw5tgwypm0"]
 
-[ext_resource path="res://Scripts/scrDebugMenu.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://Scripts/scrDebugMenu.gd" id="1"]
 
 [node name="Label" type="Label"]
+anchors_preset = -1
 anchor_left = 0.075
 anchor_top = 0.156
 anchor_right = 0.075
 anchor_bottom = 0.156
-margin_left = -23.0
-margin_top = -27.08
-margin_right = 17.0
-margin_bottom = -11.08
-script = ExtResource( 1 )
+offset_left = -23.0
+offset_top = -27.08
+offset_right = 17.0
+offset_bottom = -11.08
+script = ExtResource("1")

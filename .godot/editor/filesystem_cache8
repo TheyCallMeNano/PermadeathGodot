@@ -1,0 +1,80 @@
+2a60927148abd1d33b818b535e306557
+::res://::1678343618
+export_presets.cfg::TextFile::-1::1674429984::0::1::::<><>::
+icon.png::CompressedTexture2D::6694149691922213159::1635469753::1678343606::1::::<><>::
+::res://addons/::1676262580
+::res://addons/godot-unix-socket/::1676262580
+native_script.gd::GDScript::-1::1678343590::0::1::::<>NativeScript<>::
+::res://addons/godot-unix-socket/osx/::1676262580
+::res://addons/godot-unix-socket/x11/::1676262580
+::res://addons/godot_editor_discord_presence/::1676262580
+LICENSE.md::TextFile::-1::1676262580::0::1::::<><>::
+plugin.cfg::TextFile::-1::1676262580::0::1::::<><>::
+plugin.gd::GDScript::-1::1678343590::0::1::::<>EditorPlugin<>::
+README.md::TextFile::-1::1676262580::0::1::::<><>::
+::res://addons/godot_editor_discord_presence/Discord RPC/::1676262580
+DiscordRPC.gd::GDScript::-1::1678343590::0::1::::DiscordRPC<>Node<>::
+DiscordRPCEnum.gd::GDScript::-1::1678343590::0::1::::DiscordRPCEnum<>RefCounted<>::
+RPC.gd::GDScript::-1::1678343590::0::1::::DiscordRPCUtil<>RefCounted<>::
+::res://addons/godot_editor_discord_presence/Discord RPC/ipc/::1676262580
+IPC.gd::GDScript::-1::1678343590::0::1::::<>RefCounted<>::
+IPCPayload.gd::GDScript::-1::1678343590::0::1::::<>RefCounted<>::
+::res://addons/godot_editor_discord_presence/Discord RPC/ipc/module/::1676262580
+IPCModule.gd::GDScript::-1::1678343590::0::1::::<>RefCounted<>::
+::res://addons/godot_editor_discord_presence/Discord RPC/ipc/module/rich presence/::1676262580
+RichPresence.gd::GDScript::-1::1678343590::0::1::::RichPresence<>RefCounted<>::
+RichPresenceButton.gd::GDScript::-1::1678343590::0::1::::RichPresenceButton<>RefCounted<>::
+RichPresenceModule.gd::GDScript::-1::1678343590::0::1::::RichPresenceModule<>IPCModule<>::
+RichPreseneModule.gd::GDScript::-1::1678343590::0::1::::RichPresenceModule<><>::
+UpdateRichPresencePayload.gd::GDScript::-1::1678343590::0::1::::UpdateRichPresencePayload<><>::
+::res://addons/godot_editor_discord_presence/Discord RPC/ipc/pipe/::1676262580
+IPCPipe.gd::GDScript::-1::1678343590::0::1::::<>RefCounted<>::
+UnixPipe.gd::GDScript::-1::1678343590::0::1::::<><>::
+WindowsPipe.gd::GDScript::-1::1678343590::0::1::::<><>::
+::res://addons/godot_editor_discord_presence/Discord RPC/util/::1676262580
+IPCUtil.gd::GDScript::-1::1678343590::0::1::::IPCUtil<>RefCounted<>::
+URLUtil.gd::GDScript::-1::1678343590::0::1::::URLUtil<>RefCounted<>::
+UUID.gd::GDScript::-1::1678343590::0::1::::UUID<>RefCounted<>::
+::res://Fonts/::1678343606
+fntGUI.TTF::FontFile::2323463565661005251::1044372780::1678343606::1::::<><>::
+::res://Objects/::1672386343
+objCollisionRectangle.tscn::PackedScene::-1::1678343590::0::1::::<><>::
+objDebugMenu.tscn::PackedScene::-1::1678343590::0::1::::<><>::res://Scripts/scrDebugMenu.gd
+objDummy.tscn::PackedScene::-1::1678343590::0::1::::<><>::res://Sprites/NPC'S/sprite.png
+objGoblin.tscn::PackedScene::-1::1678343590::0::1::::<><>::res://Sprites/NPC'S/Goblin.png<>res://scripts/scrGoblin.gd
+objPause.tscn::PackedScene::-1::1678343590::0::1::::<><>::res://Scripts/scrPause.gd
+objPlayer.tscn::PackedScene::-1::1678343590::0::1::::<><>::res://Sprites/Player/sprRouge.png<>res://Scripts/scrPlayer.gd<>res://Sprites/GUI/Light3D.png
+objPlayerNoLight.tscn::PackedScene::-1::1678343590::0::1::::<><>::res://Sprites/Player/sprRouge.png<>res://Scripts/scrPlayer.gd
+objPrimary.tscn::PackedScene::-1::1678343590::0::1::::<><>::res://Sprites/GUI/sprSlash.png<>res://Scripts/scrPrimary.gd
+objSight.tscn::PackedScene::-1::1678343590::0::1::::<><>::res://Scripts/scrSight.gd
+objStamina.tscn::PackedScene::-1::1678343590::0::1::::<><>::res://Scripts/scrStamina.gd<>res://Fonts/fntGUI.TTF
+objWarpZone.tscn::PackedScene::-1::1678343590::0::1::::<><>::res://Scripts/scrWarpZone.gd
+::res://Rooms/::1676268649
+MainScene.tscn::PackedScene::-1::1678343590::0::1::::<><>::res://Objects/objPause.tscn<>res://Objects/objStamina.tscn<>res://TileSets/tsPlains.tres<>res://Objects/objPlayerNoLight.tscn<>res://Objects/objDebugMenu.tscn<>res://Objects/objDummy.tscn<>res://Objects/objPrimary.tscn<>res://Scripts/scrDummy.gd<>res://Objects/objSight.tscn
+Underground.tscn::PackedScene::-1::1678343590::0::1::::<><>::res://Objects/objPlayer.tscn<>res://Objects/objDebugMenu.tscn<>res://TileSets/tsCellar.tres<>res://Objects/objPrimary.tscn<>res://Objects/objPause.tscn<>res://Objects/objStamina.tscn
+::res://Scripts/::1674433453
+scrDebugMenu.gd::GDScript::-1::1678343590::0::1::::<>Label<>::
+scrDummy.gd::GDScript::-1::1678343590::0::1::::<>StaticBody2D<>::
+scrGlobals.gd::GDScript::-1::1678343590::0::1::::<>Node<>::
+scrGoblin.gd::GDScript::-1::1678343590::0::1::::<>CharacterBody2D<>::
+scrPause.gd::GDScript::-1::1678343590::0::1::::<>Control<>::
+scrPlayer.gd::GDScript::-1::1678343590::0::1::::<>CharacterBody2D<>::
+scrPrimary.gd::GDScript::-1::1678343590::0::1::::<>Area2D<>::
+scrSight.gd::GDScript::-1::1678343590::0::1::::<>Area2D<>::
+scrStamina.gd::GDScript::-1::1678343590::0::1::::<>Label<>::
+scrWarpZone.gd::GDScript::-1::1678343590::0::1::::<>Area2D<>::
+::res://Sprites/::1676265807
+::res://Sprites/GUI/::1678343606
+Light.png::CompressedTexture2D::4949688095885780711::1655088402::1678343606::1::::<><>::
+sprSlash.png::CompressedTexture2D::7603073197002627677::1661580548::1678343606::1::::<><>::
+::res://Sprites/NPC'S/::1678343606
+Goblin.png::CompressedTexture2D::635412819529204848::1635481458::1678343606::1::::<><>::
+sprDummy.png::CompressedTexture2D::1564174017250648434::1661578211::1678343606::1::::<><>::
+::res://Sprites/Player/::1678343606
+sprRouge.png::CompressedTexture2D::5218599977982050940::1635481458::1678343767::1::::<><>::
+::res://Sprites/Tileset Sprites/::1678343606
+sprCellar.png::CompressedTexture2D::4642974490479240171::1675464312::1678343606::1::::<><>::
+sprPlains.png::CompressedTexture2D::6961629351321141467::1676263604::1678343606::1::::<><>::
+::res://TileSets/::1676268575
+tsCellar.tres::TileSet::-1::1678343590::0::1::::<><>::res://Sprites/Tileset Sprites/sprCellar.png
+tsPlains.tres::TileSet::-1::1678343590::0::1::::<><>::res://Sprites/Tileset Sprites/sprPlains.png

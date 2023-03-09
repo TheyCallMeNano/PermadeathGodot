@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bd4i748r0tyux"]
+
+[ext_resource type="FontFile" uid="uid://8drdt6fs5lbf" path="res://Fonts/fntGUI.TTF" id="1_yvrmf"]
+
+[resource]
+resource_name = "GUI"
+default_font = ExtResource("1_yvrmf")
+default_font_size = 64
+/colors/Default = Color(1, 1, 1, 1)
+/font_sizes/Default = 16
