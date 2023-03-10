@@ -5,10 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://ccrwv0t7b8ymx" path="res://Sprites/GUI/Light.png" id="3"]
 [ext_resource type="PackedScene" uid="uid://dy537m37wlcyt" path="res://Objects/objPrimary.tscn" id="4_3ugyl"]
 
-[sub_resource type="CapsuleShape2D" id="1"]
-radius = 0.999995
-height = 1.99999
-
 [sub_resource type="Animation" id="2"]
 resource_name = "Idle"
 length = 0.5
@@ -47,9 +43,13 @@ _data = {
 "Run": SubResource("3")
 }
 
+[sub_resource type="CapsuleShape2D" id="1"]
+radius = 4.0
+height = 10.0
+
 [sub_resource type="CapsuleShape2D" id="4"]
 radius = 3.0
-height = 6.0
+height = 10.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("2")
@@ -60,28 +60,35 @@ texture = ExtResource("1")
 hframes = 8
 frame = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5708
-shape = SubResource("1")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_imj8m")
 }
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("1")
+
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 position = Vector2(0, -3.8)
 shadow_enabled = true
 texture = ExtResource("3")
 texture_scale = 3.0
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="SightBox" type="Area2D" parent="."]
 position = Vector2(0, -4)
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SightBox"]
+position = Vector2(0, -1)
 shape = SubResource("4")
 
 [node name="Slash" parent="." instance=ExtResource("4_3ugyl")]
+position = Vector2(17, -8)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[connection signal="area_entered" from="SightBox" to="." method="_on_sight_box_area_entered"]
+[connection signal="area_exited" from="SightBox" to="." method="_on_sight_box_area_exited"]

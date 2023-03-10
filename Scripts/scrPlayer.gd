@@ -39,6 +39,7 @@ func classAssignment():
 	if global.classInt == 0:
 		global.plrHP = 90
 		global.plrMaxStamina = 125
+		hidden()
 
 #Check state and run according funcitons
 func _physics_process(delta):
@@ -201,3 +202,13 @@ func stealth():
 func _on_Player_ready():
 	classAssignment()
 	global.plrStamina = global.plrMaxStamina
+
+
+func _on_sight_box_area_entered(area):
+	print(area)
+	if area == $/root/Hub/Node2D/Dummy/Sight:
+		seen()
+
+
+func _on_sight_box_area_exited(area):
+	hidden()

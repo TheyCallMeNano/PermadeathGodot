@@ -4,7 +4,6 @@ extends Area2D
 
 func attack():
 	anim.play("Slash")
-	#raise()
 
 func _on_Slash_body_entered(body: Node) -> void:
 	if body.has_method("handleHit"):
