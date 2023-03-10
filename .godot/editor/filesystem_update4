@@ -1,11 +1,5 @@
-res://Rooms/MainScene.tscn
-res://Objects/objPlayerNoLight.tscn
-res://Objects/objDummy.tscn
-res://Scripts/scrPrimary.gd
-res://Objects/objPrimary.tscn
-res://Fonts/Default.tres
-res://Objects/objDebugMenu.tscn
+res://Objects/objPlayer.tscn
 res://TileSets/tsPlains.tres
 res://TileSets/tsCellar.tres
-res://Rooms/Underground.tscn
-res://Objects/objPlayer.tscn
+res://Scripts/scrPlayer.gd
+res://Rooms/MainScene.tscn

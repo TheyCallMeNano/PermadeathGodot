@@ -111,7 +111,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			slash.attack()
 	
 #Attack Extended
-# warning-ignore:unused_argument
+@warning_ignore("unused_parameter")
 func attackState(delta):
 	vel = Vector2.ZERO
 	animationPlayer.play("Idle")
@@ -128,7 +128,7 @@ func move():
 	vel = velocity
 	
 #What to do when dashing
-# warning-ignore:unused_argument
+@warning_ignore("unused_parameter")
 func dashState(delta):
 	if global.classInt == 0:
 		vel = dashVector * MAX_SPEED * 3

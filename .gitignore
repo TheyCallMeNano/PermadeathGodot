@@ -1,4 +1,2 @@
-/.import/
-/build/
-/rcedit-x64.exe
-/Permadeath Hack n' Slash.exe
+# Godot 4+ specific ignores
+.godot/
