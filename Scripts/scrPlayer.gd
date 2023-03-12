@@ -72,10 +72,10 @@ func moveState(delta):
 			animationPlayer.play("Run")
 			
 		if Input.is_action_pressed("moveLeft"):
-			slash.position.x = -15
+			slash.position.x = -20
 			slash.scale.x = -1
 		if Input.is_action_pressed("moveRight"):
-			slash.position.x = 15
+			slash.position.x = 20
 			slash.scale.x = 1
 			
 		#Check if we're sprinting, then manage all movement in that state until end (Perhaps speed up run animation?)

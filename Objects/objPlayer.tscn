@@ -92,3 +92,4 @@ zoom = Vector2(3, 3)
 
 [connection signal="area_entered" from="SightBox" to="." method="_on_sight_box_area_entered"]
 [connection signal="area_exited" from="SightBox" to="." method="_on_sight_box_area_exited"]
+[connection signal="body_entered" from="Slash" to="Slash" method="_on_body_entered"]

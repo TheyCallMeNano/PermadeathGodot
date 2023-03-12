@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cp7cxpc5y0ivo"]
+[gd_scene load_steps=10 format=3 uid="uid://cp7cxpc5y0ivo"]
 
 [ext_resource type="PackedScene" path="res://Objects/objPause.tscn" id="1"]
 [ext_resource type="PackedScene" path="res://Objects/objStamina.tscn" id="2"]
@@ -7,7 +7,6 @@
 [ext_resource type="FontFile" uid="uid://8drdt6fs5lbf" path="res://Fonts/fntGUI.TTF" id="5_degbi"]
 [ext_resource type="PackedScene" uid="uid://d24kw5tgwypm0" path="res://Objects/objDebugMenu.tscn" id="6_h3ywe"]
 [ext_resource type="PackedScene" uid="uid://c3bfa24813ia7" path="res://Objects/objDummy.tscn" id="10"]
-[ext_resource type="Script" path="res://Scripts/scrDummy.gd" id="12"]
 [ext_resource type="PackedScene" uid="uid://dxse2i1fgne8v" path="res://Objects/objSight.tscn" id="13"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lfyet"]
@@ -64,7 +63,6 @@ offset_bottom = 32.92
 
 [node name="Dummy" parent="Node2D" instance=ExtResource("10")]
 position = Vector2(-99, -1)
-script = ExtResource("12")
 
 [node name="Sight" parent="Node2D/Dummy" instance=ExtResource("13")]
 
