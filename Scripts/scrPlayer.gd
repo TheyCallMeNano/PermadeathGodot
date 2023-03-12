@@ -35,11 +35,16 @@ var dashVector = Vector2.RIGHT
 #Animation Manager
 @onready var animationPlayer = $AnimationPlayer
 
+func _ready():
+	classAssignment()
+	global.plrStamina = global.plrMaxStamina
+
 func classAssignment():
 	if global.classInt == 0:
 		global.plrHP = 90
 		global.plrMaxStamina = 125
-		hidden()
+		global.plrStaminaRecharge = 1
+		#hidden()
 
 #Check state and run according funcitons
 func _physics_process(delta):
@@ -198,17 +203,11 @@ func stealth():
 	elif detected == true:
 		global.baseDMG = global.baseDMG*0.85 #global.baseDMG = global.baseDMG + lvlDMG * 0.85
 
-
-func _on_Player_ready():
-	classAssignment()
-	global.plrStamina = global.plrMaxStamina
-
-
 func _on_sight_box_area_entered(area):
-	print(area)
+	print("Area: " + str(area))
 	if area == $/root/Hub/Node2D/Dummy/Sight:
 		seen()
 
-
+@warning_ignore("unused_parameter")
 func _on_sight_box_area_exited(area):
 	hidden()

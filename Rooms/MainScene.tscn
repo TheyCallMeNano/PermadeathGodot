@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cp7cxpc5y0ivo"]
 
 [ext_resource type="PackedScene" path="res://Objects/objPause.tscn" id="1"]
-[ext_resource type="PackedScene" path="res://Objects/objStamina.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://ctsf56uqpsqj" path="res://Objects/objStamina.tscn" id="2"]
 [ext_resource type="TileSet" uid="uid://bchwgowl37bpw" path="res://TileSets/tsPlains.tres" id="3"]
 [ext_resource type="PackedScene" uid="uid://do7dwgw4i1fuc" path="res://Objects/objPlayer.tscn" id="3_48xei"]
 [ext_resource type="FontFile" uid="uid://8drdt6fs5lbf" path="res://Fonts/fntGUI.TTF" id="5_degbi"]
@@ -32,7 +32,7 @@ layer_0/tile_data = PackedInt32Array(-589844, 131073, 0, -589843, 131073, 0, -58
 y_sort_enabled = true
 
 [node name="Player" parent="Node2D" instance=ExtResource("3_48xei")]
-position = Vector2(-251.819, -35.084)
+position = Vector2(-107, -43)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Node2D/Player"]
 

@@ -1,52 +1,119 @@
-[gd_scene load_steps=7 format=3 uid="uid://6krpl7xkot8w"]
+[gd_scene load_steps=9 format=3 uid="uid://6krpl7xkot8w"]
 
+[ext_resource type="Theme" uid="uid://bd4i748r0tyux" path="res://Fonts/Default.tres" id="1_ak2xu"]
 [ext_resource type="Texture2D" uid="uid://chnb5u7uj5wob" path="res://Sprites/Parallax/sky.png" id="1_gjh6t"]
 [ext_resource type="Script" path="res://Scripts/scrSlidingBackground.gd" id="1_orcrc"]
+[ext_resource type="Script" path="res://Scripts/scrClassSelection.gd" id="2_1fu1m"]
 [ext_resource type="Texture2D" uid="uid://bo757rphgp6ya" path="res://Sprites/Parallax/clouds_front.png" id="2_kat4b"]
 [ext_resource type="Texture2D" uid="uid://bjfsfsg8hdh4v" path="res://Sprites/Parallax/far_mountains.png" id="6_iqah1"]
 [ext_resource type="Texture2D" uid="uid://byqdvwy5h1som" path="res://Sprites/Parallax/grassy_mountains.png" id="7_hrvl8"]
 [ext_resource type="Texture2D" uid="uid://d2hql6am6hww0" path="res://Sprites/Parallax/hill.png" id="8_3qqrp"]
 
-[node name="ClassSelection" type="CanvasLayer"]
+[node name="ClassSelectionRoot" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_ak2xu")
+script = ExtResource("2_1fu1m")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(768, 390)
+
+[node name="Rouge" type="Button" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 32.0
+offset_right = 215.0
+offset_bottom = 57.0
+theme = ExtResource("1_ak2xu")
+text = "Rouge"
+
+[node name="ClassDescription" type="RichTextLabel" parent="Rouge"]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 272.0
+offset_bottom = 152.0
+theme = ExtResource("1_ak2xu")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "Increased maximum stamina; from 100 to 125
+Reduced maximum health; from 100 to 90
+Dash ability has I-frames
+Invisibility or some form of working stealth/radius mechanic
+Temporary and hypersensitive; reduce spam possibilities
+Backstabs/Takedowns if the target is unaware of the user's presence
+Depending on difficulty or ability difference a backstab/takedown will insta-kill
+"
+scroll_active = false
+
+[node name="Alchemist" type="Button" parent="."]
+offset_left = 392.0
+offset_top = 32.0
+offset_right = 479.0
+offset_bottom = 57.0
+theme = ExtResource("1_ak2xu")
+text = "Alchemist"
+
+[node name="ClassDescription" type="RichTextLabel" parent="Alchemist"]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 256.0
+offset_bottom = 160.0
+theme = ExtResource("1_ak2xu")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "Standard health/stamina/dash ability
+The primary attack throws a lingering AoE targeted attack
+Poison, Acid, Molten, etc.
+The secondary attack can rotate between two different styles
+Style #1: Applies buffs to the surrounding player/allies
+Health, Attack Speed, Defense, Damage, etc.
+Style #2: Applies debuffs to surrounding enemies
+Speed, Weakness to damage type, recovery nerf, etc.
+"
+scroll_active = false
+
+[node name="ClassSelection" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="ClassSelection"]
 offset = Vector2(768, 432)
 scale = Vector2(4, 4)
 transform = Transform2D(4, 0, 0, 4, 768, 432)
 script = ExtResource("1_orcrc")
 
-[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Sky" type="ParallaxLayer" parent="ClassSelection/ParallaxBackground"]
 motion_mirroring = Vector2(384, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+[node name="Sprite2D" type="Sprite2D" parent="ClassSelection/ParallaxBackground/Sky"]
 texture = ExtResource("1_gjh6t")
 
-[node name="FurthestMountains" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="FurthestMountains" type="ParallaxLayer" parent="ClassSelection/ParallaxBackground"]
 motion_scale = Vector2(0.1, 0.1)
 motion_mirroring = Vector2(384, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FurthestMountains"]
+[node name="Sprite2D" type="Sprite2D" parent="ClassSelection/ParallaxBackground/FurthestMountains"]
 texture = ExtResource("6_iqah1")
 
-[node name="NearMountains" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="NearMountains" type="ParallaxLayer" parent="ClassSelection/ParallaxBackground"]
 motion_scale = Vector2(0.25, 0.25)
 motion_mirroring = Vector2(384, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/NearMountains"]
+[node name="Sprite2D" type="Sprite2D" parent="ClassSelection/ParallaxBackground/NearMountains"]
 texture = ExtResource("7_hrvl8")
 
-[node name="LowerClouds" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="LowerClouds" type="ParallaxLayer" parent="ClassSelection/ParallaxBackground"]
 motion_scale = Vector2(0.75, 0.75)
 motion_mirroring = Vector2(384, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/LowerClouds"]
+[node name="Sprite2D" type="Sprite2D" parent="ClassSelection/ParallaxBackground/LowerClouds"]
 texture = ExtResource("2_kat4b")
 
-[node name="Island" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Island" type="ParallaxLayer" parent="ClassSelection/ParallaxBackground"]
 motion_mirroring = Vector2(384, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Island"]
+[node name="Sprite2D" type="Sprite2D" parent="ClassSelection/ParallaxBackground/Island"]
 texture = ExtResource("8_3qqrp")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(768, 390)
+[connection signal="pressed" from="Rouge" to="." method="_on_rouge_pressed"]
+[connection signal="pressed" from="Alchemist" to="." method="_on_alchemist_pressed"]

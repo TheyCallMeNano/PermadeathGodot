@@ -5,6 +5,6 @@
 [resource]
 resource_name = "GUI"
 default_font = ExtResource("1_yvrmf")
-default_font_size = 64
+default_font_size = 8
 /colors/Default = Color(1, 1, 1, 1)
 /font_sizes/Default = 16
