@@ -1,2 +1,5 @@
 Camera2D
+Sprite2D
+ParallaxBackground
+ParallaxLayer
 CanvasLayer
