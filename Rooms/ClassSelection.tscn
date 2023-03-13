@@ -105,18 +105,18 @@ motion_mirroring = Vector2(384, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ClassSelection/ParallaxBackground/NearMountains"]
 texture = ExtResource("7_hrvl8")
 
+[node name="Island" type="ParallaxLayer" parent="ClassSelection/ParallaxBackground"]
+motion_mirroring = Vector2(384, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ClassSelection/ParallaxBackground/Island"]
+texture = ExtResource("8_3qqrp")
+
 [node name="LowerClouds" type="ParallaxLayer" parent="ClassSelection/ParallaxBackground"]
 motion_scale = Vector2(0.75, 0.75)
 motion_mirroring = Vector2(384, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ClassSelection/ParallaxBackground/LowerClouds"]
 texture = ExtResource("2_kat4b")
-
-[node name="Island" type="ParallaxLayer" parent="ClassSelection/ParallaxBackground"]
-motion_mirroring = Vector2(384, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ClassSelection/ParallaxBackground/Island"]
-texture = ExtResource("8_3qqrp")
 
 [connection signal="pressed" from="Rouge" to="." method="_on_rouge_pressed"]
 [connection signal="pressed" from="Alchemist" to="." method="_on_alchemist_pressed"]

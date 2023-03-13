@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d24kw5tgwypm0" path="res://Objects/objDebugMenu.tscn" id="2"]
 [ext_resource type="TileSet" uid="uid://befjau3a64uqb" path="res://TileSets/tsCellar.tres" id="3"]
 [ext_resource type="PackedScene" path="res://Objects/objPause.tscn" id="5"]
-[ext_resource type="PackedScene" path="res://Objects/objStamina.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://ctsf56uqpsqj" path="res://Objects/objStamina.tscn" id="6"]
 
 [node name="Hub" type="Node2D"]
 
@@ -24,7 +24,6 @@ layer_0/tile_data = PackedInt32Array(-1245215, 1, 4, -1245214, 393217, 0, -12452
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" parent="CanvasLayer" instance=ExtResource("6")]
-anchors_preset = -1
 offset_left = -11.84
 offset_top = -16.48
 offset_right = 28.16

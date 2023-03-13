@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dh4rm8kj48oqn"]
+[gd_scene load_steps=4 format=3 uid="uid://dh4rm8kj48oqn"]
 
+[ext_resource type="Script" path="res://Scripts/scrPotion.gd" id="1_a23nr"]
 [ext_resource type="Texture2D" uid="uid://cfmlxe1uixyqv" path="res://Sprites/Player/Alchemist/sprPotions.png" id="1_vi6ll"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yekof"]
@@ -7,6 +8,7 @@ radius = 7.0
 height = 16.0
 
 [node name="objPotion" type="RigidBody2D"]
+script = ExtResource("1_a23nr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.184615, 0.133333)
