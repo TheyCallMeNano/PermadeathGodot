@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh4rm8kj48oqn"]
+
+[ext_resource type="Texture2D" uid="uid://cfmlxe1uixyqv" path="res://Sprites/Player/Alchemist/sprPotions.png" id="1_vi6ll"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yekof"]
+radius = 7.0
+height = 16.0
+
+[node name="objPotion" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.184615, 0.133333)
+texture = ExtResource("1_vi6ll")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_yekof")

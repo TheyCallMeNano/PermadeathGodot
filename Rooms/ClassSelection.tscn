@@ -25,16 +25,17 @@ offset_top = 32.0
 offset_right = 215.0
 offset_bottom = 57.0
 theme = ExtResource("1_ak2xu")
-text = "Rouge"
+text = "Assassin"
 
 [node name="ClassDescription" type="RichTextLabel" parent="Rouge"]
 layout_mode = 0
 offset_top = 25.0
-offset_right = 272.0
-offset_bottom = 152.0
+offset_right = 496.0
+offset_bottom = 280.0
 theme = ExtResource("1_ak2xu")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "Increased maximum stamina; from 100 to 125
 Reduced maximum health; from 100 to 90
@@ -47,9 +48,10 @@ Depending on difficulty or ability difference a backstab/takedown will insta-kil
 scroll_active = false
 
 [node name="Alchemist" type="Button" parent="."]
-offset_left = 392.0
+layout_mode = 0
+offset_left = 624.0
 offset_top = 32.0
-offset_right = 479.0
+offset_right = 711.0
 offset_bottom = 57.0
 theme = ExtResource("1_ak2xu")
 text = "Alchemist"
@@ -57,11 +59,12 @@ text = "Alchemist"
 [node name="ClassDescription" type="RichTextLabel" parent="Alchemist"]
 layout_mode = 0
 offset_top = 25.0
-offset_right = 256.0
-offset_bottom = 160.0
+offset_right = 504.0
+offset_bottom = 280.0
 theme = ExtResource("1_ak2xu")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "Standard health/stamina/dash ability
 The primary attack throws a lingering AoE targeted attack

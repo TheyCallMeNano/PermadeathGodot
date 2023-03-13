@@ -1,11 +1,10 @@
 res://Rooms/MainScene.tscn
 res://TileSets/tsPlains.tres
+res://Fonts/Default.tres
 res://Objects/objPlayer.tscn
 res://Rooms/ClassSelection.tscn
-res://Fonts/Default.tres
 res://Scripts/scrClassSelection.gd
+res://Objects/objPotion.tscn
+res://Scripts/scrPotion.gd
 res://Scripts/scrPlayer.gd
 res://Scripts/scrPrimary.gd
-res://Objects/objStamina.tscn
-res://Objects/objDebugMenu.tscn
-res://Scripts/scrDebugMenu.gd
