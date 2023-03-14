@@ -13,3 +13,12 @@ var plrStaminaRecharge = 0.5;
 var plrStaminaRechargeDelay = 0;
 var plrStaminaDelayTime = 120;
 var baseDMG = 15;
+var styleEquipped = -1
+
+func _process(_delta):
+	if Input.get_action_strength("styleOne"):
+		styleEquipped = 0
+	elif Input.get_action_strength("styleTwo"):
+		styleEquipped = 1
+	elif Input.get_action_strength("styleThree") && classInt == 1:
+		styleEquipped = 2

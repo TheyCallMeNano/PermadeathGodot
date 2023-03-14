@@ -49,7 +49,7 @@ height = 10.0
 
 [sub_resource type="CapsuleShape2D" id="4"]
 radius = 3.0
-height = 10.0
+height = 9.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("2")
@@ -81,11 +81,11 @@ position = Vector2(0, -4)
 scale = Vector2(2, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SightBox"]
-position = Vector2(0, -1)
+position = Vector2(0, -0.5)
 shape = SubResource("4")
 
 [node name="Primary" parent="." instance=ExtResource("4_3ugyl")]
-position = Vector2(17, -8)
+position = Vector2(20, -8)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)

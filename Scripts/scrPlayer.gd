@@ -1,6 +1,7 @@
 #This is essentially what we are modifiying
 extends CharacterBody2D
 
+########## VARS ##########
 # These vars configure how ice like the surface is
 const MAX_SPEED = 150
 const ACCELERATION = 500
@@ -34,6 +35,8 @@ var dashVector = Vector2.RIGHT
 
 #Animation Manager
 @onready var animationPlayer = $AnimationPlayer
+########## VARS ##########
+
 
 func _ready():
 	classAssignment()
@@ -205,7 +208,7 @@ func stealth():
 
 func _on_sight_box_area_entered(area):
 	print("Area: " + str(area))
-	if area == $/root/Hub/Node2D/Dummy/Sight:
+	if area == $/root/Hub/YSort/Dummy/Sight:
 		seen()
 
 @warning_ignore("unused_parameter")

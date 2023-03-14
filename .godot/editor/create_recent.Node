@@ -1,11 +1,12 @@
+Node2D
 CollisionShape2D
+Area2D
 Sprite2D
 RigidBody2D
 RichTextLabel
 Button
 Control
 CanvasModulate
-Node2D
 Camera2D
 ParallaxBackground
 ParallaxLayer

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://o73v3nbc17lq"]
+
+[ext_resource type="Texture2D" uid="uid://ldw05sy7x2qd" path="res://Sprites/GUI/Splatter Decals/sprPotionSplat.png" id="1_he33v"]
+[ext_resource type="Script" path="res://Scripts/scrPotionSplat.gd" id="1_v84kx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b6w03"]
+radius = 16.0
+
+[node name="objPotionSplat" type="Node2D"]
+script = ExtResource("1_v84kx")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, 9.53674e-07)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_he33v")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_b6w03")
