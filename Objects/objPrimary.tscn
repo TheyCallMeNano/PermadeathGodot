@@ -53,6 +53,8 @@ _data = {
 }
 
 [node name="Slash" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,20 +1,31 @@
 extends Node2D
 
-#Type Management // For potions styles
-enum{
-	ACID,
-	MOLTEN,
-	POISON
-}
-var potionType = ACID
+var counter = 0
+
+##### ELEMENTAL DICTIONARY #####
+#Elemental Int to name ID: -1 = Base, 0 = Poison, 1 = Acid, 2 = Molten
 
 func _ready():
+	global.elementalInt = global.styleEquipped
 	if global.styleEquipped == 0:
 		$Sprite.set_modulate("00ff00")
-		potionType = POISON
 	if global.styleEquipped == 1:
 		$Sprite.set_modulate("63009e")
-		potionType = ACID
 	if global.styleEquipped == 2:
 		$Sprite.set_modulate("ee6800")
-		potionType = MOLTEN
+
+func _process(delta):
+	counter += 1 * delta
+	if counter >= 1.5:
+		counter = 0
+		queue_free()
+
+func _on_area_2d_body_entered(body):
+	print("Body: " + str(body))
+	if body.is_in_group("enemys"):
+		if global.styleEquipped == 0:
+			body.Poison()
+		if global.styleEquipped == 1:
+			body.Acid()
+		if global.styleEquipped == 2:
+			body.Molten()
