@@ -43,9 +43,12 @@ func _ready():
 	global.plrStamina = global.plrMaxStamina
 
 func classAssignment():
+	#reassignment from default values for different class types
+	#default variables are for alchemist
+	#Int to name ID: -1 = N/A, 0 = Assassin, 1 = Alchemist, 2 = Dualist, 3 = Paladin
 	if global.classInt == 0:
 		global.plrHP = 90
-		global.plrMaxStamina = 125
+		global.plrMaxStamina = 125.0
 		global.plrStaminaRecharge = 1
 		#hidden()
 
@@ -162,19 +165,10 @@ func dashStateFinished():
 func stamina():
 	#Is the player running?
 	if Input.is_action_pressed("sprint") && global.plrStamina != 0:
-			if Input.is_action_pressed("moveDown"):
+			if Input.is_action_pressed("moveDown") || Input.is_action_pressed("moveLeft") || Input.is_action_pressed("moveUp") || Input.is_action_pressed("moveRight"):
 				global.plrStaminaRechargeDelay = 0
-				global.plrStamina -= global.plrStaminaRecharge 
-			elif Input.is_action_pressed("moveLeft"):
-				global.plrStaminaRechargeDelay = 0
-				global.plrStamina -= global.plrStaminaRecharge
-			elif Input.is_action_pressed("moveUp"):
-				global.plrStaminaRechargeDelay = 0
-				global.plrStamina -= global.plrStaminaRecharge
-			elif Input.is_action_pressed("moveRight"):
-				global.plrStaminaRechargeDelay = 0
-				global.plrStamina -= global.plrStaminaRecharge
-	
+				global.plrStamina -= global.plrStaminaRecharge/2.0
+			
 	#Have they stopped running?
 	if global.plrStamina != global.plrMaxStamina && !Input.is_action_pressed("sprint") && global.plrStaminaRechargeDelay != global.plrStaminaDelayTime:
 		global.plrStaminaRechargeDelay += global.plrStaminaRecharge
@@ -184,7 +178,7 @@ func stamina():
 		global.plrStamina += global.plrStaminaRecharge
 	
 	#Reset the recharge to prevent overflow
-	if global.plrStamina == global.plrMaxStamina:
+	if global.plrStamina >= global.plrMaxStamina:
 		global.plrStaminaRechargeDelay = 0
 
 #Player is in a sightline
