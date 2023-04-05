@@ -2,9 +2,14 @@ extends StaticBody2D
 
 #Animation Manager
 @onready var animationPlayer = $AnimationPlayer
+var active = false
 
 func handleHit():
 	animationPlayer.play("Hit")
+
+func _process(delta):
+	if active == true && global.styleEquipped == 0:
+		Poison()
 
 func Acid():
 	#Acid should reduce "accuracy" or make the enemy attack slower
