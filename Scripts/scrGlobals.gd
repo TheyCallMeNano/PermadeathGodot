@@ -8,10 +8,10 @@ var gameSaveSlot = 0
 var classInt = -1
 var className = ""
 var plrHP = 100
-var plrMaxStamina = 100
-var plrStamina = 100
-var plrStaminaRecharge = 0.5
-var plrStaminaRechargeDelay = 0
+var plrMaxStamina = 100.0
+var plrStamina = 100.0
+var plrStaminaRecharge = 1.0
+var plrStaminaRechargeDelay = 0.0
 var plrStaminaDelayTime = 120
 var baseDMG = 15
 #Elemental Int to name ID: -1 = Base, 0 = Poison, 1 = Acid, 2 = Molten // More at some point
