@@ -7,7 +7,7 @@ const MAX_SPEED = 150
 const ACCELERATION = 500
 
 #Friction acts at the rate the speed decreases
-const FRICTION = 1000
+var FRICTION = 1000
 
 #Different States, adding a "," followed by a parameter adds a new state
 enum{
@@ -49,7 +49,7 @@ func classAssignment():
 	if global.classInt == 0:
 		global.plrHP = 90
 		global.plrMaxStamina = 125.0
-		global.plrStaminaRecharge = 1
+		global.plrStaminaRecharge = 2.0
 		#hidden()
 
 #Check state and run according funcitons
@@ -165,6 +165,7 @@ func dashStateFinished():
 func stamina():
 	#Is the player running?
 	if Input.is_action_pressed("sprint") && global.plrStamina != 0:
+			FRICTION = 5000
 			if Input.is_action_pressed("moveDown") || Input.is_action_pressed("moveLeft") || Input.is_action_pressed("moveUp") || Input.is_action_pressed("moveRight"):
 				global.plrStaminaRechargeDelay = 0
 				global.plrStamina -= global.plrStaminaRecharge/2.0
@@ -172,6 +173,7 @@ func stamina():
 	#Have they stopped running?
 	if global.plrStamina != global.plrMaxStamina && !Input.is_action_pressed("sprint") && global.plrStaminaRechargeDelay != global.plrStaminaDelayTime:
 		global.plrStaminaRechargeDelay += global.plrStaminaRecharge
+		FRICTION = 1000
 	
 	#Give them more stamina
 	if global.plrStaminaRechargeDelay == global.plrStaminaDelayTime && global.plrStamina != global.plrMaxStamina:
@@ -180,6 +182,7 @@ func stamina():
 	#Reset the recharge to prevent overflow
 	if global.plrStamina >= global.plrMaxStamina:
 		global.plrStaminaRechargeDelay = 0
+		global.plrStamina = global.plrMaxStamina
 
 #Player is in a sightline
 func seen():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3bfa24813ia7"]
+[gd_scene load_steps=7 format=3 uid="uid://c3bfa24813ia7"]
 
 [ext_resource type="Script" path="res://Scripts/scrDummy.gd" id="1_khpl3"]
 [ext_resource type="Texture2D" uid="uid://wjxynqaoxomk" path="res://Sprites/NPC'S/sprDummy.png" id="1_rj5pt"]
@@ -40,6 +40,10 @@ _data = {
 radius = 4.0
 height = 8.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0yukw"]
+radius = 5.0
+height = 16.0
+
 [node name="StaticBody2D" type="StaticBody2D" groups=["enemys"]]
 collision_layer = 3
 collision_mask = 3
@@ -60,3 +64,13 @@ vframes = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemys"]]
 position = Vector2(0, -1)
 shape = SubResource("1")
+
+[node name="Area2D" type="Area2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -6)
+shape = SubResource("CapsuleShape2D_0yukw")

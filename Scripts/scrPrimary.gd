@@ -17,10 +17,11 @@ func attack():
 			potionInst.apply_impulse(Vector2(-potionSpeed,-potionSpeed+get_global_mouse_position().y),Vector2(potionSpeed,0).rotated(rotation))
 		get_tree().get_root().call_deferred("add_child", potionInst)
 
-func _on_body_entered(body: Node) -> void:
-	if body.has_method("handleHit"):
-		body.handleHit()
-
 func _process(delta):
 	if global.classInt == 1:
 		look_at(get_global_mouse_position())
+
+
+func _on_area_entered(area):
+	if area.get_parent().has_method("handleHit"):
+		area.get_parent().handleHit()

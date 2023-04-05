@@ -1,4 +1,11 @@
-res://Rooms/Underground.tscn
+res://Rooms/MainScene.tscn
 res://TileSets/tsPlains.tres
 res://TileSets/tsCellar.tres
-res://Fonts/Default.tres
+res://Objects/objPlayer.tscn
+res://Objects/objPotionSplat.tscn
+res://Objects/objPotion.tscn
+res://Objects/objPrimary.tscn
+res://Objects/objDummy.tscn
+res://Rooms/Underground.tscn
+res://Scripts/scrPlayer.gd
+res://Scripts/scrPrimary.gd
