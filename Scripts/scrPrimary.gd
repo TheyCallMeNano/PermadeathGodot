@@ -8,13 +8,12 @@ func attack():
 	if global.classInt == 0:
 		anim.play("Slash")
 	if global.classInt == 1:
+		position.x = 0
+		position.y = 0
 		var potionInst = potion.instantiate()
-		potionInst.position = get_global_position()
-		potionInst.rotation_degrees = rotation_degrees
-		if position.x == 20:
-			potionInst.apply_impulse(Vector2(potionSpeed,-potionSpeed+get_global_mouse_position().y),Vector2(potionSpeed,0).rotated(rotation))
-		elif position.x == -20:
-			potionInst.apply_impulse(Vector2(-potionSpeed,-potionSpeed+get_global_mouse_position().y),Vector2(potionSpeed,0).rotated(rotation))
+		potionInst.rotation = rotation
+		potionInst.position = global_position
+		potionInst.velocity = Vector2(get_global_mouse_position() - potionInst.position)
 		get_tree().get_root().call_deferred("add_child", potionInst)
 
 func _process(delta):
