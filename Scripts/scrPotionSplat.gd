@@ -3,7 +3,7 @@ extends Node2D
 var counter = 0
 
 ##### ELEMENTAL DICTIONARY #####
-#Elemental Int to name ID: -1 = Base, 0 = Poison, 1 = Acid, 2 = Molten
+#Elemental Int to name ID: 0 = Poison, 1 = Acid, 2 = Molten
 
 func _ready():
 	global.elementalInt = global.styleEquipped

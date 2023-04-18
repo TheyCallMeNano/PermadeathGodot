@@ -14,13 +14,13 @@ var plrStaminaRecharge = 1.0
 var plrStaminaRechargeDelay = 0.0
 var plrStaminaDelayTime = 120
 var baseDMG = 15
-#Elemental Int to name ID: -1 = Base, 0 = Poison, 1 = Acid, 2 = Molten // More at some point
-var elementalInt = -1
+#Elemental Int to name ID: 0 = Poison, 1 = Acid, 2 = Molten // More at some point
+var elementalInt = 0
 var elementalName = ""
 #This var is for both class ints 1 and 2; if the var is 0 the potion is POISON/SHORTBOW
 #If the var is 1 the potion is ACID/BROADSWORD and if the var is 3 the potion is MOLTEN
 #The -1 value is to assign a default non-intrusive value
-var styleEquipped = -1
+var styleEquipped = 0
 
 func _process(_delta):
 	if Input.get_action_strength("styleOne"):
