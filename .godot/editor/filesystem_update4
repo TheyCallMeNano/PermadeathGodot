@@ -1,11 +1,9 @@
-res://Objects/objPotion.tscn
-res://TileSets/tsPlains.tres
-res://TileSets/tsCellar.tres
-res://Scripts/scrPotion.gd
 res://Rooms/MainScene.tscn
+res://TileSets/tsCellar.tres
+res://TileSets/tsPlains.tres
 res://Objects/objPlayer.tscn
 res://Objects/objPotionSplat.tscn
+res://Objects/objPotion.tscn
 res://Objects/objPrimary.tscn
 res://Objects/objDummy.tscn
 res://Rooms/Underground.tscn
-res://Scripts/scrPrimary.gd
