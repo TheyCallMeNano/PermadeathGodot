@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3bfa24813ia7"]
+[gd_scene load_steps=7 format=3 uid="uid://dd4cd6ffeqpsb"]
 
-[ext_resource type="Script" path="res://Scripts/scrDummy.gd" id="1_khpl3"]
+[ext_resource type="Script" path="res://Scripts/scrEnemyGeneric.gd" id="1_1riq5"]
 [ext_resource type="Texture2D" uid="uid://wjxynqaoxomk" path="res://Sprites/NPC'S/sprDummy.png" id="1_rj5pt"]
 
 [sub_resource type="Animation" id="2"]
@@ -47,7 +47,7 @@ height = 16.0
 [node name="StaticBody2D" type="StaticBody2D" groups=["enemys"]]
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("1_khpl3")
+script = ExtResource("1_1riq5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../CollisionShape2D")
