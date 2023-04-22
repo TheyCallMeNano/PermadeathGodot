@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://bchwgowl37bpw" path="res://TileSets/tsPlains.tres" id="3"]
 [ext_resource type="PackedScene" uid="uid://do7dwgw4i1fuc" path="res://Objects/objPlayer.tscn" id="3_48xei"]
 [ext_resource type="FontFile" uid="uid://8drdt6fs5lbf" path="res://Fonts/fntGUI.TTF" id="5_degbi"]
-[ext_resource type="PackedScene" uid="uid://d24kw5tgwypm0" path="res://Objects/objDebugMenu.tscn" id="6_h3ywe"]
+[ext_resource type="PackedScene" path="res://Objects/objDebugMenu.tscn" id="6_h3ywe"]
 [ext_resource type="PackedScene" uid="uid://dd4cd6ffeqpsb" path="res://Objects/objDummy.tscn" id="10"]
 [ext_resource type="PackedScene" uid="uid://dxse2i1fgne8v" path="res://Objects/objSight.tscn" id="13"]
 

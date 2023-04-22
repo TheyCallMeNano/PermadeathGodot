@@ -1,11 +1,11 @@
-res://Objects/objDummy.tscn
+res://Rooms/MainScene.tscn
 res://TileSets/tsCellar.tres
 res://TileSets/tsPlains.tres
-res://Scripts/scrDummy.gd
+res://Scripts/scrText.gd
 res://Objects/objPotionSplat.tscn
 res://Objects/objPotion.tscn
 res://Objects/objPrimary.tscn
+res://Objects/objDummy.tscn
 res://Rooms/Underground.tscn
-res://Rooms/MainScene.tscn
-res://Scripts/scrPlayer.gd
-res://Scripts/scrEnemyGeneric.gd
+res://Objects/objStamina.tscn
+res://Scripts/scrGlobals.gd
