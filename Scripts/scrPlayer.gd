@@ -205,8 +205,7 @@ func stealth():
 
 func _on_sight_box_area_entered(area):
 	print("Area: " + str(area))
-	if area == $/root/Hub/YSort/Dummy/Sight:
-		seen()
+	seen()
 
 @warning_ignore("unused_parameter")
 func _on_sight_box_area_exited(area):

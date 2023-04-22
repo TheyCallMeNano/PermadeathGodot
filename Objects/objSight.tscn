@@ -3,7 +3,7 @@
 [sub_resource type="CircleShape2D" id="1"]
 radius = 8.0
 
-[node name="Area2D" type="Area2D"]
+[node name="Sight" type="Area2D"]
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(5, -3)
