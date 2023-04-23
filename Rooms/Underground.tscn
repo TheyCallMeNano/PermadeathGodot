@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" path="res://Objects/objPause.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://ctsf56uqpsqj" path="res://Objects/objStamina.tscn" id="6"]
 [ext_resource type="PackedScene" path="res://Objects/objWarpZone.tscn" id="6_0mar8"]
-[ext_resource type="PackedScene" uid="uid://bck8rsnn254l1" path="res://Objects/objSkeleton.tscn" id="6_emn12"]
+[ext_resource type="PackedScene" uid="uid://2ottw4oos3nq" path="res://Objects/objSpawner.tscn" id="7_wbub1"]
 
 [node name="Hub" type="Node2D"]
 
@@ -59,18 +59,14 @@ offset_right = -245.0
 offset_bottom = -141.0
 scale = Vector2(0.5, 0.5)
 
-[node name="Skeleton" parent="YSort" instance=ExtResource("6_emn12")]
-position = Vector2(-312, 40)
-
-[node name="Skeleton2" parent="YSort" instance=ExtResource("6_emn12")]
-position = Vector2(-176, -88)
-
-[node name="Skeleton3" parent="YSort" instance=ExtResource("6_emn12")]
-position = Vector2(120, -79)
-
-[node name="Skeleton4" parent="YSort" instance=ExtResource("6_emn12")]
-position = Vector2(120, 136)
-
 [node name="toOverworld" parent="." instance=ExtResource("6_0mar8")]
 position = Vector2(-8, 296)
 scale = Vector2(2, 2)
+
+[node name="spawningZone" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="spawningZone"]
+position = Vector2(0, -288)
+polygon = PackedVector2Array(0, 0, 480, 0, 528, 48, 528, 528, 480, 576, 128, 576, 128, 416, -144, 416, -144, 576, -512, 576, -512, 560, -528, 560, -528, 544, -560, 544, -560, 528, -592, 528, -592, 512, -608, 512, -608, 496, -624, 496, -624, 480, -640, 480, -640, 464, -672, 464, -672, 448, -704, 448, -704, 432, -720, 432, -720, 416, -752, 416, -752, 400, -768, 400, -768, 384, -784, 384, -784, 368, -800, 368, -800, 352, -816, 352, -816, 304, -720, 208, -688, 208, -480, 0)
+
+[node name="spawner" parent="." instance=ExtResource("7_wbub1")]

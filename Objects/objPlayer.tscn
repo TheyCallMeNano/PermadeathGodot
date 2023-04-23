@@ -70,6 +70,7 @@ rotation = 1.5708
 shape = SubResource("1")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 position = Vector2(0, -3.8)
 shadow_enabled = true
 texture = ExtResource("3")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://2ottw4oos3nq"]
+
+[ext_resource type="Script" path="res://Scripts/scrSpawner.gd" id="1_pg7e4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6o4h"]
+size = Vector2(8, 8)
+
+[node name="spawner" type="Area2D"]
+script = ExtResource("1_pg7e4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(36, 148)
+shape = SubResource("RectangleShape2D_s6o4h")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
