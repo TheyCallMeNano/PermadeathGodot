@@ -41,6 +41,10 @@ var dashVector = Vector2.RIGHT
 func _ready():
 	classAssignment()
 	global.plrStamina = global.plrMaxStamina
+	if global.path == 1:
+		$PointLight2D.visible = true
+	else:
+		$PointLight2D.visible = false
 
 func classAssignment():
 	#reassignment from default values for different class types

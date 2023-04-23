@@ -77,4 +77,4 @@ position = Vector2(0, -6)
 shape = SubResource("CapsuleShape2D_0yukw")
 
 [node name="Sight" parent="." instance=ExtResource("3_ij0eb")]
-position = Vector2(0, 2)
+position = Vector2(0, -6)

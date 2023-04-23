@@ -32,6 +32,7 @@ func handleHit():
 
 func _process(delta):
 	if chasing == true:
+		$Sight.rotation = position.angle_to_point(player.global_position)
 		var fromPos: Vector2 = self.global_position
 		var toPos: Vector2 = player.global_position
 		if fromPos.x > toPos.x:
@@ -41,8 +42,8 @@ func _process(delta):
 		if fromPos.y > toPos.y:
 			dir.y = -1
 		elif fromPos.y < toPos.y:
-			dir.y = 1 
-		vel = vel.move_toward(dir * speed, 8 * delta)
+			dir.y = 1
+		vel = vel.move_toward(dir * speed, 50 * delta)
 		var navMap: RID = get_world_2d().get_navigation_map()
 		path = NavigationServer2D.map_get_path(navMap, fromPos, toPos, true)
 		move(path)
@@ -93,9 +94,8 @@ func _process(delta):
 			eDefense += 6
 
 func move(mPath:PackedVector2Array):
-	for p in mPath:
-		set_velocity(vel)
-		move_and_slide()
+	set_velocity(vel)
+	move_and_slide()
 
 func Acid():
 	acidActive = true
