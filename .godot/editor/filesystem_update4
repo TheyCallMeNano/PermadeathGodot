@@ -1,7 +1,8 @@
-res://Rooms/ClassSelection.tscn
+res://Objects/objPotion.tscn
 res://Fonts/Default.tres
 res://TileSets/tsPlains.tres
 res://TileSets/tsCellar.tres
+res://Rooms/ClassSelection.tscn
 res://Rooms/MainScene.tscn
 res://Rooms/Underground.tscn
 res://Objects/objDummy.tscn
@@ -9,6 +10,8 @@ res://Objects/objSkeleton.tscn
 res://Objects/objPlayer.tscn
 res://Objects/objSpawner.tscn
 res://Scripts/scrEnemyGeneric.gd
+res://Objects/objStamina.tscn
+res://Objects/objDebugMenu.tscn
+res://Scripts/scrPlayer.gd
 res://Scripts/scrSpawner.gd
-res://Objects/objSight.tscn
-res://Objects/objPotion.tscn
+res://Scripts/scrGlobals.gd

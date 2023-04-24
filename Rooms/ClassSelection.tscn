@@ -22,16 +22,16 @@ position = Vector2(768, 390)
 layout_mode = 0
 offset_left = 128.0
 offset_top = 32.0
-offset_right = 215.0
-offset_bottom = 57.0
+offset_right = 384.0
+offset_bottom = 73.0
 theme = ExtResource("1_ak2xu")
 text = "Assassin"
 
 [node name="ClassDescription" type="RichTextLabel" parent="Rouge"]
 layout_mode = 0
-offset_top = 25.0
+offset_top = 41.0
 offset_right = 496.0
-offset_bottom = 280.0
+offset_bottom = 296.0
 theme = ExtResource("1_ak2xu")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
@@ -43,8 +43,7 @@ Dash ability has I-frames
 Invisibility or some form of working stealth/radius mechanic
 Temporary and hypersensitive; reduce spam possibilities
 Backstabs/Takedowns if the target is unaware of the user's presence
-Depending on difficulty or ability difference a backstab/takedown will insta-kill
-"
+Depending on difficulty or ability difference a backstab/takedown will insta-kill"
 scroll_active = false
 
 [node name="Alchemist" type="Button" parent="."]
@@ -58,9 +57,9 @@ text = "Alchemist"
 
 [node name="ClassDescription" type="RichTextLabel" parent="Alchemist"]
 layout_mode = 0
-offset_top = 25.0
+offset_top = 41.0
 offset_right = 504.0
-offset_bottom = 280.0
+offset_bottom = 296.0
 theme = ExtResource("1_ak2xu")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
@@ -73,8 +72,7 @@ The secondary attack can rotate between two different styles
 Style #1: Applies buffs to the surrounding player/allies
 Health, Attack Speed, Defense, Damage, etc.
 Style #2: Applies debuffs to surrounding enemies
-Speed, Weakness to damage type, recovery nerf, etc.
-"
+Speed, Weakness to damage type, recovery nerf, etc."
 scroll_active = false
 
 [node name="ClassSelection" type="CanvasLayer" parent="."]

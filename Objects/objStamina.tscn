@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctsf56uqpsqj"]
+[gd_scene load_steps=3 format=3 uid="uid://ctsf56uqpsqj"]
 
+[ext_resource type="Theme" uid="uid://bd4i748r0tyux" path="res://Fonts/Default.tres" id="1_bmtob"]
 [ext_resource type="Script" path="res://Scripts/scrText.gd" id="1_fdd5r"]
 
 [node name="Stamina" type="Label"]
@@ -12,4 +13,5 @@ offset_left = -22.0
 offset_top = -4.94
 offset_right = 13.0
 offset_bottom = 8.06
+theme = ExtResource("1_bmtob")
 script = ExtResource("1_fdd5r")

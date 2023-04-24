@@ -12,7 +12,7 @@ var acidCounter = 0
 var poisonCounter = 0
 var moltenCounter = 0
 var path: PackedVector2Array
-var player = -4
+var player = null
 var chasing = false
 var dir = Vector2.ZERO
 var vel = Vector2.ZERO
@@ -20,12 +20,20 @@ var vel = Vector2.ZERO
 #Stats
 var attackSpeed = 5
 var attackDMG = 5
-var speed = 1000
+var speed = 75
 var eHealth = 75
 var eDefense = 7
 
+func _ready():
+	if self.name == "Dummy":
+		eHealth = 9999
+
+
 func handleHit():
 	animationPlayer.play("Hit")
+	if global.classInt == 0:
+		eHealth -= global.baseDMG
+		print("Health: " + str(eHealth))
 
 ##### ELEMENTAL DICTIONARY #####
 #Elemental Int to name ID: 0 = Poison, 1 = Acid, 2 = Molten
@@ -43,7 +51,7 @@ func _process(delta):
 			dir.y = -1
 		elif fromPos.y < toPos.y:
 			dir.y = 1
-		vel = vel.move_toward(dir * speed, 50 * delta)
+		vel = vel.move_toward(dir * speed, 500 * delta)
 		var navMap: RID = get_world_2d().get_navigation_map()
 		path = NavigationServer2D.map_get_path(navMap, fromPos, toPos, true)
 		move(path)
@@ -58,7 +66,7 @@ func _process(delta):
 			#Change these to modular values later, calculated by difficulty and plrLvl
 			attackSpeed -= 0.5
 			eHealth -= 12/eDefense
-			print("Acid Inflicted! " + str(attackSpeed) + " " + str(eHealth))
+			print("Acid Inflicted! Attack Speed: " + str(attackSpeed) + " Health: " + str(eHealth))
 		if acidCounter == 400:
 			acidActive = false
 			acidCounter = 0
@@ -72,7 +80,7 @@ func _process(delta):
 			#Change these to modular values later, calculated by difficulty and plrLvl
 			eDefense -= 2
 			attackDMG -= 0.5
-			print("Poison Inflicted! " + str(eDefense) + " " + str(attackDMG))
+			print("Poison Inflicted! Defense: " + str(eDefense) + " Attack Damage: " + str(attackDMG))
 		if poisonCounter == 400:
 			poisonActive = false
 			eDefense += 4
@@ -87,19 +95,19 @@ func _process(delta):
 			#Change these to modular values later, calculated by difficulty and plrLvl
 			eDefense -= 3
 			eHealth -= 21/eDefense
-			print("Molten Inflicted! " + str(eDefense) + " " + str(eHealth))
+			print("Molten Inflicted! Defense: " + str(eDefense) + " Health: " + str(eHealth))
 		if moltenCounter == 400:
 			moltenActive = false
 			moltenCounter = 0
 			eDefense += 6
 	
 	if eHealth <= 0:
+		print("Dead!")
 		queue_free()
 
 func move(mPath:PackedVector2Array):
-	for p in mPath:
-		set_velocity(vel)
-		move_and_slide()
+	set_velocity(vel)
+	move_and_slide()
 
 func Acid():
 	acidActive = true
@@ -118,6 +126,6 @@ func _on_sight_area_entered(area):
 
 
 func _on_sight_area_exited(area):
-	#player = -4
-	#chasing = false
-	vel = vel.move_toward(Vector2.ZERO, FRICTION * 60)
+	if area == $/root/Hub/YSort/Player/SightBox:
+		chasing = false
+		vel = vel.move_toward(Vector2.ZERO, FRICTION * 60)

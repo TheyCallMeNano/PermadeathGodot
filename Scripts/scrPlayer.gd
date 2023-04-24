@@ -47,24 +47,30 @@ func _ready():
 		$PointLight2D.visible = false
 
 func classAssignment():
-	#reassignment from default values for different class types
-	#default variables are for alchemist
+	#Reassignment from default values for different class types
+	#Default variables are for Assassin
 	#Int to name ID: -1 = N/A, 0 = Assassin, 1 = Alchemist, 2 = Dualist, 3 = Paladin
 	if global.classInt == 0:
 		global.plrHP = 90
 		global.plrMaxStamina = 125.0
 		global.plrStaminaRecharge = 2.0
-		#hidden()
+		hidden()
 
 #Check state and run according funcitons
 func _physics_process(delta):
+	if Input.is_action_pressed("zoomOut"):
+		$Camera2D.zoom.x -= .02
+		$Camera2D.zoom.y -= .02
+	if Input.is_action_pressed("zoomIn"):
+		$Camera2D.zoom.x += .02
+		$Camera2D.zoom.y += .02
 	match state:
 		MOVE:
 			moveState(delta)
 		DASH:
 			dashState(delta)
 		ATTACK:
-			attackState(delta)
+			attackState()
 
 #Calculate Movement when in the right state
 func moveState(delta):
@@ -124,11 +130,11 @@ func moveState(delta):
 #What to do when the player attacks
 func _unhandled_input(event: InputEvent) -> void:
 		if event.is_action_pressed("primaryAttack"):
-			primary.attack()
+			attackState()
 	
 #Attack Extended
-@warning_ignore("unused_parameter")
-func attackState(delta):
+func attackState():
+	primary.attack()
 	vel = Vector2.ZERO
 	animationPlayer.play("Idle")
 	attackStateFinished()
@@ -152,7 +158,6 @@ func dashState(delta):
 		global.plrStamina -= global.plrStaminaRecharge*15
 		move()
 		dashStateFinished()
-		
 	else:
 		vel = dashVector * MAX_SPEED * 2.5
 		global.plrStaminaRechargeDelay = 0

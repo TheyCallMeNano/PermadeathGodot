@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://bchwgowl37bpw" path="res://TileSets/tsPlains.tres" id="3"]
 [ext_resource type="PackedScene" uid="uid://do7dwgw4i1fuc" path="res://Objects/objPlayer.tscn" id="3_48xei"]
 [ext_resource type="FontFile" uid="uid://8drdt6fs5lbf" path="res://Fonts/fntGUI.TTF" id="5_degbi"]
-[ext_resource type="PackedScene" path="res://Objects/objDebugMenu.tscn" id="6_h3ywe"]
+[ext_resource type="PackedScene" uid="uid://dwq23k7vbk8bf" path="res://Objects/objDebugMenu.tscn" id="6_h3ywe"]
 [ext_resource type="PackedScene" path="res://Objects/objWarpZone.tscn" id="8_ulqtq"]
 [ext_resource type="PackedScene" uid="uid://dd4cd6ffeqpsb" path="res://Objects/objDummy.tscn" id="10"]
 
@@ -16,12 +16,6 @@ outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Hub" type="Node2D"]
-
-[node name="Pause" parent="." instance=ExtResource("1")]
-layout_mode = 3
-anchors_preset = 15
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Background Environment" type="TileMap" parent="."]
 tile_set = ExtResource("3")
@@ -52,6 +46,12 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 0
 label_settings = SubResource("LabelSettings_lfyet")
+
+[node name="Pause" parent="YSort/Player/CanvasLayer" instance=ExtResource("1")]
+layout_mode = 3
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Debug Menu" parent="YSort/Player/CanvasLayer" instance=ExtResource("6_h3ywe")]
 anchor_left = 0.0

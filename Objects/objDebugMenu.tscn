@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://dwq23k7vbk8bf"]
 
 [ext_resource type="Script" path="res://Scripts/scrText.gd" id="1"]
+[ext_resource type="Theme" uid="uid://bd4i748r0tyux" path="res://Fonts/Default.tres" id="1_bevve"]
 
 [node name="DebugMenu" type="Label"]
 anchors_preset = -1
@@ -12,4 +13,6 @@ offset_left = -23.0
 offset_top = -27.08
 offset_right = 17.0
 offset_bottom = -11.08
+theme = ExtResource("1_bevve")
+theme_override_font_sizes/font_size = 32
 script = ExtResource("1")
