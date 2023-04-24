@@ -22,7 +22,7 @@ var attackSpeed = 5
 var attackDMG = 5
 var speed = 1000
 var eHealth = 75
-var eDefense = 10
+var eDefense = 7
 
 func handleHit():
 	animationPlayer.play("Hit")
@@ -53,13 +53,13 @@ func _process(delta):
 	if acidActive == true:
 		#Acid should reduce "accuracy" or make the enemy attack slower
 		acidCounter += 1
-		if acidCounter == 1000 || acidCounter == 2000:
+		if acidCounter == 200 || acidCounter == 400:
 			handleHit()
 			#Change these to modular values later, calculated by difficulty and plrLvl
 			attackSpeed -= 0.5
-			eHealth -= 5
+			eHealth -= 12/eDefense
 			print("Acid Inflicted! " + str(attackSpeed) + " " + str(eHealth))
-		if acidCounter == 2000:
+		if acidCounter == 400:
 			acidActive = false
 			acidCounter = 0
 			attackSpeed += 1
@@ -67,13 +67,13 @@ func _process(delta):
 	if poisonActive == true:
 		#Poison should give the enemy weakness or less damage
 		poisonCounter += 1
-		if poisonCounter == 1000 || poisonCounter == 2000:
+		if poisonCounter == 200 || poisonCounter == 400:
 			handleHit()
 			#Change these to modular values later, calculated by difficulty and plrLvl
 			eDefense -= 2
 			attackDMG -= 0.5
 			print("Poison Inflicted! " + str(eDefense) + " " + str(attackDMG))
-		if poisonCounter == 2000:
+		if poisonCounter == 400:
 			poisonActive = false
 			eDefense += 4
 			attackDMG += 1
@@ -82,20 +82,24 @@ func _process(delta):
 	if moltenActive == true:
 		#Molten should slow the enemy and deal massive damage to health/armor
 		moltenCounter += 1
-		if moltenCounter == 1000 || moltenCounter == 2000:
+		if moltenCounter == 200 || moltenCounter == 400:
 			handleHit()
 			#Change these to modular values later, calculated by difficulty and plrLvl
 			eDefense -= 3
-			eHealth -= 7
+			eHealth -= 21/eDefense
 			print("Molten Inflicted! " + str(eDefense) + " " + str(eHealth))
-		if moltenCounter == 2000:
+		if moltenCounter == 400:
 			moltenActive = false
 			moltenCounter = 0
 			eDefense += 6
+	
+	if eHealth <= 0:
+		queue_free()
 
 func move(mPath:PackedVector2Array):
-	set_velocity(vel)
-	move_and_slide()
+	for p in mPath:
+		set_velocity(vel)
+		move_and_slide()
 
 func Acid():
 	acidActive = true
@@ -108,11 +112,12 @@ func Molten():
 
 
 func _on_sight_area_entered(area):
-	player = area.get_parent()
-	chasing = true
+	if area == $/root/Hub/YSort/Player/SightBox:
+		player = area.get_parent()
+		chasing = true
 
 
 func _on_sight_area_exited(area):
-	player = -4
-	chasing = false
+	#player = -4
+	#chasing = false
 	vel = vel.move_toward(Vector2.ZERO, FRICTION * 60)

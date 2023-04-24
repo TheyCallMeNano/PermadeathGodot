@@ -3,7 +3,7 @@ extends Area2D
 var xRange = randi_range(-828,540)
 var yRange = randi_range(-316,292)
 var spawning = false
-var spawnTotal = 100
+var spawnTotal = 25
 var spawned = 0
 var region = null
 var enemy1 = preload("res://Objects/objSkeleton.tscn")

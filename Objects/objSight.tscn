@@ -4,12 +4,15 @@
 radius = 8.0
 
 [node name="Sight" type="Area2D"]
+visibility_layer = 4
 position = Vector2(0, -8)
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(8, 5)
 rotation = 4.71239
-polygon = PackedVector2Array(5, -5, 37.0001, 67, -18.9999, 67)
+polygon = PackedVector2Array(5, -5, 61.0002, 184, -66.9998, 184)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 shape = SubResource("1")

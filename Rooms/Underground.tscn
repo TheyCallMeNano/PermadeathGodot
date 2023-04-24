@@ -64,6 +64,7 @@ position = Vector2(-8, 296)
 scale = Vector2(2, 2)
 
 [node name="spawningZone" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="spawningZone"]
 position = Vector2(0, -288)
