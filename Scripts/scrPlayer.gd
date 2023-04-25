@@ -116,10 +116,6 @@ func moveState(delta):
 		animationPlayer.play("Idle")
 		vel = vel.move_toward(Vector2.ZERO, FRICTION * delta)
 	
-	#Check if attacking
-	if Input.is_action_just_pressed("primaryAttack"):
-		state = ATTACK
-	
 	#Check if dashing and if we have enough stamina to dash
 	if Input.is_action_just_pressed("dash") && global.plrStamina > global.plrStaminaRecharge*30:
 		state = DASH
@@ -130,13 +126,14 @@ func moveState(delta):
 #What to do when the player attacks
 func _unhandled_input(event: InputEvent) -> void:
 		if event.is_action_pressed("primaryAttack"):
-			attackState()
+			state = ATTACK
 	
 #Attack Extended
 func attackState():
 	primary.attack()
-	vel = Vector2.ZERO
-	animationPlayer.play("Idle")
+	if global.classInt != 1:
+		vel = vel.move_toward(Vector2.ZERO, 60)
+		animationPlayer.play("Idle")
 	attackStateFinished()
 
 #Reset the player to the moving state
@@ -214,8 +211,9 @@ func stealth():
 
 func _on_sight_box_area_entered(area):
 	print("Area: " + str(area))
-	seen()
+	if area.name == "Sight":
+		seen()
 
-@warning_ignore("unused_parameter")
 func _on_sight_box_area_exited(area):
-	hidden()
+	if area.name == "Sight":
+		hidden()

@@ -64,7 +64,7 @@ offset_right = -264.0
 offset_bottom = 32.92
 
 [node name="Dummy" parent="YSort" instance=ExtResource("10")]
-position = Vector2(-99, -1)
+position = Vector2(-120, 24)
 
 [node name="Props" type="TileMap" parent="YSort"]
 y_sort_enabled = true

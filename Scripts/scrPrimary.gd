@@ -15,12 +15,12 @@ func attack():
 		potionInst.rotation = rotation
 		potionInst.position = global_position
 		potionInst.velocity = Vector2(get_global_mouse_position() - potionInst.position)
-		if counter == 180:
+		if counter == 30:
 			get_tree().get_root().call_deferred("add_child", potionInst)
 			counter = 0
 
-func _process(delta):
-	if counter != 180:
+func _physics_process(delta):
+	if counter != 30:
 		counter += 1
 	if global.classInt == 1:
 		look_at(get_global_mouse_position())

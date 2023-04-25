@@ -38,7 +38,7 @@ func handleHit():
 ##### ELEMENTAL DICTIONARY #####
 #Elemental Int to name ID: 0 = Poison, 1 = Acid, 2 = Molten
 
-func _process(delta):
+func _physics_process(delta):
 	if chasing == true:
 		$Sight.rotation = position.angle_to_point(player.global_position)
 		var fromPos: Vector2 = self.global_position
@@ -61,13 +61,13 @@ func _process(delta):
 	if acidActive == true:
 		#Acid should reduce "accuracy" or make the enemy attack slower
 		acidCounter += 1
-		if acidCounter == 200 || acidCounter == 400:
+		if acidCounter == 30 || acidCounter == 60:
 			handleHit()
 			#Change these to modular values later, calculated by difficulty and plrLvl
 			attackSpeed -= 0.5
 			eHealth -= 12/eDefense
 			print("Acid Inflicted! Attack Speed: " + str(attackSpeed) + " Health: " + str(eHealth))
-		if acidCounter == 400:
+		if acidCounter == 60:
 			acidActive = false
 			acidCounter = 0
 			attackSpeed += 1
@@ -75,13 +75,13 @@ func _process(delta):
 	if poisonActive == true:
 		#Poison should give the enemy weakness or less damage
 		poisonCounter += 1
-		if poisonCounter == 200 || poisonCounter == 400:
+		if poisonCounter == 30 || poisonCounter == 60:
 			handleHit()
 			#Change these to modular values later, calculated by difficulty and plrLvl
 			eDefense -= 2
 			attackDMG -= 0.5
 			print("Poison Inflicted! Defense: " + str(eDefense) + " Attack Damage: " + str(attackDMG))
-		if poisonCounter == 400:
+		if poisonCounter == 60:
 			poisonActive = false
 			eDefense += 4
 			attackDMG += 1
@@ -90,13 +90,13 @@ func _process(delta):
 	if moltenActive == true:
 		#Molten should slow the enemy and deal massive damage to health/armor
 		moltenCounter += 1
-		if moltenCounter == 200 || moltenCounter == 400:
+		if moltenCounter == 30 || moltenCounter == 60:
 			handleHit()
 			#Change these to modular values later, calculated by difficulty and plrLvl
 			eDefense -= 3
 			eHealth -= 21/eDefense
 			print("Molten Inflicted! Defense: " + str(eDefense) + " Health: " + str(eHealth))
-		if moltenCounter == 400:
+		if moltenCounter == 60:
 			moltenActive = false
 			moltenCounter = 0
 			eDefense += 6

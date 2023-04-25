@@ -6,12 +6,10 @@ var splatter = preload("res://Objects/objPotionSplat.tscn")
 
 func _physics_process(delta):
 	position += velocity/30
-
-func _process(delta):
-	counter += 1 * delta
+	counter += 1
 	rotation_degrees += 10
-	$Sprite2D.scale -= Vector2(counter * delta/2, counter * delta/2)
-	if counter >= 0.75:
+	$Sprite2D.scale -= Vector2(counter * delta/500, counter * delta/500)
+	if counter >= 75:
 		counter = 0
 		var splatInst = splatter.instantiate()
 		splatInst.position = get_global_position()

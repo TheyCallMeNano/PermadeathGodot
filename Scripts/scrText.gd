@@ -13,7 +13,8 @@ func _process(delta):
 			"\nMouse X/Y: " + str(get_viewport().get_mouse_position()) + 
 			"\nFPS: " + str(Performance.get_monitor(Performance.TIME_FPS)) +
 			"\nRaw Damage: " + str(global.baseDMG) + 
-			"\nVersion: " + str(global.version))
+			"\nVersion: " + str(global.version) +
+			"\nClassInt: " + str(global.classInt))
 		if Input.is_action_just_pressed("debugMenu") && on == false:
 			on = true
 		#Reset text to nothing so that the player doesn't have the debug info
