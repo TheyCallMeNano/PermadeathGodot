@@ -12,7 +12,7 @@ var acidCounter = 0
 var poisonCounter = 0
 var moltenCounter = 0
 var path: PackedVector2Array
-var player = null
+@onready var player = $"/root/Hub/YSort/Player/"
 var chasing = false
 var dir = Vector2.ZERO
 var vel = Vector2.ZERO
@@ -39,7 +39,7 @@ func handleHit():
 #Elemental Int to name ID: 0 = Poison, 1 = Acid, 2 = Molten
 
 func _physics_process(delta):
-	if chasing == true:
+	if chasing == true && self.name != "Dummy":
 		$Sight.rotation = position.angle_to_point(player.global_position)
 		var fromPos: Vector2 = self.global_position
 		var toPos: Vector2 = player.global_position
