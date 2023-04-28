@@ -1,9 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://do7dwgw4i1fuc"]
+[gd_scene load_steps=13 format=3 uid="uid://do7dwgw4i1fuc"]
 
 [ext_resource type="Texture2D" uid="uid://cgl6txsq63o1a" path="res://Sprites/Player/sprRouge.png" id="1"]
 [ext_resource type="Script" path="res://Scripts/scrPlayer.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://ccrwv0t7b8ymx" path="res://Sprites/GUI/Light.png" id="3"]
 [ext_resource type="PackedScene" uid="uid://dy537m37wlcyt" path="res://Objects/objPrimary.tscn" id="4_3ugyl"]
+[ext_resource type="AudioStream" uid="uid://bsjrpyiqfgo1f" path="res://Sounds/sndDash.wav" id="5_r3g85"]
+[ext_resource type="AudioStream" uid="uid://cj0lvt7ciqgdf" path="res://Sounds/sndDirtStep.wav" id="6_usm3q"]
+[ext_resource type="AudioStream" uid="uid://bujbtwgucwi2r" path="res://Sounds/sndTileStep.wav" id="7_xthyu"]
 
 [sub_resource type="Animation" id="2"]
 resource_name = "Idle"
@@ -93,6 +96,16 @@ position = Vector2(20, -8)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="sndDash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_r3g85")
+volume_db = 8.0
+
+[node name="sndDirtStep" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_usm3q")
+
+[node name="sndTileStep" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_xthyu")
 
 [connection signal="area_entered" from="SightBox" to="." method="_on_sight_box_area_entered"]
 [connection signal="area_exited" from="SightBox" to="." method="_on_sight_box_area_exited"]

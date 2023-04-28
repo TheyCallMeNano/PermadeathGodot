@@ -35,6 +35,8 @@ var dashVector = Vector2.RIGHT
 
 #Animation Manager
 @onready var animationPlayer = $AnimationPlayer
+
+var walking = false
 ########## VARS ##########
 
 
@@ -64,6 +66,20 @@ func _physics_process(delta):
 	if Input.is_action_pressed("zoomIn"):
 		$Camera2D.zoom.x += .02
 		$Camera2D.zoom.y += .02
+		
+	if walking == false && inputVector != Vector2.ZERO:
+		if global.path == 1:
+			$sndTileStep.playing = false
+		else:
+			$sndDirtStep.playing = false
+		walking = true
+	elif inputVector == Vector2.ZERO && walking == true:
+		if global.path == 1:
+			$sndTileStep.playing = true
+		else:
+			$sndDirtStep.playing = true
+		walking = true
+	
 	match state:
 		MOVE:
 			moveState(delta)
@@ -71,6 +87,7 @@ func _physics_process(delta):
 			dashState(delta)
 		ATTACK:
 			attackState()
+			
 
 #Calculate Movement when in the right state
 func moveState(delta):
@@ -98,7 +115,8 @@ func moveState(delta):
 		if Input.is_action_pressed("moveRight"):
 			primary.position.x = 20
 			primary.scale.x = 1
-			
+		walking = true
+		
 		#Check if we're sprinting, then manage all movement in that state until end (Perhaps speed up run animation?)
 		if Input.is_action_pressed("sprint") && global.plrStamina != 0:
 			if Input.is_action_pressed("moveDown"):
@@ -149,6 +167,7 @@ func move():
 #What to do when dashing
 @warning_ignore("unused_parameter")
 func dashState(delta):
+	$sndDash.play()
 	if global.classInt == 0:
 		vel = dashVector * MAX_SPEED * 3
 		global.plrStaminaRechargeDelay = 0

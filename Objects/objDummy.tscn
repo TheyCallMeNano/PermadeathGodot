@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dd4cd6ffeqpsb"]
+[gd_scene load_steps=9 format=3 uid="uid://dd4cd6ffeqpsb"]
 
 [ext_resource type="Script" path="res://Scripts/scrEnemyGeneric.gd" id="1_1riq5"]
 [ext_resource type="Texture2D" uid="uid://wjxynqaoxomk" path="res://Sprites/NPC'S/sprDummy.png" id="1_rj5pt"]
 [ext_resource type="PackedScene" uid="uid://dxse2i1fgne8v" path="res://Objects/objSight.tscn" id="3_ij0eb"]
+[ext_resource type="AudioStream" uid="uid://dduy4lwfiljlu" path="res://Sounds/sndGenericHit1.wav" id="4_84jlu"]
 
 [sub_resource type="Animation" id="2"]
 resource_name = "Hit"
@@ -30,6 +31,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.996078, 0, 0.14902, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../sndGenericHit1:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kaudh"]
@@ -78,3 +91,6 @@ shape = SubResource("CapsuleShape2D_0yukw")
 
 [node name="Sight" parent="." instance=ExtResource("3_ij0eb")]
 position = Vector2(0, -6)
+
+[node name="sndGenericHit1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_84jlu")

@@ -6,6 +6,7 @@ var counter = 0
 #Elemental Int to name ID: 0 = Poison, 1 = Acid, 2 = Molten
 
 func _ready():
+	$sndGlassBreak.play()
 	global.elementalInt = global.styleEquipped
 	if global.styleEquipped == 0:
 		$Sprite.set_modulate("00ff00")
