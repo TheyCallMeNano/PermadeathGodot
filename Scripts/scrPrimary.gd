@@ -19,7 +19,7 @@ func attack():
 			get_tree().get_root().call_deferred("add_child", potionInst)
 			counter = 0
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if counter != 30:
 		counter += 1
 	if global.classInt == 1:

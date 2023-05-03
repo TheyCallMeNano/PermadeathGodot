@@ -17,7 +17,7 @@ func _physics_process(delta):
 		$/root/Hub/Decals.add_child(splatInst)
 		queue_free()
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
 	var splatInst = splatter.instantiate()
 	splatInst.position = get_global_position()
 	splatInst.rotation_degrees = rotation_degrees

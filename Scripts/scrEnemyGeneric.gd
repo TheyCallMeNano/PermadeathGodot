@@ -105,7 +105,7 @@ func _physics_process(delta):
 		print("Dead!")
 		queue_free()
 
-func move(mPath:PackedVector2Array):
+func move(_mPath:PackedVector2Array):
 	set_velocity(vel)
 	move_and_slide()
 
