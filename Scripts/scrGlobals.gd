@@ -19,15 +19,32 @@ var baseDMG = 15
 #Elemental Int to name ID: 0 = Poison, 1 = Acid, 2 = Molten // More at some point
 var elementalInt = 0
 var elementalName = ""
+#Status Int to Name ID: Buffs: Health = 0, AttackSpeed = 1, Defense = 3, Damage = 4;
+#Debuffs: Speed = 5, Weakness = 6, Slowness = 7
+var statusInt = 0
+var statusName = ""
 #This var is for both class ints 1 and 2; if the var is 0 the potion is POISON/SHORTBOW
 #If the var is 1 the potion is ACID/BROADSWORD and if the var is 3 the potion is MOLTEN
-#The -1 value is to assign a default non-intrusive value
+#This var can also be used to determine the alt style for Alchemist
+#See dictionary above for differnt types of stat effects and modifications
 var styleEquipped = 0
+#This var defines if alt fire modes are enabled, useful for the alchemist; which has two attack styles
+#0 = Potion Throwing and Effect Managment, 1 = Status Effects and debuffs for AoE of the Alchemist
+var attackMode = 0
+var toggled = false
 
 func _process(_delta):
 	if Input.get_action_strength("styleOne"):
 		styleEquipped = 0
 	elif Input.get_action_strength("styleTwo"):
 		styleEquipped = 1
-	elif Input.get_action_strength("styleThree") && classInt == 1:
+	elif Input.get_action_strength("styleThree") && classInt == 1 && attackMode != 1:
 		styleEquipped = 2
+	if Input.is_action_just_pressed("switchMode") && toggled == true:
+		attackMode = 1
+		toggled = false
+		print(attackMode)
+	elif toggled == false && Input.is_action_just_pressed("switchMode"):
+		attackMode = 0
+		toggled = true
+		print(attackMode)

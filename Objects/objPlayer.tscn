@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://do7dwgw4i1fuc"]
+[gd_scene load_steps=15 format=3 uid="uid://b5qbs5kbjdp7p"]
 
 [ext_resource type="Texture2D" uid="uid://cgl6txsq63o1a" path="res://Sprites/Player/sprRouge.png" id="1"]
 [ext_resource type="Script" path="res://Scripts/scrPlayer.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://ccrwv0t7b8ymx" path="res://Sprites/GUI/Light.png" id="3"]
-[ext_resource type="PackedScene" uid="uid://dy537m37wlcyt" path="res://Objects/objPrimary.tscn" id="4_3ugyl"]
+[ext_resource type="PackedScene" uid="uid://dy537m37wlcyt" path="res://Objects/objWeapon.tscn" id="4_3ugyl"]
+[ext_resource type="Script" path="res://Objects/scrAoE.gd" id="5_cyrnw"]
 [ext_resource type="AudioStream" uid="uid://bsjrpyiqfgo1f" path="res://Sounds/sndDash.wav" id="5_r3g85"]
 [ext_resource type="AudioStream" uid="uid://cj0lvt7ciqgdf" path="res://Sounds/sndDirtStep.wav" id="6_usm3q"]
 [ext_resource type="AudioStream" uid="uid://bujbtwgucwi2r" path="res://Sounds/sndTileStep.wav" id="7_xthyu"]
@@ -54,6 +55,9 @@ height = 10.0
 radius = 3.0
 height = 9.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_tet4p"]
+radius = 30.0167
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 5
 collision_mask = 5
@@ -91,8 +95,16 @@ collision_mask = 5
 position = Vector2(0, -0.5)
 shape = SubResource("4")
 
-[node name="Primary" parent="." instance=ExtResource("4_3ugyl")]
+[node name="Weapon" parent="." instance=ExtResource("4_3ugyl")]
 position = Vector2(20, -8)
+
+[node name="AoE" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("5_cyrnw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AoE"]
+shape = SubResource("CircleShape2D_tet4p")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)

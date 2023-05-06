@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 ########## VARS ##########
 # These vars configure how ice like the surface is
-const MAX_SPEED = 150
+var MAX_SPEED = 150
 const ACCELERATION = 500
 
 #Friction acts at the rate the speed decreases
@@ -31,12 +31,13 @@ var inputVector = Vector2.ZERO
 var dashVector = Vector2.RIGHT
 
 #Grab the weapon and get it ready for the Attack state
-@onready var primary = $Primary
+@onready var weapon = $Weapon
 
 #Animation Manager
 @onready var animationPlayer = $AnimationPlayer
 
 var walking = false
+var on = false
 ########## VARS ##########
 
 
@@ -58,8 +59,16 @@ func classAssignment():
 		global.plrStaminaRecharge = 2.0
 		hidden()
 
-#Check state and run according funcitons
+#Check state and run according functions
 func _physics_process(delta):
+	if global.attackMode == 1 && on == false:
+		on = true
+		$AoE.monitoring = true
+		$AoE.active()
+	if global.attackMode == 0 && on == true:
+		$AoE.monitoring = false
+		on = false
+	
 	if Input.is_action_pressed("zoomOut"):
 		$Camera2D.zoom.x -= .02
 		$Camera2D.zoom.y -= .02
@@ -110,11 +119,11 @@ func moveState(delta):
 			animationPlayer.play("Run")
 			
 		if Input.is_action_pressed("moveLeft"):
-			primary.position.x = -20
-			primary.scale.x = -1
+			weapon.position.x = -20
+			weapon.scale.x = -1
 		if Input.is_action_pressed("moveRight"):
-			primary.position.x = 20
-			primary.scale.x = 1
+			weapon.position.x = 20
+			weapon.scale.x = 1
 		walking = true
 		
 		#Check if we're sprinting, then manage all movement in that state until end (Perhaps speed up run animation?)
@@ -143,12 +152,12 @@ func moveState(delta):
 
 #What to do when the player attacks
 func _unhandled_input(event: InputEvent) -> void:
-		if event.is_action_pressed("primaryAttack"):
+		if event.is_action_pressed("primaryAttack") || event.is_action_pressed("secondaryAttack"):
 			state = ATTACK
 	
 #Attack Extended
 func attackState():
-	primary.attack()
+	weapon.attack()
 	if global.classInt != 1:
 		vel = vel.move_toward(Vector2.ZERO, 60)
 		animationPlayer.play("Idle")

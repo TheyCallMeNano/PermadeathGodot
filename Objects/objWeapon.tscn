@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dy537m37wlcyt"]
 
-[ext_resource type="Texture2D" uid="uid://dgk8rfp8gqt7r" path="res://Sprites/GUI/sprSlash.png" id="1"]
-[ext_resource type="Script" path="res://Scripts/scrPrimary.gd" id="2"]
+[ext_resource type="Script" path="res://Scripts/scrPrimary.gd" id="1_xip8s"]
+[ext_resource type="Texture2D" uid="uid://dgk8rfp8gqt7r" path="res://Sprites/GUI/sprSlash.png" id="2_ds6t2"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(16, 14)
@@ -52,10 +52,10 @@ _data = {
 "Slash": SubResource("2")
 }
 
-[node name="Slash" type="Area2D"]
+[node name="Weapon" type="Area2D"]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("2")
+script = ExtResource("1_xip8s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("1")
@@ -63,7 +63,7 @@ disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("1")
+texture = ExtResource("2_ds6t2")
 hframes = 5
 vframes = 2
 
