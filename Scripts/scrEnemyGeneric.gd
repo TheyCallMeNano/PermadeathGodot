@@ -1,4 +1,6 @@
 extends CharacterBody2D
+## Enemy Controller for generic/non boss or special enemies
+
 
 #Animation Manager
 @onready var animationPlayer = $AnimationPlayer

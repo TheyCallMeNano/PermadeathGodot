@@ -2,7 +2,8 @@ extends Area2D
 
 @onready var anim = $AnimationPlayer
 var potion = preload("res://Objects/objPotion.tscn")
-var potionSpeed = 200
+## Speed at which the potion travels
+@export var potionSpeed = 200
 var counter = 0
 
 func attack():

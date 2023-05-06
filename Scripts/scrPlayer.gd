@@ -1,13 +1,17 @@
 #This is essentially what we are modifiying
 extends CharacterBody2D
 
-########## VARS ##########
-# These vars configure how ice like the surface is
-var MAX_SPEED = 150
+## scrPlayer ties directly to the player object and modifies everything the player uses
+##
+## The script can modifiy: movement speed, attack states, weapons, health, and damage/classes
+
+## These vars configure how ice like the surface is
+## Maximum speed that the player can reach
+@export var MAX_SPEED = 150
 const ACCELERATION = 500
 
-#Friction acts at the rate the speed decreases
-var FRICTION = 1000
+## Friction acts at the rate the speed decreases
+@export var FRICTION = 1000
 
 #Different States, adding a "," followed by a parameter adds a new state
 enum{
@@ -16,29 +20,28 @@ enum{
 	ATTACK
 }
 
-#Stealth
-var detected = false
+## Stealth
+@export var detected = false
 
-#Manages what state we are in
+## Manages what state we are in
 var state = MOVE
 
-# This is the velocity calculation
+## This is the velocity calculation
 var vel = Vector2.ZERO
 
 var inputVector = Vector2.ZERO
 
-#Which direction to dash in
+## Which direction to dash in
 var dashVector = Vector2.RIGHT
 
-#Grab the weapon and get it ready for the Attack state
+## Grab the weapon and get it ready for the Attack state
 @onready var weapon = $Weapon
 
-#Animation Manager
+## Animation Manager
 @onready var animationPlayer = $AnimationPlayer
 
 var walking = false
 var on = false
-########## VARS ##########
 
 
 func _ready():
@@ -49,10 +52,12 @@ func _ready():
 	else:
 		$PointLight2D.visible = false
 
+## Assigns the Players class at start of a new run.
+##
+## Reassignment from default values for different class types.
+## Default variables are for Assassin.
+## Int to name ID: -1 = N/A, 0 = Assassin, 1 = Alchemist, 2 = Dualist, 3 = Paladin
 func classAssignment():
-	#Reassignment from default values for different class types
-	#Default variables are for Assassin
-	#Int to name ID: -1 = N/A, 0 = Assassin, 1 = Alchemist, 2 = Dualist, 3 = Paladin
 	if global.classInt == 0:
 		global.plrHP = 90
 		global.plrMaxStamina = 125.0
