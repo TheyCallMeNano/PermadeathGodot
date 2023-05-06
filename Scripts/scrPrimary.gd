@@ -24,7 +24,7 @@ func attack():
 		elif global.attackMode == 1:
 			pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if counter != 30:
 		counter += 1
 	if global.classInt == 1:
