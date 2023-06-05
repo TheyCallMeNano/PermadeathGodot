@@ -162,6 +162,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 #Attack Extended
 func attackState():
+	animationPlayer.play("Throwing")
 	weapon.attack()
 	if global.classInt != 1:
 		vel = vel.move_toward(Vector2.ZERO, 60)

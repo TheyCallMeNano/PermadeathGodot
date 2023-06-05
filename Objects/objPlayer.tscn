@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://b5qbs5kbjdp7p"]
+[gd_scene load_steps=16 format=3 uid="uid://b5qbs5kbjdp7p"]
 
-[ext_resource type="Texture2D" uid="uid://cgl6txsq63o1a" path="res://Sprites/Player/sprRouge.png" id="1"]
 [ext_resource type="Script" path="res://Scripts/scrPlayer.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://do540s8lnbdur" path="res://Sprites/Player/Alchemist/sprAlchemist.png" id="2_54r5n"]
 [ext_resource type="Texture2D" uid="uid://ccrwv0t7b8ymx" path="res://Sprites/GUI/Light.png" id="3"]
 [ext_resource type="PackedScene" uid="uid://dy537m37wlcyt" path="res://Objects/objWeapon.tscn" id="4_3ugyl"]
 [ext_resource type="Script" path="res://Objects/scrAoE.gd" id="5_cyrnw"]
@@ -11,7 +11,7 @@
 
 [sub_resource type="Animation" id="2"]
 resource_name = "Idle"
-length = 0.5
+length = 0.35
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -27,7 +27,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="3"]
 resource_name = "Run"
-length = 0.6
+length = 0.45
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -38,13 +38,42 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 4, 5, 6, 7]
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_yeuve"]
+resource_name = "Throwing"
+length = 0.45
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer:current_animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_imj8m"]
 _data = {
 "Idle": SubResource("2"),
-"Run": SubResource("3")
+"Run": SubResource("3"),
+"Throwing": SubResource("Animation_yeuve")
 }
 
 [sub_resource type="CapsuleShape2D" id="1"]
@@ -64,9 +93,11 @@ collision_mask = 5
 script = ExtResource("2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -12)
-texture = ExtResource("1")
-hframes = 8
+position = Vector2(0, -8)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_54r5n")
+hframes = 3
+vframes = 3
 frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -75,6 +106,8 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -3)
 rotation = 1.5708
 shape = SubResource("1")
 
@@ -86,37 +119,45 @@ texture = ExtResource("3")
 texture_scale = 3.0
 
 [node name="SightBox" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, -4)
 scale = Vector2(2, 2)
 collision_layer = 5
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SightBox"]
-position = Vector2(0, -0.5)
+position = Vector2(0, -2)
 shape = SubResource("4")
 
 [node name="Weapon" parent="." instance=ExtResource("4_3ugyl")]
+visible = false
 position = Vector2(20, -8)
 
 [node name="AoE" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("5_cyrnw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AoE"]
+position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_tet4p")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -1)
 zoom = Vector2(3, 3)
 
 [node name="sndDash" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -1)
 stream = ExtResource("5_r3g85")
 volume_db = 8.0
 
 [node name="sndDirtStep" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -1)
 stream = ExtResource("6_usm3q")
 
 [node name="sndTileStep" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -1)
 stream = ExtResource("7_xthyu")
 
 [connection signal="area_entered" from="SightBox" to="." method="_on_sight_box_area_entered"]
