@@ -23,7 +23,7 @@ var elementalInt = 0
 var elementalName = ""
 ## Status Int to Name ID: Buffs: Health = 0, AttackSpeed = 1, Defense = 3, Damage = 4;
 ## Debuffs: Speed = 5, Weakness = 6, Slowness = 7
-var statusInt = 0
+var statusInt = -1
 var statusName = ""
 ## This var is for both class ints 1 and 2; if the var is 0 the potion is POISON/SHORTBOW
 ## If the var is 1 the potion is ACID/BROADSWORD and if the var is 3 the potion is MOLTEN

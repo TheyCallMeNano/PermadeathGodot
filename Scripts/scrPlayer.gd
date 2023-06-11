@@ -69,7 +69,6 @@ func _physics_process(delta):
 	if global.attackMode == 1 && on == false:
 		on = true
 		$AoE.monitoring = true
-		$AoE.active()
 	if global.attackMode == 0 && on == true:
 		$AoE.monitoring = false
 		on = false
@@ -157,13 +156,16 @@ func moveState(delta):
 
 #What to do when the player attacks
 func _unhandled_input(event: InputEvent) -> void:
-		if event.is_action_pressed("primaryAttack") || event.is_action_pressed("secondaryAttack"):
+		if event.is_action_pressed("primaryAttack") || event.is_action_pressed("switchMode"):
 			state = ATTACK
 	
 #Attack Extended
 func attackState():
 	animationPlayer.play("Throwing")
-	weapon.attack()
+	if global.attackMode == 0:
+		weapon.attack()
+	elif $AoE.statActive == false:
+		$AoE.active()
 	if global.classInt != 1:
 		vel = vel.move_toward(Vector2.ZERO, 60)
 		animationPlayer.play("Idle")

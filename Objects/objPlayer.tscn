@@ -130,11 +130,9 @@ position = Vector2(0, -2)
 shape = SubResource("4")
 
 [node name="Weapon" parent="." instance=ExtResource("4_3ugyl")]
-visible = false
 position = Vector2(20, -8)
 
 [node name="AoE" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("5_cyrnw")
