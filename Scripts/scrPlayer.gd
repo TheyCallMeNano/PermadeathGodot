@@ -69,9 +69,14 @@ func _physics_process(delta):
 	if global.attackMode == 1 && on == false:
 		on = true
 		$AoE.monitoring = true
+		$AoE/Sprite2D.visible = true
 	if global.attackMode == 0 && on == true:
 		$AoE.monitoring = false
+		$AoE/Sprite2D.visible = false
 		on = false
+	
+	if Input.is_action_pressed("switchMode") && $AoE.statActive == false:
+		$AoE.active()
 	
 	if Input.is_action_pressed("zoomOut"):
 		$Camera2D.zoom.x -= .02
@@ -156,7 +161,7 @@ func moveState(delta):
 
 #What to do when the player attacks
 func _unhandled_input(event: InputEvent) -> void:
-		if event.is_action_pressed("primaryAttack") || event.is_action_pressed("switchMode"):
+		if event.is_action_pressed("primaryAttack"):
 			state = ATTACK
 	
 #Attack Extended
@@ -164,8 +169,6 @@ func attackState():
 	animationPlayer.play("Throwing")
 	if global.attackMode == 0:
 		weapon.attack()
-	elif $AoE.statActive == false:
-		$AoE.active()
 	if global.classInt != 1:
 		vel = vel.move_toward(Vector2.ZERO, 60)
 		animationPlayer.play("Idle")

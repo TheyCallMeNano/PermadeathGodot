@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b5qbs5kbjdp7p"]
+[gd_scene load_steps=17 format=3 uid="uid://b5qbs5kbjdp7p"]
 
 [ext_resource type="Script" path="res://Scripts/scrPlayer.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://do540s8lnbdur" path="res://Sprites/Player/Alchemist/sprAlchemist.png" id="2_54r5n"]
@@ -6,8 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dy537m37wlcyt" path="res://Objects/objWeapon.tscn" id="4_3ugyl"]
 [ext_resource type="Script" path="res://Objects/scrAoE.gd" id="5_cyrnw"]
 [ext_resource type="AudioStream" uid="uid://bsjrpyiqfgo1f" path="res://Sounds/sndDash.wav" id="5_r3g85"]
+[ext_resource type="Texture2D" uid="uid://bfl8gt8b1611i" path="res://Sprites/Player/Alchemist/sprBuffRadius.png" id="6_sis3a"]
 [ext_resource type="AudioStream" uid="uid://cj0lvt7ciqgdf" path="res://Sounds/sndDirtStep.wav" id="6_usm3q"]
 [ext_resource type="AudioStream" uid="uid://bujbtwgucwi2r" path="res://Sounds/sndTileStep.wav" id="7_xthyu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tet4p"]
+radius = 30.0167
 
 [sub_resource type="Animation" id="2"]
 resource_name = "Idle"
@@ -84,13 +88,25 @@ height = 10.0
 radius = 3.0
 height = 9.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tet4p"]
-radius = 30.0167
-
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("2")
+
+[node name="AoE" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("5_cyrnw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AoE"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_tet4p")
+
+[node name="Sprite2D" type="Sprite2D" parent="AoE"]
+visible = false
+position = Vector2(7.7486e-07, -0.999999)
+scale = Vector2(0.472441, 0.472441)
+texture = ExtResource("6_sis3a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
@@ -131,15 +147,6 @@ shape = SubResource("4")
 
 [node name="Weapon" parent="." instance=ExtResource("4_3ugyl")]
 position = Vector2(20, -8)
-
-[node name="AoE" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("5_cyrnw")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AoE"]
-position = Vector2(0, -1)
-shape = SubResource("CircleShape2D_tet4p")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -1)

@@ -1,12 +1,11 @@
-res://Objects/objWeapon.tscn
+res://Objects/objPlayer.tscn
 res://Fonts/Default.tres
 res://TileSets/tsPlains.tres
 res://TileSets/tsCellar.tres
+res://Scripts/scrPlayer.gd
 res://Rooms/ClassSelection.tscn
 res://Rooms/MainScene.tscn
 res://Rooms/Underground.tscn
-res://Objects/objPlayer.tscn
-res://Scripts/scrPrimary.gd
-res://Scripts/scrPlayer.gd
+res://Objects/objWeapon.tscn
 res://Objects/scrAoE.gd
 res://Scripts/scrGlobals.gd

@@ -1,3 +1,4 @@
+Sprite2D
 CollisionShape2D
 Area2D
 AudioStreamPlayer2D
@@ -8,7 +9,6 @@ Line2D
 CharacterBody2D
 NavigationAgent2D
 AnimationPlayer
-Sprite2D
 RigidBody2D
 RichTextLabel
 Button

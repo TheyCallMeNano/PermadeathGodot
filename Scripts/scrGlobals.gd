@@ -3,7 +3,7 @@ extends Node
 #Controllers
 var gameSaveSlot = 0
 var path = 0
-var version = "PREVIEW 0.0.0.6b"
+var version = "PREVIEW 0.0.0.7a"
 
 #Player Vars
 ## Int to name ID: -1 = N/A, 0 = Assassin, 1 = Alchemist, 2 = Dualist, 3 = Paladin
@@ -21,8 +21,8 @@ var baseDMG = 15
 ## Elemental Int to name ID: 0 = Poison, 1 = Acid, 2 = Molten // More at some point
 var elementalInt = 0
 var elementalName = ""
-## Status Int to Name ID: Buffs: Health = 0, AttackSpeed = 1, Defense = 3, Damage = 4;
-## Debuffs: Speed = 5, Weakness = 6, Slowness = 7
+## Status Int to Name ID: Buffs: Health = 0, AttackSpeed = 1, Defense = 2, Damage = 3;
+## Debuffs: Speed = 4, Weakness = 5, Slowness = 6
 var statusInt = -1
 var statusName = ""
 ## This var is for both class ints 1 and 2; if the var is 0 the potion is POISON/SHORTBOW
@@ -42,10 +42,14 @@ func _process(_delta):
 		styleEquipped = 1
 	elif Input.get_action_strength("styleThree") && classInt == 1 && attackMode != 1:
 		styleEquipped = 2
-	if Input.is_action_just_released("changeStatus") && statusInt != 7:
+	if Input.is_action_just_released("changeStatusUp") && statusInt != 7:
 		statusInt += 1
-	elif Input.is_action_just_released("changeStatus") && statusInt == 7:
+	elif Input.is_action_just_released("changeStatusDown") && statusInt != 7:
+		statusInt -= 1
+	if statusInt > 6:
 		statusInt = 0
+	elif statusInt < 0:
+		statusInt = 6
 	if Input.is_action_just_pressed("switchMode") && toggled == true:
 		attackMode = 1
 		toggled = false

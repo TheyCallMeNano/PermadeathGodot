@@ -14,13 +14,14 @@ func active():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if statIntPrev != global.statusInt && Input.is_action_just_released("changeStatus"):
-		statNegative()
-		statIntPrev = global.statusInt
-		active()
-	if monitoring == false && statActive == true:
-		statActive = false
-		statNegative()
+	if global.attackMode == 1:
+		if statIntPrev != global.statusInt && Input.is_action_just_released("changeStatusUp") || statIntPrev != global.statusInt && Input.is_action_just_released("changeStatusDown"):
+			statNegative()
+			statIntPrev = global.statusInt
+			active()
+		if monitoring == false && statActive == true:
+			statActive = false
+			statNegative()
 
 func statNegative():
 		if statIntPrev == 0:
