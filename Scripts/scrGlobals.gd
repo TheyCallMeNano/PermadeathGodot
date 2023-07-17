@@ -3,7 +3,7 @@ extends Node
 #Controllers
 var gameSaveSlot = 0
 var path = 0
-var version = "PREVIEW 0.0.0.7a"
+var version = "PREVIEW 0.0.0.7b"
 
 #Player Vars
 ## Int to name ID: -1 = N/A, 0 = Assassin, 1 = Alchemist, 2 = Dualist, 3 = Paladin

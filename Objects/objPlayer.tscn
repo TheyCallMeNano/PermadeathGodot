@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/scrPlayer.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://do540s8lnbdur" path="res://Sprites/Player/Alchemist/sprAlchemist.png" id="2_54r5n"]
+[ext_resource type="Script" path="res://Scripts/scrAoE.gd" id="2_md7p6"]
 [ext_resource type="Texture2D" uid="uid://ccrwv0t7b8ymx" path="res://Sprites/GUI/Light.png" id="3"]
 [ext_resource type="PackedScene" uid="uid://dy537m37wlcyt" path="res://Objects/objWeapon.tscn" id="4_3ugyl"]
-[ext_resource type="Script" path="res://Objects/scrAoE.gd" id="5_cyrnw"]
 [ext_resource type="AudioStream" uid="uid://bsjrpyiqfgo1f" path="res://Sounds/sndDash.wav" id="5_r3g85"]
 [ext_resource type="Texture2D" uid="uid://bfl8gt8b1611i" path="res://Sprites/Player/Alchemist/sprBuffRadius.png" id="6_sis3a"]
 [ext_resource type="AudioStream" uid="uid://cj0lvt7ciqgdf" path="res://Sounds/sndDirtStep.wav" id="6_usm3q"]
@@ -88,7 +88,7 @@ height = 10.0
 radius = 3.0
 height = 9.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("2")
@@ -96,7 +96,7 @@ script = ExtResource("2")
 [node name="AoE" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("5_cyrnw")
+script = ExtResource("2_md7p6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AoE"]
 position = Vector2(0, -1)

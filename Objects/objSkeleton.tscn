@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bck8rsnn254l1"]
+[gd_scene load_steps=12 format=3 uid="uid://bck8rsnn254l1"]
 
 [ext_resource type="Script" path="res://Scripts/scrEnemyGeneric.gd" id="1_lphab"]
 [ext_resource type="Texture2D" uid="uid://bf85nrmuejaj" path="res://Sprites/NPC'S/Skeleton/skeleton_idle.png" id="2_yow2k"]
 [ext_resource type="PackedScene" uid="uid://dxse2i1fgne8v" path="res://Objects/objSight.tscn" id="3_smvam"]
 [ext_resource type="AudioStream" uid="uid://dduy4lwfiljlu" path="res://Sounds/sndGenericHit1.wav" id="4_ddb7h"]
+[ext_resource type="Script" path="res://Scripts/States/scrStateMachine.gd" id="5_txoju"]
+[ext_resource type="Script" path="res://Scripts/States/scrEnemyIdle.gd" id="6_gjbc2"]
+[ext_resource type="Script" path="res://Scripts/States/scrEnemyChase.gd" id="7_p4rth"]
 
 [sub_resource type="Animation" id="2"]
 resource_name = "Hit"
@@ -95,5 +98,20 @@ position = Vector2(0, -7)
 [node name="sndGenericHit1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ddb7h")
 
-[connection signal="area_entered" from="Sight" to="." method="_on_sight_area_entered"]
-[connection signal="area_exited" from="Sight" to="." method="_on_sight_area_exited"]
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
+script = ExtResource("5_txoju")
+initialState = NodePath("Chase")
+
+[node name="Idle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("6_gjbc2")
+enemy = NodePath("../..")
+moveSpd = 25.0
+
+[node name="Chase" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("7_p4rth")
+enemy = NodePath("../..")
+
+[connection signal="area_entered" from="Sight" to="State Machine/Idle" method="_on_sight_area_entered"]
+[connection signal="area_entered" from="Sight" to="State Machine/Chase" method="_on_sight_area_entered"]
+[connection signal="area_exited" from="Sight" to="State Machine/Idle" method="_on_sight_area_exited"]
+[connection signal="area_exited" from="Sight" to="State Machine/Chase" method="_on_sight_area_exited"]
