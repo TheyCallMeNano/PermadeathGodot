@@ -56,3 +56,7 @@ func _process(_delta):
 	elif toggled == false && Input.is_action_just_pressed("switchMode"):
 		attackMode = 0
 		toggled = true
+	if plrHP == 0:
+		plrHP = 100
+		global.path = 0
+		get_tree().change_scene_to_file("res://Rooms/MainScene.tscn")

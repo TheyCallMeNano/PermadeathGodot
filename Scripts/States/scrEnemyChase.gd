@@ -15,6 +15,11 @@ func physicsUpdate(delta: float):
 	if chasing == true:
 		enemy.velocity = dir.normalized() * moveSpd
 		$"../../Sight".rotation = $"../..".position.angle_to_point(player.global_position)
+	if dir.length() < 100:
+		enemy.velocity = Vector2()
+		chasing = false
+		Transitioned.emit(self,"attackranged")
+		
 	else:
 		enemy.velocity = Vector2()
 		Transitioned.emit(self, "idle")

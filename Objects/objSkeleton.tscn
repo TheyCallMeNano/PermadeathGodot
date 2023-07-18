@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bck8rsnn254l1"]
+[gd_scene load_steps=13 format=3 uid="uid://bck8rsnn254l1"]
 
 [ext_resource type="Script" path="res://Scripts/scrEnemyGeneric.gd" id="1_lphab"]
 [ext_resource type="Texture2D" uid="uid://bf85nrmuejaj" path="res://Sprites/NPC'S/Skeleton/skeleton_idle.png" id="2_yow2k"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/States/scrStateMachine.gd" id="5_txoju"]
 [ext_resource type="Script" path="res://Scripts/States/scrEnemyIdle.gd" id="6_gjbc2"]
 [ext_resource type="Script" path="res://Scripts/States/scrEnemyChase.gd" id="7_p4rth"]
+[ext_resource type="Script" path="res://Scripts/States/scrAttackRanged.gd" id="8_xqtqe"]
 
 [sub_resource type="Animation" id="2"]
 resource_name = "Hit"
@@ -62,8 +63,8 @@ radius = 6.0
 height = 14.0
 
 [node name="Skeleton" type="CharacterBody2D" groups=["enemys"]]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 19
+collision_mask = 19
 script = ExtResource("1_lphab")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -85,8 +86,8 @@ shape = SubResource("1")
 [node name="Area2D" type="Area2D" parent="."]
 light_mask = 2
 visibility_layer = 2
-collision_layer = 2
-collision_mask = 2
+collision_layer = 18
+collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -7)
@@ -111,7 +112,14 @@ moveSpd = 25.0
 script = ExtResource("7_p4rth")
 enemy = NodePath("../..")
 
+[node name="AttackRanged" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("8_xqtqe")
+enemy = NodePath("../..")
+
+[node name="Cooldown" type="Timer" parent="State Machine/AttackRanged"]
+
 [connection signal="area_entered" from="Sight" to="State Machine/Idle" method="_on_sight_area_entered"]
 [connection signal="area_entered" from="Sight" to="State Machine/Chase" method="_on_sight_area_entered"]
 [connection signal="area_exited" from="Sight" to="State Machine/Idle" method="_on_sight_area_exited"]
 [connection signal="area_exited" from="Sight" to="State Machine/Chase" method="_on_sight_area_exited"]
+[connection signal="timeout" from="State Machine/AttackRanged/Cooldown" to="State Machine/AttackRanged" method="_on_timer_timeout"]
