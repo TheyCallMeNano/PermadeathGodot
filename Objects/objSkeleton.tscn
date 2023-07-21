@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bck8rsnn254l1"]
+[gd_scene load_steps=14 format=3 uid="uid://bck8rsnn254l1"]
 
 [ext_resource type="Script" path="res://Scripts/scrEnemyGeneric.gd" id="1_lphab"]
 [ext_resource type="Texture2D" uid="uid://bf85nrmuejaj" path="res://Sprites/NPC'S/Skeleton/skeleton_idle.png" id="2_yow2k"]
@@ -8,10 +8,11 @@
 [ext_resource type="Script" path="res://Scripts/States/scrEnemyIdle.gd" id="6_gjbc2"]
 [ext_resource type="Script" path="res://Scripts/States/scrEnemyChase.gd" id="7_p4rth"]
 [ext_resource type="Script" path="res://Scripts/States/scrAttackRanged.gd" id="8_xqtqe"]
+[ext_resource type="Script" path="res://Scripts/States/scrHandleHit.gd" id="9_ta6d7"]
 
 [sub_resource type="Animation" id="2"]
 resource_name = "Hit"
-length = 0.31
+length = 0.32
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -101,7 +102,7 @@ stream = ExtResource("4_ddb7h")
 
 [node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
 script = ExtResource("5_txoju")
-initialState = NodePath("Chase")
+initialState = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("6_gjbc2")
@@ -117,6 +118,10 @@ script = ExtResource("8_xqtqe")
 enemy = NodePath("../..")
 
 [node name="Cooldown" type="Timer" parent="State Machine/AttackRanged"]
+
+[node name="HandleHit" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("9_ta6d7")
+enemy = NodePath("../..")
 
 [connection signal="area_entered" from="Sight" to="State Machine/Idle" method="_on_sight_area_entered"]
 [connection signal="area_entered" from="Sight" to="State Machine/Chase" method="_on_sight_area_entered"]

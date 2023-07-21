@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var player: CharacterBody2D
+var dmg = null
 
 func _ready():
 	$AnimationPlayer.play("Moving")
@@ -11,6 +12,6 @@ func _physics_process(delta):
 
 func _on_area_2d_area_entered(area):
 	if player == area.get_parent():
-		global.plrHP -= 5
+		global.plrHP -= dmg
 		print(global.plrHP)
 		queue_free()

@@ -37,3 +37,4 @@ func onChildTransition(state, newStateName):
 	newState.Enter()
 	
 	currentState = newState
+	print("New State: " + str(currentState))

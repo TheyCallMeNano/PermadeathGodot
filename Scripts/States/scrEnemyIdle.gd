@@ -18,6 +18,10 @@ func Enter():
 	randomizeWander()
 
 func Update(delta: float):
+	if $"../..".beingHit == true:
+		$"../..".beingHit == false
+		Transitioned.emit(self,"handlehit")
+	
 	if wanderTime > 0:
 		wanderTime -= delta
 	

@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dd4cd6ffeqpsb"]
+[gd_scene load_steps=11 format=3 uid="uid://dd4cd6ffeqpsb"]
 
 [ext_resource type="Script" path="res://Scripts/scrEnemyGeneric.gd" id="1_1riq5"]
 [ext_resource type="Texture2D" uid="uid://wjxynqaoxomk" path="res://Sprites/NPC'S/sprDummy.png" id="1_rj5pt"]
 [ext_resource type="PackedScene" uid="uid://dxse2i1fgne8v" path="res://Objects/objSight.tscn" id="3_ij0eb"]
 [ext_resource type="AudioStream" uid="uid://dduy4lwfiljlu" path="res://Sounds/sndGenericHit1.wav" id="4_84jlu"]
+[ext_resource type="Script" path="res://Scripts/States/scrStateMachine.gd" id="5_mptek"]
+[ext_resource type="Script" path="res://Scripts/States/scrHandleHit.gd" id="6_r5c8r"]
 
 [sub_resource type="Animation" id="2"]
 resource_name = "Hit"
@@ -94,3 +96,11 @@ position = Vector2(0, -6)
 
 [node name="sndGenericHit1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_84jlu")
+
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
+script = ExtResource("5_mptek")
+initialState = NodePath("HandleHit")
+
+[node name="HandleHit" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("6_r5c8r")
+enemy = NodePath("../..")

@@ -32,4 +32,3 @@ func _physics_process(_delta):
 func _on_area_entered(area):
 	if area.get_parent().has_method("handleHit"):
 		area.get_parent().handleHit()
-		area.get_parent().chasing = true

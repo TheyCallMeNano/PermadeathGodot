@@ -2,16 +2,4 @@ res://Objects/objSkeleton.tscn
 res://Fonts/Default.tres
 res://TileSets/tsPlains.tres
 res://TileSets/tsCellar.tres
-res://Scripts/States/scrAttackRanged.gd
-res://Objects/objIceSpell.tscn
-res://Scripts/scrDamageCalculator.gd
-res://Scripts/States/scrEnemyChase.gd
-res://Rooms/ClassSelection.tscn
-res://Rooms/MainScene.tscn
-res://Rooms/Underground.tscn
-res://Objects/objPlayer.tscn
-res://Objects/objWeapon.tscn
-res://Scripts/scrPrimary.gd
-res://Objects/objPotion.tscn
-res://Objects/objDummy.tscn
 res://Scripts/scrGlobals.gd

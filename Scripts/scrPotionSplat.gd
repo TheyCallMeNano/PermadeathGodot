@@ -1,7 +1,6 @@
 extends Node2D
 
 var counter = 0
-@onready var chaseState = $"root/Hub/YSort/Skeleton/State Machine/Chase"
 
 ##### ELEMENTAL DICTIONARY #####
 #Elemental Int to name ID: 0 = Poison, 1 = Acid, 2 = Molten
