@@ -1,0 +1,197 @@
+[gd_scene load_steps=18 format=3 uid="uid://bvywib4hbnk0n"]
+
+[ext_resource type="Script" path="res://Scripts/scrEnemyGeneric.gd" id="1_2gqs6"]
+[ext_resource type="Texture2D" uid="uid://bf85nrmuejaj" path="res://Sprites/NPC'S/Skeleton/skeleton_idle.png" id="2_lp0v4"]
+[ext_resource type="Texture2D" uid="uid://dgk8rfp8gqt7r" path="res://Sprites/GUI/sprSlash.png" id="3_1c687"]
+[ext_resource type="PackedScene" uid="uid://dxse2i1fgne8v" path="res://Objects/objSight.tscn" id="3_wsjic"]
+[ext_resource type="AudioStream" uid="uid://dduy4lwfiljlu" path="res://Sounds/sndGenericHit1.wav" id="4_o01vs"]
+[ext_resource type="Script" path="res://Scripts/States/scrStateMachine.gd" id="5_8huen"]
+[ext_resource type="Script" path="res://Scripts/States/scrEnemyIdle.gd" id="6_dghei"]
+[ext_resource type="Script" path="res://Scripts/States/scrEnemyChase.gd" id="7_4iaqu"]
+[ext_resource type="Script" path="res://Scripts/States/scrHandleHit.gd" id="9_sc0so"]
+[ext_resource type="Script" path="res://Scripts/States/scrAttackMelee.gd" id="10_1wpju"]
+
+[sub_resource type="Animation" id="2"]
+resource_name = "Hit"
+length = 0.32
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.996078, 0, 0.14902, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../sndGenericHit1:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kaudh"]
+_data = {
+"Hit": SubResource("2")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ldeb"]
+size = Vector2(16, 16)
+
+[sub_resource type="CapsuleShape2D" id="1"]
+radius = 4.0
+height = 8.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0yukw"]
+radius = 6.0
+height = 14.0
+
+[sub_resource type="Animation" id="Animation_r2hgp"]
+resource_name = "Slash"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Weapon/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Weapon/Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Weapon/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s3ugx"]
+_data = {
+"Slash": SubResource("Animation_r2hgp")
+}
+
+[node name="Skeleton" type="CharacterBody2D" groups=["enemys"]]
+collision_layer = 19
+collision_mask = 19
+script = ExtResource("1_2gqs6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CollisionShape2D")
+libraries = {
+"": SubResource("AnimationLibrary_kaudh")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+texture = ExtResource("2_lp0v4")
+hframes = 4
+vframes = 4
+
+[node name="Weapon" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon"]
+position = Vector2(24, -8)
+scale = Vector2(1, 0.8)
+shape = SubResource("RectangleShape2D_4ldeb")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapon"]
+visible = false
+position = Vector2(24, -8)
+texture = ExtResource("3_1c687")
+hframes = 5
+vframes = 2
+frame = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("1")
+
+[node name="PotionCheck" type="Area2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+collision_layer = 18
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PotionCheck"]
+position = Vector2(0, -7)
+shape = SubResource("CapsuleShape2D_0yukw")
+
+[node name="Sight" parent="." instance=ExtResource("3_wsjic")]
+
+[node name="sndGenericHit1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_o01vs")
+
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
+script = ExtResource("5_8huen")
+initialState = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("6_dghei")
+enemy = NodePath("../..")
+moveSpd = 25.0
+
+[node name="Chase" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("7_4iaqu")
+enemy = NodePath("../..")
+
+[node name="AttackMelee" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("10_1wpju")
+enemy = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="State Machine/AttackMelee"]
+libraries = {
+"": SubResource("AnimationLibrary_s3ugx")
+}
+
+[node name="HandleHit" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("9_sc0so")
+enemy = NodePath("../..")
+
+[connection signal="area_entered" from="Weapon" to="." method="_on_weapon_area_entered"]
+[connection signal="area_entered" from="Sight" to="State Machine/Idle" method="_on_sight_area_entered"]
+[connection signal="area_entered" from="Sight" to="State Machine/Chase" method="_on_sight_area_entered"]
+[connection signal="area_exited" from="Sight" to="State Machine/Idle" method="_on_sight_area_exited"]
+[connection signal="area_exited" from="Sight" to="State Machine/Chase" method="_on_sight_area_exited"]

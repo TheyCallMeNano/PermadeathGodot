@@ -46,6 +46,7 @@ var on = false
 
 func _ready():
 	classAssignment()
+	print(get_tree().get_nodes_in_group("enemys"))
 	global.plrStamina = global.plrMaxStamina
 	if global.path == 1:
 		$PointLight2D.visible = true

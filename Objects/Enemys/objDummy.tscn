@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://dd4cd6ffeqpsb"]
 
-[ext_resource type="Script" path="res://Scripts/scrEnemyGeneric.gd" id="1_1riq5"]
-[ext_resource type="Texture2D" uid="uid://wjxynqaoxomk" path="res://Sprites/NPC'S/sprDummy.png" id="1_rj5pt"]
-[ext_resource type="PackedScene" uid="uid://dxse2i1fgne8v" path="res://Objects/objSight.tscn" id="3_ij0eb"]
-[ext_resource type="AudioStream" uid="uid://dduy4lwfiljlu" path="res://Sounds/sndGenericHit1.wav" id="4_84jlu"]
-[ext_resource type="Script" path="res://Scripts/States/scrStateMachine.gd" id="5_mptek"]
-[ext_resource type="Script" path="res://Scripts/States/scrHandleHit.gd" id="6_r5c8r"]
+[ext_resource type="Script" path="res://Scripts/scrEnemyGeneric.gd" id="1_xta57"]
+[ext_resource type="Texture2D" uid="uid://wjxynqaoxomk" path="res://Sprites/NPC'S/sprDummy.png" id="2_ilciq"]
+[ext_resource type="PackedScene" uid="uid://dxse2i1fgne8v" path="res://Objects/objSight.tscn" id="3_dxrs8"]
+[ext_resource type="AudioStream" uid="uid://dduy4lwfiljlu" path="res://Sounds/sndGenericHit1.wav" id="4_ux0sg"]
+[ext_resource type="Script" path="res://Scripts/States/scrStateMachine.gd" id="5_iuiw4"]
+[ext_resource type="Script" path="res://Scripts/States/scrHandleHit.gd" id="6_qtbbd"]
 
 [sub_resource type="Animation" id="2"]
 resource_name = "Hit"
@@ -63,7 +63,7 @@ height = 16.0
 [node name="Dummy" type="CharacterBody2D" groups=["enemys"]]
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("1_1riq5")
+script = ExtResource("1_xta57")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../CollisionShape2D")
@@ -73,7 +73,7 @@ libraries = {
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -10)
-texture = ExtResource("1_rj5pt")
+texture = ExtResource("2_ilciq")
 hframes = 4
 vframes = 3
 
@@ -91,16 +91,16 @@ collision_mask = 18
 position = Vector2(0, -6)
 shape = SubResource("CapsuleShape2D_0yukw")
 
-[node name="Sight" parent="." instance=ExtResource("3_ij0eb")]
+[node name="Sight" parent="." instance=ExtResource("3_dxrs8")]
 position = Vector2(0, -6)
 
 [node name="sndGenericHit1" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_84jlu")
+stream = ExtResource("4_ux0sg")
 
 [node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
-script = ExtResource("5_mptek")
+script = ExtResource("5_iuiw4")
 initialState = NodePath("HandleHit")
 
 [node name="HandleHit" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
-script = ExtResource("6_r5c8r")
+script = ExtResource("6_qtbbd")
 enemy = NodePath("../..")

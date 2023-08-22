@@ -24,12 +24,15 @@ func physicsUpdate(delta: float):
 		$"../../Sight".rotation = $"../..".position.angle_to_point(player.global_position)
 	else:
 		enemy.velocity = Vector2()
-	if dir.length() < 100:
+	if dir.length() < 100 && get_parent().get_child(2).name == "AttackRanged":
 		enemy.velocity = Vector2()
 		chasing = false
 		Transitioned.emit(self,"attackranged")
-	elif chasing == false:
+	elif dir.length() <= 30 && get_parent().get_child(2).name == "AttackMelee":
 		enemy.velocity = Vector2()
+		Transitioned.emit(self, "attackmelee")
+	elif chasing == false:
+		enemy.velocity = Vector2.ZERO
 
 func _on_sight_area_entered(area):
 	if player == area.get_parent():

@@ -1,5 +1,14 @@
-res://Objects/objSkeleton.tscn
+res://Rooms/ClassSelection.tscn
 res://Fonts/Default.tres
 res://TileSets/tsPlains.tres
 res://TileSets/tsCellar.tres
+res://Rooms/MainScene.tscn
+res://Rooms/Underground.tscn
+res://Objects/Enemys/objSkeletonRanged.tscn
+res://Objects/Enemys/objSkeletonMelee.tscn
+res://Objects/objSpawner.tscn
+res://Scripts/States/scrEnemyChase.gd
+res://Scripts/scrSpawner.gd
+res://Scripts/States/scrAttackMelee.gd
+res://Scripts/scrEnemyGeneric.gd
 res://Scripts/scrGlobals.gd

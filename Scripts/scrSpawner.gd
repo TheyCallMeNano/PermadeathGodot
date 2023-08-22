@@ -6,7 +6,7 @@ var spawning = true
 var spawnTotal = 25
 var spawned = 0
 var region = null
-var enemy1 = preload("res://Objects/objSkeleton.tscn")
+var enemy = null
 
 func _on_area_entered(area):
 	region = area
@@ -18,7 +18,15 @@ func _ready():
 
 func _physics_process(delta):
 	if spawning == true && region == $/root/Hub/spawningZone && spawned != spawnTotal:
-		var enemyInst = enemy1.instantiate()
+		if global.randEID == 0:
+			enemy = preload("res://Objects/Enemys/objSkeletonMelee.tscn")
+			print("Enemy ID: " + str(global.randEID))
+			global.randEID = randi() % global.eID.size()
+		elif global.randEID == 1:
+			enemy = preload("res://Objects/Enemys/objSkeletonRanged.tscn")
+			print("Enemy ID: " + str(global.randEID))
+			global.randEID = randi() % global.eID.size()
+		var enemyInst = enemy.instantiate()
 		enemyInst.position = position
 		$/root/Hub/YSort.add_child(enemyInst)
 		print("Spawned at: " + str(position) + "\n" + str(region))

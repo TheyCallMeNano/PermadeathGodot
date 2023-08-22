@@ -42,6 +42,8 @@ func _physics_process(delta):
 	if eHealth <= 0:
 		print("Dead!")
 		queue_free()
+	
+
 
 func Acid():
 	acidActive = true
@@ -54,3 +56,9 @@ func Poison():
 func Molten():
 	moltenActive = true
 	handleHit()
+
+
+func _on_weapon_area_entered(area):
+	if player == area.get_parent():
+		global.plrHP -= attackDMG
+		print(global.plrHP)
