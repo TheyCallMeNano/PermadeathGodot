@@ -6,9 +6,6 @@ res://Rooms/MainScene.tscn
 res://Rooms/Underground.tscn
 res://Objects/Enemys/objSkeletonRanged.tscn
 res://Objects/Enemys/objSkeletonMelee.tscn
-res://Objects/objSpawner.tscn
-res://Scripts/States/scrEnemyChase.gd
-res://Scripts/scrSpawner.gd
-res://Scripts/States/scrAttackMelee.gd
-res://Scripts/scrEnemyGeneric.gd
-res://Scripts/scrGlobals.gd
+res://Objects/objPlayer.tscn
+res://Objects/objWeapon.tscn
+res://Scripts/States/scrEnemyIdle.gd

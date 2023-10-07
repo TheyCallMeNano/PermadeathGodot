@@ -95,7 +95,6 @@ position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_0yukw")
 
 [node name="Sight" parent="." instance=ExtResource("3_rc6sn")]
-position = Vector2(0, -7)
 
 [node name="sndGenericHit1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_g0la5")

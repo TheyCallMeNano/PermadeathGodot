@@ -3,13 +3,14 @@ class_name EnemyChase
 
 @onready var animationPlayer = $"../../AnimationPlayer"
 
-var chasing = false
+var chasing = true
 @export var enemy: CharacterBody2D
 @export var moveSpd := 75.0
 var player: CharacterBody2D
 
 func Enter():
 	player = get_tree().get_first_node_in_group("player")
+	chasing = true
 
 func Update(delta: float):
 	if $"../..".beingHit == true:
@@ -33,6 +34,9 @@ func physicsUpdate(delta: float):
 		Transitioned.emit(self, "attackmelee")
 	elif chasing == false:
 		enemy.velocity = Vector2.ZERO
+
+func Exit():
+	$"../..".previousState = self.name
 
 func _on_sight_area_entered(area):
 	if player == area.get_parent():

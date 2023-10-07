@@ -35,5 +35,8 @@ func physicsUpdate(delta: float):
 		canFire = false
 		Transitioned.emit(self,"chase")
 
+func Exit():
+	$"../..".previousState = self.name
+
 func _on_timer_timeout():
 	canFire = true

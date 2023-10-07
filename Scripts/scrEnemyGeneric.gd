@@ -9,11 +9,12 @@ extends CharacterBody2D
 var acidActive = false
 var poisonActive = false
 var moltenActive = false
-const FRICTION = 1000
+const FRICTION = 1500
 var acidCounter = 0
 var poisonCounter = 0
 var moltenCounter = 0
 var beingHit = false
+var previousState = "handlehit"
 @onready var player = $"/root/Hub/YSort/Player/"
 var dir = Vector2.ZERO
 var vel = Vector2.ZERO

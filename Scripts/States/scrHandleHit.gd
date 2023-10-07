@@ -14,7 +14,7 @@ func physicsUpdate(delta: float):
 	if global.classInt == 0:
 		enemy.eHealth -= global.baseDMG
 		print("Health: " + str(enemy.eHealth))
-		Transitioned.emit(self,"chase")
+		Transitioned.emit(self,$"../..".previousState)
 	
 	if $"../..".acidActive == true:
 		#Acid should reduce "accuracy" or make the enemy attack slower
@@ -27,7 +27,7 @@ func physicsUpdate(delta: float):
 			print("Acid Inflicted! Attack Speed: " + str($"../..".attackSpeed) + " Health: " + str($"../..".eHealth))
 		if $"../..".acidCounter == 60:
 			$"../..".attackSpeed += 1
-			Transitioned.emit(self,"chase")
+			Transitioned.emit(self,$"../..".previousState)
 
 			
 	if $"../..".poisonActive == true:
@@ -42,7 +42,7 @@ func physicsUpdate(delta: float):
 		if $"../..".poisonCounter == 60:
 			$"../..".eDefense += 4
 			$"../..".attackDMG += 1
-			Transitioned.emit(self,"chase")
+			Transitioned.emit(self,$"../..".previousState)
 
 			
 	if $"../..".moltenActive == true:
@@ -56,9 +56,10 @@ func physicsUpdate(delta: float):
 			print("Molten Inflicted! Defense: " + str($"../..".eDefense) + " Health: " + str($"../..".eHealth))
 		if $"../..".moltenCounter == 60:
 			$"../..".eDefense += 6
-			Transitioned.emit(self,"chase")
+			Transitioned.emit(self,$"../..".previousState)
 
 func Exit():
+	$"../..".previousState = self.name
 	$"../..".beingHit = false
 	$"../../Sight".rotation = $"../..".position.angle_to_point(player.global_position)
 	$"../..".moltenCounter = 0
