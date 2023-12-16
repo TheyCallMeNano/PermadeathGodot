@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dd4cd6ffeqpsb"]
+[gd_scene load_steps=12 format=3 uid="uid://dd4cd6ffeqpsb"]
 
 [ext_resource type="Script" path="res://Scripts/scrEnemyGeneric.gd" id="1_xta57"]
 [ext_resource type="Texture2D" uid="uid://wjxynqaoxomk" path="res://Sprites/NPC'S/sprDummy.png" id="2_ilciq"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dduy4lwfiljlu" path="res://Sounds/sndGenericHit1.wav" id="4_ux0sg"]
 [ext_resource type="Script" path="res://Scripts/States/scrStateMachine.gd" id="5_iuiw4"]
 [ext_resource type="Script" path="res://Scripts/States/scrHandleHit.gd" id="6_qtbbd"]
+[ext_resource type="Script" path="res://Scripts/States/scrEnemyIdle.gd" id="7_p1dt6"]
 
 [sub_resource type="Animation" id="2"]
 resource_name = "Hit"
@@ -99,8 +100,11 @@ stream = ExtResource("4_ux0sg")
 
 [node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
 script = ExtResource("5_iuiw4")
-initialState = NodePath("HandleHit")
+initialState = NodePath("Idle")
 
 [node name="HandleHit" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("6_qtbbd")
 enemy = NodePath("../..")
+
+[node name="Idle" type="Node" parent="State Machine"]
+script = ExtResource("7_p1dt6")

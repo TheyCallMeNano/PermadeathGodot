@@ -14,7 +14,8 @@ func randomizeWander():
 	wanderTime = randf_range(1,3)
 
 func Enter():
-	randomizeWander()
+	if !self.name == "Dummy":
+		randomizeWander()
 
 func Update(delta: float):
 	if $"../..".beingHit == true:

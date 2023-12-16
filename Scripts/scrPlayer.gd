@@ -87,16 +87,16 @@ func _physics_process(delta):
 		$Camera2D.zoom.y += .02
 		
 	if walking == false && inputVector != Vector2.ZERO:
-		if global.path == 1:
-			$sndTileStep.playing = false
-		else:
-			$sndDirtStep.playing = false
+		#if global.path == 1:
+			#$sndTileStep.playing = false
+		#else:
+			#$sndDirtStep.playing = false
 		walking = true
 	elif inputVector == Vector2.ZERO && walking == true:
-		if global.path == 1:
-			$sndTileStep.playing = true
-		else:
-			$sndDirtStep.playing = true
+		#if global.path == 1:
+			#$sndTileStep.playing = true
+		#else:
+			#$sndDirtStep.playing = true
 		walking = true
 	
 	match state:

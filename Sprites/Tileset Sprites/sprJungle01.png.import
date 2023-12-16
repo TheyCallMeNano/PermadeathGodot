@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7fdd153lq3y2"
-path="res://.godot/imported/sprCellar.png-6169f3bef8df2e1cb60cb7b1a392b61c.ctex"
+uid="uid://cpcfyfhva0y32"
+path="res://.godot/imported/sprJungle01.png-af298b69c7060938fb00b31217ff5b2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tileset Sprites/sprCellar.png"
-dest_files=["res://.godot/imported/sprCellar.png-6169f3bef8df2e1cb60cb7b1a392b61c.ctex"]
+source_file="res://Sprites/Tileset Sprites/sprJungle01.png"
+dest_files=["res://.godot/imported/sprJungle01.png-af298b69c7060938fb00b31217ff5b2a.ctex"]
 
 [params]
 

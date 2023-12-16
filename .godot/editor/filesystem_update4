@@ -1,11 +1,15 @@
-res://Rooms/ClassSelection.tscn
+res://Rooms/MainScene.tscn
 res://Fonts/Default.tres
 res://TileSets/tsPlains.tres
 res://TileSets/tsCellar.tres
-res://Rooms/MainScene.tscn
 res://Rooms/Underground.tscn
+res://TileSets/tsGrasslands01.tres
+res://Rooms/ClassSelection.tscn
 res://Objects/Enemys/objSkeletonRanged.tscn
 res://Objects/Enemys/objSkeletonMelee.tscn
 res://Objects/objPlayer.tscn
 res://Objects/objWeapon.tscn
+res://Scripts/scrPlayer.gd
+res://Objects/Enemys/objDummy.tscn
 res://Scripts/States/scrEnemyIdle.gd
+res://Scripts/scrEnemyGeneric.gd

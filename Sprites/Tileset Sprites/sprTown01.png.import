@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6gjavfvvcpr4"
-path="res://.godot/imported/sprPlains.png-f7587a98697be75e53a454dbeffecbc7.ctex"
+uid="uid://bxohcmgrslbxh"
+path="res://.godot/imported/sprTown01.png-f0f8ba38b109b3b103b1c1641ebf6d4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tileset Sprites/sprPlains.png"
-dest_files=["res://.godot/imported/sprPlains.png-f7587a98697be75e53a454dbeffecbc7.ctex"]
+source_file="res://Sprites/Tileset Sprites/sprTown01.png"
+dest_files=["res://.godot/imported/sprTown01.png-f0f8ba38b109b3b103b1c1641ebf6d4d.ctex"]
 
 [params]
 
