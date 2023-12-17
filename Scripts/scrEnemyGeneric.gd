@@ -62,4 +62,3 @@ func Molten():
 func _on_weapon_area_entered(area):
 	if player == area.get_parent():
 		global.plrHP -= attackDMG
-		print(global.plrHP)

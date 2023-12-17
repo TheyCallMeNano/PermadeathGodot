@@ -10,7 +10,6 @@ var wanderTime : float
 
 func randomizeWander():
 	moveDir = Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()
-	print($"../../Sight".rotation)
 	wanderTime = randf_range(1,3)
 
 func Enter():

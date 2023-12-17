@@ -1,14 +1,14 @@
+CollisionPolygon2D
+StaticBody2D
+CollisionShape2D
 TileMap
 Node
 Sprite2D
 Area2D
-CollisionShape2D
 AnimationPlayer
 Timer
 Node2D
-CollisionPolygon2D
 CharacterBody2D
 AudioStreamPlayer2D
 VisibleOnScreenNotifier2D
 Line2D
-NavigationAgent2D

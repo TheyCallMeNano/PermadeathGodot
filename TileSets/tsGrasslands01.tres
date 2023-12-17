@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://c27jhx0kh81i0"]
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://c27jhx0kh81i0"]
 
 [ext_resource type="Texture2D" uid="uid://dnoyapv6pw2d0" path="res://Sprites/Tileset Sprites/Grasslands/16x3/GrasslandsTextures.png" id="1_ryshj"]
 [ext_resource type="Texture2D" uid="uid://dek6ry73nyjbr" path="res://Sprites/Tileset Sprites/Grasslands/16x3/GrasslandsProps.png" id="2_s5ve0"]
@@ -15,7 +15,30 @@ tile_data = PackedInt32Array(0, 1048576, 3, 65536, 1048576, 4, 131072, 983040, 0
 [sub_resource type="TileMapPattern" id="TileMapPattern_eti4j"]
 tile_data = PackedInt32Array(0, 1507328, 3, 65536, 1507328, 4, 131072, 1507328, 5, 196608, 1245184, 11, 262144, 1245184, 12, 327680, 1900544, 11, 393216, 983040, 0, 458752, 983040, 0, 1, 1572864, 3, 65537, 983040, 5, 131073, 1114112, 9, 196609, 1376256, 8, 262145, 1441792, 12, 327681, 983040, 0, 393217, 983040, 0, 458753, 983040, 0, 2, 1638400, 3, 65538, 1638400, 14, 131074, 1179648, 9, 196610, 1310720, 268435467, 262146, 1310720, 12, 327682, 983040, 6, 393218, 1507328, 5, 458754, 1900544, 11, 3, 983040, 0, 65539, 1769472, 6, 131075, 1769472, 7, 196611, 1179648, 3, 262147, 1245184, 7, 327683, 1310720, 12, 393219, 1310720, 13, 458755, 983040, 0, 4, 983040, 0, 65540, 1835008, 5, 131076, 1703936, 3, 196612, 1835008, 4, 262148, 1703936, 6, 327684, 1245184, 9, 393220, 1638400, 268435464, 458756, 983040, 0, 5, 983040, 0, 65541, 1507328, 10, 131077, 1835008, 2, 196613, 983040, 0, 262149, 983040, 0, 327685, 1900544, 10, 393221, 1900544, 11, 458757, 983040, 0, 6, 983040, 0, 65542, 983040, 0, 131078, 1310720, 4, 196614, 983040, 0, 262150, 983040, 0, 327686, 983040, 0, 393222, 983040, 0, 458758, 983040, 0)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4vou0"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c1ess"]
+resource_name = "Props"
+texture = ExtResource("2_s5ve0")
+1:92/size_in_atlas = Vector2i(28, 31)
+1:92/0 = 0
+1:92/0/texture_origin = Vector2i(0, 247)
+77:61/0 = 0
+51:92/size_in_atlas = Vector2i(15, 19)
+51:92/0 = 0
+47:82/size_in_atlas = Vector2i(4, 8)
+47:82/0 = 0
+47:82/0/texture_origin = Vector2i(0, 60)
+80:76/size_in_atlas = Vector2i(5, 17)
+80:76/0 = 0
+86:75/size_in_atlas = Vector2i(8, 18)
+86:75/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ytcxd"]
+resource_name = "Big Tile Terrain"
+texture = ExtResource("1_ryshj")
+15:0/size_in_atlas = Vector2i(15, 15)
+15:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fe7ba"]
 resource_name = "Terrain"
 texture = ExtResource("1_ryshj")
 0:0/0 = 0
@@ -108,18 +131,9 @@ texture = ExtResource("1_ryshj")
 12:1/0 = 0
 13:1/0 = 0
 14:1/0 = 0
-15:1/next_alternative_id = 3
 15:1/0 = 0
-15:1/1 = 1
-15:1/2 = 2
-16:1/next_alternative_id = 3
 16:1/0 = 0
-16:1/1 = 1
-16:1/2 = 2
-17:1/next_alternative_id = 3
 17:1/0 = 0
-17:1/1 = 1
-17:1/2 = 2
 18:1/0 = 0
 19:1/0 = 0
 20:1/0 = 0
@@ -192,18 +206,9 @@ texture = ExtResource("1_ryshj")
 12:2/0 = 0
 13:2/0 = 0
 14:2/0 = 0
-15:2/next_alternative_id = 3
 15:2/0 = 0
-15:2/1 = 1
-15:2/2 = 2
-16:2/next_alternative_id = 3
 16:2/0 = 0
-16:2/1 = 1
-16:2/2 = 2
-17:2/next_alternative_id = 3
 17:2/0 = 0
-17:2/1 = 1
-17:2/2 = 2
 18:2/0 = 0
 19:2/0 = 0
 20:2/0 = 0
@@ -5181,15 +5186,10 @@ texture = ExtResource("1_ryshj")
 28:74/0 = 0
 29:74/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c1ess"]
-texture = ExtResource("2_s5ve0")
-1:92/size_in_atlas = Vector2i(28, 31)
-1:92/0 = 0
-1:92/0/texture_origin = Vector2i(0, 247)
-
 [resource]
-sources/0 = SubResource("TileSetAtlasSource_4vou0")
-sources/4 = SubResource("TileSetAtlasSource_c1ess")
+sources/0 = SubResource("TileSetAtlasSource_c1ess")
+sources/1 = SubResource("TileSetAtlasSource_ytcxd")
+sources/2 = SubResource("TileSetAtlasSource_fe7ba")
 pattern_0 = SubResource("TileMapPattern_j4j0m")
 pattern_1 = SubResource("TileMapPattern_exggu")
 pattern_2 = SubResource("TileMapPattern_001n3")
