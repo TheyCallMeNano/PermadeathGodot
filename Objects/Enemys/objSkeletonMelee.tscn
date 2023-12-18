@@ -113,6 +113,7 @@ _data = {
 }
 
 [node name="Skeleton" type="CharacterBody2D" groups=["enemys"]]
+scale = Vector2(3, 3)
 collision_layer = 19
 collision_mask = 19
 script = ExtResource("1_2gqs6")

@@ -6,3 +6,6 @@ res://Rooms/Underground.tscn
 res://Objects/objPlayer.tscn
 res://Objects/Enemys/objDummy.tscn
 res://Scripts/scrPlayer.gd
+res://Objects/Enemys/objSkeletonRanged.tscn
+res://Objects/Enemys/objSkeletonMelee.tscn
+res://Objects/objWeapon.tscn

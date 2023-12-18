@@ -85,19 +85,6 @@ func _physics_process(delta):
 	if Input.is_action_pressed("zoomIn"):
 		$Camera2D.zoom.x += .02
 		$Camera2D.zoom.y += .02
-		
-	if walking == false && inputVector != Vector2.ZERO:
-		#if global.path == 1:
-			#$sndTileStep.playing = false
-		#else:
-			#$sndDirtStep.playing = false
-		walking = true
-	elif inputVector == Vector2.ZERO && walking == true:
-		#if global.path == 1:
-			#$sndTileStep.playing = true
-		#else:
-			#$sndDirtStep.playing = true
-		walking = true
 	
 	
 	match state:
@@ -118,27 +105,27 @@ func moveState(delta):
 	#Check if we're moving then play running animation
 	if inputVector != Vector2.ZERO:
 		dashVector = inputVector
-		if inputVector.x > 0 && FRICTION != 5000:
+		if inputVector.x > 0 && FRICTION != 5000 && walking == false:
 			get_node("Sprite2D").set_flip_h(false)
 			animationPlayer.play("Run")
 		elif inputVector.x > 0 && FRICTION == 5000 && global.plrStamina != 0:
 			get_node("Sprite2D").set_flip_h(false)
 			animationPlayer.play("Sprint")
-		elif global.plrStamina == 0:
+		elif global.plrStamina == 0 && walking == false:
 			get_node("Sprite2D").set_flip_h(false)
 			animationPlayer.play("Run")
-		if inputVector.x < 0 && FRICTION != 5000:
+		if inputVector.x < 0 && FRICTION != 5000 && walking == false:
 			get_node("Sprite2D").set_flip_h(true)
 			animationPlayer.play("Run")
 		elif inputVector.x < 0 && FRICTION == 5000 && global.plrStamina != 0:
 			get_node("Sprite2D").set_flip_h(true)
 			animationPlayer.play("Sprint")
-		elif global.plrStamina == 0:
+		elif global.plrStamina == 0 && walking == false:
 			get_node("Sprite2D").set_flip_h(true)
 			animationPlayer.play("Run")
-		if inputVector.y > 0:
+		if inputVector.y > 0 && walking == false:
 			animationPlayer.play("RunDown")
-		if inputVector.y < 0:
+		if inputVector.y < 0 && walking == false:
 			animationPlayer.play("RunUp")
 			
 		if Input.is_action_pressed("moveLeft"):
@@ -163,6 +150,7 @@ func moveState(delta):
 			#We aren't sprinting
 			vel = vel.move_toward(inputVector * MAX_SPEED, ACCELERATION * delta)
 	else:
+		walking = false
 		animationPlayer.play("Idle")
 		vel = vel.move_toward(Vector2.ZERO, FRICTION * delta)
 	
