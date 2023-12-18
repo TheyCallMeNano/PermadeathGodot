@@ -99,6 +99,7 @@ func _physics_process(delta):
 			#$sndDirtStep.playing = true
 		walking = true
 	
+	
 	match state:
 		MOVE:
 			moveState(delta)
@@ -117,16 +118,28 @@ func moveState(delta):
 	#Check if we're moving then play running animation
 	if inputVector != Vector2.ZERO:
 		dashVector = inputVector
-		if inputVector.x > 0:
+		if inputVector.x > 0 && FRICTION != 5000:
 			get_node("Sprite2D").set_flip_h(false)
 			animationPlayer.play("Run")
-		if inputVector.x < 0:
+		elif inputVector.x > 0 && FRICTION == 5000 && global.plrStamina != 0:
+			get_node("Sprite2D").set_flip_h(false)
+			animationPlayer.play("Sprint")
+		elif global.plrStamina == 0:
+			get_node("Sprite2D").set_flip_h(false)
+			animationPlayer.play("Run")
+		if inputVector.x < 0 && FRICTION != 5000:
+			get_node("Sprite2D").set_flip_h(true)
+			animationPlayer.play("Run")
+		elif inputVector.x < 0 && FRICTION == 5000 && global.plrStamina != 0:
+			get_node("Sprite2D").set_flip_h(true)
+			animationPlayer.play("Sprint")
+		elif global.plrStamina == 0:
 			get_node("Sprite2D").set_flip_h(true)
 			animationPlayer.play("Run")
 		if inputVector.y > 0:
-			animationPlayer.play("Run")
+			animationPlayer.play("RunDown")
 		if inputVector.y < 0:
-			animationPlayer.play("Run")
+			animationPlayer.play("RunUp")
 			
 		if Input.is_action_pressed("moveLeft"):
 			weapon.position.x = -20

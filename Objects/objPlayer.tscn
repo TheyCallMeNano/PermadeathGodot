@@ -1,10 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://b5qbs5kbjdp7p"]
+[gd_scene load_steps=20 format=3 uid="uid://b5qbs5kbjdp7p"]
 
 [ext_resource type="Script" path="res://Scripts/scrPlayer.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://do540s8lnbdur" path="res://Sprites/Player/Alchemist/sprAlchemist.png" id="2_54r5n"]
 [ext_resource type="Script" path="res://Scripts/scrAoE.gd" id="2_md7p6"]
 [ext_resource type="Texture2D" uid="uid://ccrwv0t7b8ymx" path="res://Sprites/GUI/Light.png" id="3"]
 [ext_resource type="PackedScene" uid="uid://dy537m37wlcyt" path="res://Objects/objWeapon.tscn" id="4_3ugyl"]
+[ext_resource type="Texture2D" uid="uid://cy1tsewrqiynd" path="res://Sprites/Player/char_a_p1_0bas_humn_v01.png" id="4_ybxrc"]
 [ext_resource type="AudioStream" uid="uid://bsjrpyiqfgo1f" path="res://Sounds/sndDash.wav" id="5_r3g85"]
 [ext_resource type="Texture2D" uid="uid://bfl8gt8b1611i" path="res://Sprites/Player/Alchemist/sprBuffRadius.png" id="6_sis3a"]
 [ext_resource type="AudioStream" uid="uid://cj0lvt7ciqgdf" path="res://Sounds/sndDirtStep.wav" id="6_usm3q"]
@@ -15,7 +15,7 @@ radius = 30.0167
 
 [sub_resource type="Animation" id="2"]
 resource_name = "Idle"
-length = 0.35
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -23,15 +23,16 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [0]
 }
 
 [sub_resource type="Animation" id="3"]
 resource_name = "Run"
-length = 0.45
+length = 0.9
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -39,10 +40,42 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4]
+"values": [48, 49, 50, 51, 52, 53, 52, 51, 50, 49]
+}
+
+[sub_resource type="Animation" id="Animation_b4dew"]
+resource_name = "RunUp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43, 44, 45, 44, 43, 42, 41, 40]
+}
+
+[sub_resource type="Animation" id="Animation_fp5j5"]
+resource_name = "Sprint"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [48, 53, 54, 51, 48, 51, 54, 51, 48]
 }
 
 [sub_resource type="Animation" id="Animation_yeuve"]
@@ -73,22 +106,42 @@ tracks/1/keys = {
 "values": [&"Idle"]
 }
 
+[sub_resource type="Animation" id="Animation_pyjnm"]
+resource_name = "RunDown"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [32, 33, 34, 35, 36, 37]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_imj8m"]
 _data = {
 "Idle": SubResource("2"),
 "Run": SubResource("3"),
+"RunDown": SubResource("Animation_pyjnm"),
+"RunUp": SubResource("Animation_b4dew"),
+"Sprint": SubResource("Animation_fp5j5"),
 "Throwing": SubResource("Animation_yeuve")
 }
 
 [sub_resource type="CapsuleShape2D" id="1"]
-radius = 4.0
-height = 10.0
+radius = 6.0
+height = 12.0
 
 [sub_resource type="CapsuleShape2D" id="4"]
-radius = 3.0
-height = 9.0
+radius = 3.5
+height = 14.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+scale = Vector2(2, 2)
 collision_layer = 13
 collision_mask = 13
 script = ExtResource("2")
@@ -110,11 +163,10 @@ texture = ExtResource("6_sis3a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_54r5n")
-hframes = 3
-vframes = 3
-frame = 3
+texture = ExtResource("4_ybxrc")
+hframes = 8
+vframes = 8
+frame = 32
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -122,7 +174,7 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(-1, 0)
 rotation = 1.5708
 shape = SubResource("1")
 
