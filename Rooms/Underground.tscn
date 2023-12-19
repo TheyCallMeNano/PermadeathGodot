@@ -19,6 +19,9 @@ color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="YSort" instance=ExtResource("1")]
 position = Vector2(-8, 264)
+MAX_SPEED = 150
+FRICTION = 1000
+detected = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="YSort/Player"]
 

@@ -128,12 +128,6 @@ func moveState(delta):
 		if inputVector.y < 0 && walking == false:
 			animationPlayer.play("RunUp")
 			
-		if Input.is_action_pressed("moveLeft"):
-			weapon.position.x = -20
-			weapon.scale.x = -1
-		if Input.is_action_pressed("moveRight"):
-			weapon.position.x = 20
-			weapon.scale.x = 1
 		walking = true
 		
 		#Check if we're sprinting, then manage all movement in that state until end (Perhaps speed up run animation?)

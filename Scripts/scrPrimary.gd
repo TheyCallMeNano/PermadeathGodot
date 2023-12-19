@@ -23,10 +23,13 @@ func attack():
 			counter = 0
 
 func _physics_process(_delta):
+	var dist = global_position.distance_to(get_global_mouse_position())
+	if dist <= 45:
+		global_position = get_global_mouse_position() - position
+	look_at(get_global_mouse_position())
+	
 	if counter != 30:
 		counter += 1
-	if global.classInt == 1:
-		look_at(get_global_mouse_position())
 
 
 func _on_area_entered(area):
