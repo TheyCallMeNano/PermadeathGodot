@@ -23,7 +23,7 @@ func attack():
 			counter = 0
 
 func _physics_process(_delta):
-	var dist = global_position.distance_to(get_global_mouse_position())
+	var dist = global_position.distance_to(get_parent().global_position)
 	if dist <= 45:
 		global_position = get_global_mouse_position() - position
 	look_at(get_global_mouse_position())
