@@ -1,7 +1,7 @@
 res://Rooms/MainScene.tscn
 res://Fonts/Default.tres
 res://TileSets/tsGrasslands01.tres
-res://Scripts/scrPrimary.gd
 res://Rooms/ClassSelection.tscn
 res://Rooms/Underground.tscn
 res://Objects/objPlayer.tscn
+res://Scripts/scrPrimary.gd
