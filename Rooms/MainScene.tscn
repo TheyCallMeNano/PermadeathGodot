@@ -17,15 +17,12 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="Hub" type="Node2D"]
 
-[node name="Background Environment" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_v2vgr")
 format = 2
-layer_0/tile_data = PackedInt32Array(-851999, 3932161, 0, -851984, 3932161, 0, -851969, 3932161, 0, -917490, 3932161, 0, -917475, 3932161, 0, 65565, 3932161, 0, 65550, 3932161, 0, 131071, 3932161, 0, 131056, 3932161, 0, 131041, 3932161, 0, -1900515, 3932161, 0, -1900530, 3932161, 0, -1835009, 3932161, 0, -1835024, 3932161, 0, -1835039, 3932161, 0)
-
-[node name="Pathing" type="TileMap" parent="."]
-tile_set = ExtResource("1_v2vgr")
-format = 2
-layer_0/tile_data = PackedInt32Array(-917476, 3, 0, -917491, 5, 0, 131070, 4, 0, 65549, 6, 0, 65564, 983041, 0, -1900516, 983041, 0, -1900531, 983041, 0, -1835010, 983041, 0, -1835025, 983041, 0, -1835040, 983041, 0, -852000, 983041, 0, -851985, 983041, 0, -851970, 983041, 0, 131055, 983041, 0, 131040, 983041, 0)
+layer_0/name = "Water"
+layer_1/name = "Ground"
+layer_1/tile_data = PackedInt32Array(-458760, 262145, 0, -1441800, 262145, 0, 524280, 262145, 0, 1507320, 65537, 0, 1441799, 262145, 0, -458775, 262145, 0, -1441815, 262145, 0, 524265, 262145, 0, -458790, 262145, 0, 1507305, 65537, 0, 1441814, 262145, 0, 524250, 262145, 0, 1441829, 262145, 0, -1441830, 262145, 0, -1507321, 262145, 0, -524281, 262145, 0, 458759, 262145, 0, -524266, 262145, 0, 458774, 262145, 0, -524251, 262145, 0, 458789, 262145, 0, 196602, 393219, 1, 131081, 262147, 0, 131096, 458755, 2, 1114136, 393219, 0, -851958, 327683, 1, -851943, 65537, 0, -851928, 65537, 0, -1638363, 65537, 0, -1638378, 65537, 0, -1638392, 65537, 0, -786437, 65537, 0, -1769479, 65537, 0, -786452, 65537, 0, 196587, 65537, 0, 1114121, 65537, 0, 2097161, 65537, 0, 2097176, 65537, 0, 2097191, 65537, 0, 1114150, 65537, 0, 131111, 65537, 0, -1769494, 65537, 0, -1769509, 65537, 0, -786467, 65537, 0, -786482, 65537, 0, -1769524, 65537, 0, 196572, 65537, 0, 196557, 65537, 0, 1179610, 65537, 0, 1179625, 65537, 0, 1179640, 65537, 0, 1048577, 65537, 0, 1441793, 65537, 0, 1638401, 65537, 0, 1441792, 65537, 0, 1179649, 65537, 0)
 
 [node name="Decals" type="Node2D" parent="."]
 
@@ -71,26 +68,6 @@ offset_bottom = 32.92
 [node name="Dummy" parent="YSort" instance=ExtResource("10")]
 position = Vector2(-528, -416)
 
-[node name="Props2" type="TileMap" parent="YSort"]
-y_sort_enabled = true
-tile_set = ExtResource("1_v2vgr")
-format = 2
-layer_0/y_sort_enabled = true
-layer_0/tile_data = PackedInt32Array(-1441764, 3080192, 82)
-
-[node name="Props" type="TileMap" parent="YSort"]
-y_sort_enabled = true
-tile_set = ExtResource("1_v2vgr")
-format = 2
-layer_0/y_sort_enabled = true
-layer_0/tile_data = PackedInt32Array(-1507306, 65536, 92)
-
 [node name="toDungeon" parent="." instance=ExtResource("8_ulqtq")]
 position = Vector2(456, -344)
 scale = Vector2(5, 1)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(352, -336)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(64, -32, 24, -48, -8, -88, -16, -120, -16, -240, 232, -240, 232, -112, 208, -64, 168, -40, 152, -32, 136, -24, 136, -16, 136, -8, 72, -8, 72, -24)
