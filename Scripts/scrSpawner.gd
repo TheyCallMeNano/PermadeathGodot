@@ -7,9 +7,10 @@ var spawnTotal = 25
 var spawned = 0
 var region = null
 var enemy = null
+var stuck = false
 
-var myDict = {"enemy1" : preload("res://Objects/Enemys/objSkeletonMelee.tscn"),
-			"enemy2" : preload("res://Objects/Enemys/objSkeletonRanged.tscn")}
+var enemyDict = {"enemy0" : preload("res://Objects/Enemys/objSkeletonMelee.tscn"),
+				"enemy1" : preload("res://Objects/Enemys/objSkeletonRanged.tscn")}
 
 
 func _on_area_entered(area):
@@ -22,21 +23,18 @@ func _ready():
 
 func _physics_process(delta):
 	if spawning == true && region == $/root/Hub/spawningZone && spawned != spawnTotal:
-		if global.randEID == 0:
-			enemy = preload("res://Objects/Enemys/objSkeletonMelee.tscn")
-			print("Enemy ID: " + str(global.randEID))
-			global.randEID = randi() % global.eID.size()
-		elif global.randEID == 1:
-			enemy = preload("res://Objects/Enemys/objSkeletonRanged.tscn")
-			print("Enemy ID: " + str(global.randEID))
-			global.randEID = randi() % global.eID.size()
+		global.randEID = randi() % global.eID.size()
+		enemy = enemyDict["enemy" + str(global.randEID)]
+		print("Enemy ID: " + str(global.randEID) + "\nEnemy Scene: " + str(enemy))
 		var enemyInst = enemy.instantiate()
 		enemyInst.position = position
 		$/root/Hub/YSort.add_child(enemyInst)
 		print("Spawned at: " + str(position) + "\n" + str(region))
 		spawned += 1
-	elif spawning == true && region != $/root/Hub/spawningZone:
+		stuck = false
+	elif spawning == true && region != $/root/Hub/spawningZone && stuck == false:
 		print("Rerolling!")
+		stuck = true
 	if spawned == spawnTotal:
 		spawning = false
 	if spawning == true:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bvywib4hbnk0n"]
+[gd_scene load_steps=17 format=3 uid="uid://bvywib4hbnk0n"]
 
 [ext_resource type="Script" path="res://Scripts/scrEnemyGeneric.gd" id="1_2gqs6"]
 [ext_resource type="Texture2D" uid="uid://bf85nrmuejaj" path="res://Sprites/NPC'S/Skeleton/skeleton_idle.png" id="2_lp0v4"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://Scripts/States/scrStateMachine.gd" id="5_8huen"]
 [ext_resource type="Script" path="res://Scripts/States/scrEnemyIdle.gd" id="6_dghei"]
 [ext_resource type="Script" path="res://Scripts/States/scrEnemyChase.gd" id="7_4iaqu"]
-[ext_resource type="Script" path="res://Scripts/States/scrHandleHit.gd" id="9_sc0so"]
 [ext_resource type="Script" path="res://Scripts/States/scrAttackMelee.gd" id="10_1wpju"]
 
 [sub_resource type="Animation" id="2"]
@@ -186,10 +185,6 @@ enemy = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_s3ugx")
 }
-
-[node name="HandleHit" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
-script = ExtResource("9_sc0so")
-enemy = NodePath("../..")
 
 [connection signal="area_entered" from="Sight" to="State Machine/Idle" method="_on_sight_area_entered"]
 [connection signal="area_entered" from="Sight" to="State Machine/Chase" method="_on_sight_area_entered"]

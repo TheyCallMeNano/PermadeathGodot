@@ -17,9 +17,6 @@ func Enter():
 		randomizeWander()
 
 func Update(delta: float):
-	if $"../..".beingHit == true:
-		$"../..".beingHit == false
-		Transitioned.emit(self,"handlehit")
 	
 	if moveDir.x < -0.5 && moveDir.y > 0.5 && $"../../Sight".rotation != -144:
 		if $"../../Sight".rotation < -144:

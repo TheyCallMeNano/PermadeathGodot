@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cenm12iom7cxs"]
+[gd_scene load_steps=5 format=3 uid="uid://cenm12iom7cxs"]
 
 [ext_resource type="PackedScene" uid="uid://b5qbs5kbjdp7p" path="res://Objects/objPlayer.tscn" id="1"]
-[ext_resource type="PackedScene" uid="uid://dwq23k7vbk8bf" path="res://Objects/objDebugMenu.tscn" id="2"]
-[ext_resource type="PackedScene" uid="uid://ctsf56uqpsqj" path="res://Objects/objStamina.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://d13srdc24y1n6" path="res://Objects/objPersistentUI.tscn" id="2_5go3k"]
 [ext_resource type="PackedScene" path="res://Objects/objWarpZone.tscn" id="6_0mar8"]
 [ext_resource type="PackedScene" uid="uid://2ottw4oos3nq" path="res://Objects/objSpawner.tscn" id="7_wbub1"]
 
@@ -19,24 +18,7 @@ color = Color(0, 0, 0, 1)
 [node name="Player" parent="YSort" instance=ExtResource("1")]
 position = Vector2(-8, 264)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="YSort/Player"]
-
-[node name="Stamina" parent="YSort/Player/CanvasLayer" instance=ExtResource("6")]
-offset_left = -11.84
-offset_top = -16.48
-offset_right = 28.16
-offset_bottom = 0.520004
-
-[node name="Debug Menu" parent="YSort/Player/CanvasLayer" instance=ExtResource("2")]
-anchor_left = 0.038
-anchor_top = -0.008
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 27.84
-offset_top = 17.44
-offset_right = -245.0
-offset_bottom = -141.0
-scale = Vector2(0.5, 0.5)
+[node name="CanvasLayer" parent="YSort/Player" instance=ExtResource("2_5go3k")]
 
 [node name="toOverworld" parent="." instance=ExtResource("6_0mar8")]
 position = Vector2(-8, 296)

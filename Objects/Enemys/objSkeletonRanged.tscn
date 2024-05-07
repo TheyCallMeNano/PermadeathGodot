@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bck8rsnn254l1"]
+[gd_scene load_steps=13 format=3 uid="uid://bck8rsnn254l1"]
 
 [ext_resource type="Script" path="res://Scripts/scrEnemyGeneric.gd" id="1_dv13v"]
 [ext_resource type="Texture2D" uid="uid://bf85nrmuejaj" path="res://Sprites/NPC'S/Skeleton/skeleton_idle.png" id="2_t6bfo"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://Scripts/States/scrEnemyIdle.gd" id="6_3dpxx"]
 [ext_resource type="Script" path="res://Scripts/States/scrEnemyChase.gd" id="7_laydc"]
 [ext_resource type="Script" path="res://Scripts/States/scrAttackRanged.gd" id="8_gxtea"]
-[ext_resource type="Script" path="res://Scripts/States/scrHandleHit.gd" id="9_4n8ms"]
 
 [sub_resource type="CapsuleShape2D" id="1"]
 radius = 4.0
@@ -119,10 +118,6 @@ script = ExtResource("8_gxtea")
 enemy = NodePath("../..")
 
 [node name="Cooldown" type="Timer" parent="State Machine/AttackRanged"]
-
-[node name="HandleHit" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
-script = ExtResource("9_4n8ms")
-enemy = NodePath("../..")
 
 [connection signal="area_entered" from="Sight" to="State Machine/Idle" method="_on_sight_area_entered"]
 [connection signal="area_entered" from="Sight" to="State Machine/Chase" method="_on_sight_area_entered"]

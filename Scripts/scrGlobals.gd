@@ -5,7 +5,7 @@ var gameSaveSlot = 0
 var path = 0
 var eID = [0,1]
 var randEID:int = randi() % eID.size()
-var version = "PREVIEW 0.0.0.8"
+var version = "PREVIEW 0.0.0.9a"
 
 # Player Vars
 ## Int to name ID: -1 = N/A, 0 = Assassin, 1 = Alchemist, 2 = Dualist, 3 = Paladin
