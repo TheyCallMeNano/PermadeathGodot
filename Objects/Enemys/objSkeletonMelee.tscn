@@ -56,9 +56,6 @@ _data = {
 "Hit": SubResource("2")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ldeb"]
-size = Vector2(16, 16)
-
 [sub_resource type="CapsuleShape2D" id="1"]
 radius = 4.0
 height = 8.0
@@ -67,13 +64,16 @@ height = 8.0
 radius = 6.0
 height = 14.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ldeb"]
+size = Vector2(16, 16)
+
 [sub_resource type="Animation" id="Animation_r2hgp"]
 resource_name = "Slash"
 length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../../Weapon/Sprite2D:frame")
+tracks/0/path = NodePath("../../Sight/Weapon/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -85,7 +85,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../Weapon/Sprite2D:visible")
+tracks/1/path = NodePath("../../Sight/Weapon/Sprite2D:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -97,7 +97,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../Weapon/CollisionShape2D:disabled")
+tracks/2/path = NodePath("../../Sight/Weapon/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -112,11 +112,12 @@ _data = {
 "Slash": SubResource("Animation_r2hgp")
 }
 
-[node name="Skeleton" type="CharacterBody2D" groups=["enemys"]]
+[node name="Skeleton" type="CharacterBody2D" node_paths=PackedStringArray("previousState") groups=["enemys"]]
 scale = Vector2(3, 3)
 collision_layer = 19
 collision_mask = 19
 script = ExtResource("1_2gqs6")
+previousState = NodePath("State Machine/Idle")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../CollisionShape2D")
@@ -129,22 +130,6 @@ position = Vector2(0, -7)
 texture = ExtResource("2_lp0v4")
 hframes = 4
 vframes = 4
-
-[node name="Weapon" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon"]
-position = Vector2(24, -8)
-scale = Vector2(1, 0.8)
-shape = SubResource("RectangleShape2D_4ldeb")
-disabled = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Weapon"]
-visible = false
-position = Vector2(24, -8)
-texture = ExtResource("3_1c687")
-hframes = 5
-vframes = 2
-frame = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
@@ -161,6 +146,21 @@ position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_0yukw")
 
 [node name="Sight" parent="." instance=ExtResource("3_wsjic")]
+
+[node name="Weapon" type="Area2D" parent="Sight"]
+position = Vector2(16, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sight/Weapon"]
+scale = Vector2(1, 0.8)
+shape = SubResource("RectangleShape2D_4ldeb")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Sight/Weapon"]
+visible = false
+texture = ExtResource("3_1c687")
+hframes = 5
+vframes = 2
+frame = 9
 
 [node name="sndGenericHit1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_o01vs")
@@ -191,8 +191,8 @@ libraries = {
 script = ExtResource("9_sc0so")
 enemy = NodePath("../..")
 
-[connection signal="area_entered" from="Weapon" to="." method="_on_weapon_area_entered"]
 [connection signal="area_entered" from="Sight" to="State Machine/Idle" method="_on_sight_area_entered"]
 [connection signal="area_entered" from="Sight" to="State Machine/Chase" method="_on_sight_area_entered"]
 [connection signal="area_exited" from="Sight" to="State Machine/Idle" method="_on_sight_area_exited"]
 [connection signal="area_exited" from="Sight" to="State Machine/Chase" method="_on_sight_area_exited"]
+[connection signal="area_entered" from="Sight/Weapon" to="." method="_on_weapon_area_entered"]

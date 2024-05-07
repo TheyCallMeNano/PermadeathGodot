@@ -10,20 +10,19 @@ func Enter():
 	player = get_tree().get_first_node_in_group("player")
 	animationPlayer.play("Slash")
 	enemy.velocity = Vector2.ZERO
-	$"../..".previousState = self.name
+	$"../..".previousState = $"../..".previousState
 
 func Update(delta: float):
 	$"../../Sight".rotation = $"../..".position.angle_to_point(player.global_position)
-	$"../../Weapon".rotation = $"../../Sight".rotation
 
 func Exit():
-	$"../..".previousState = self.name
+	$"../..".previousState = self
 
 func physicsUpdate(delta: float):
 	var dir = player.global_position - enemy.global_position
 	
 	if !animationPlayer.is_playing():
-		if dir.length() > 30:
+		if dir.length() > 45:
 			Transitioned.emit(self,"chase")
 		else:
 			animationPlayer.play("Slash")

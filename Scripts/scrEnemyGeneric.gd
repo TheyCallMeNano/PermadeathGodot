@@ -2,10 +2,10 @@ extends CharacterBody2D
 ## Enemy Controller for generic/non boss or special enemies
 
 
-#Animation Manager
+# Animation Manager
 @onready var animationPlayer = $AnimationPlayer
 
-#Controllers
+# Controllers
 var acidActive = false
 var poisonActive = false
 var moltenActive = false
@@ -14,28 +14,26 @@ var acidCounter = 0
 var poisonCounter = 0
 var moltenCounter = 0
 var beingHit = false
-var previousState = "idle"
 @onready var player = $"/root/Hub/YSort/Player/"
+@export var previousState : State
 var dir = Vector2.ZERO
 var vel = Vector2.ZERO
 
-#Stats
-var attackSpeed = 5
-var attackDMG = 5
-var eHealth = 75
-var eDefense = 7
+# Stats
+@export var attackSpeed = 5
+@export var attackDMG = 5
+@export var eHealth = 75
+@export var eDefense = 7
 
 func _ready():
 	if self.name == "Dummy":
 		eHealth = 9999
 
-
 func handleHit():
 	beingHit = true
 
-
 ##### ELEMENTAL DICTIONARY #####
-#Elemental Int to name ID: 0 = Poison, 1 = Acid, 2 = Molten
+# Elemental Int to name ID: 0 = Poison, 1 = Acid, 2 = Molten
 
 func _physics_process(delta):
 	move_and_slide()
@@ -43,8 +41,6 @@ func _physics_process(delta):
 	if eHealth <= 0:
 		print("Dead!")
 		queue_free()
-	
-
 
 func Acid():
 	acidActive = true

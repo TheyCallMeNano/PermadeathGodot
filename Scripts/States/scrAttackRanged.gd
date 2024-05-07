@@ -6,8 +6,8 @@ class_name EnemyRangedAttack
 @onready var timer = get_node("Cooldown")
 @export var enemy: CharacterBody2D
 @export var moveSpd = Vector2(75,75)
-##For randomized projectiles use the method we use to find the player in the Enter fucntion
-#however, use a random number for the projectile to use.
+## For randomized projectiles use the method we use to find the player in the Enter fucntion
+## however, use a random number for the projectile to use.
 @export var projectile = preload("res://Objects/objIceSpell.tscn")
 var player: CharacterBody2D
 var canFire = true
@@ -36,7 +36,7 @@ func physicsUpdate(delta: float):
 		Transitioned.emit(self,"chase")
 
 func Exit():
-	$"../..".previousState = self.name
+	$"../..".previousState = self
 
 func _on_timer_timeout():
 	canFire = true

@@ -153,8 +153,10 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("2_md7p6")
 
+[node name="Weapon" parent="AoE" instance=ExtResource("4_3ugyl")]
+position = Vector2(15, -9)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AoE"]
-position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_tet4p")
 
 [node name="Sprite2D" type="Sprite2D" parent="AoE"]
@@ -175,7 +177,6 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
 rotation = 1.5708
 shape = SubResource("1")
 
@@ -187,32 +188,24 @@ texture = ExtResource("3")
 texture_scale = 3.0
 
 [node name="SightBox" type="Area2D" parent="."]
-position = Vector2(0, -4)
+position = Vector2(0, -9)
 scale = Vector2(2, 2)
 collision_layer = 13
 collision_mask = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SightBox"]
-position = Vector2(0, -2)
 shape = SubResource("4")
 
-[node name="Weapon" parent="." instance=ExtResource("4_3ugyl")]
-position = Vector2(20, -8)
-
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -1)
 
 [node name="sndDash" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(0, -1)
 stream = ExtResource("5_r3g85")
 volume_db = 8.0
 
 [node name="sndDirtStep" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(0, -1)
 stream = ExtResource("6_usm3q")
 
 [node name="sndTileStep" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(0, -1)
 stream = ExtResource("7_xthyu")
 
 [connection signal="area_entered" from="SightBox" to="." method="_on_sight_box_area_entered"]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cenm12iom7cxs"]
+[gd_scene load_steps=6 format=3 uid="uid://cenm12iom7cxs"]
 
 [ext_resource type="PackedScene" uid="uid://b5qbs5kbjdp7p" path="res://Objects/objPlayer.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://dwq23k7vbk8bf" path="res://Objects/objDebugMenu.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://Objects/objPause.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://ctsf56uqpsqj" path="res://Objects/objStamina.tscn" id="6"]
 [ext_resource type="PackedScene" path="res://Objects/objWarpZone.tscn" id="6_0mar8"]
 [ext_resource type="PackedScene" uid="uid://2ottw4oos3nq" path="res://Objects/objSpawner.tscn" id="7_wbub1"]
@@ -27,16 +26,6 @@ offset_left = -11.84
 offset_top = -16.48
 offset_right = 28.16
 offset_bottom = 0.520004
-
-[node name="Pause" parent="YSort/Player/CanvasLayer" instance=ExtResource("5")]
-layout_mode = 3
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 160.0
-offset_top = 88.0
-offset_right = 160.0
-offset_bottom = 88.0
 
 [node name="Debug Menu" parent="YSort/Player/CanvasLayer" instance=ExtResource("2")]
 anchor_left = 0.038

@@ -1,4 +1,4 @@
-#This is essentially what we are modifiying
+# This is essentially what we are modifiying
 extends CharacterBody2D
 
 ## scrPlayer ties directly to the player object and modifies everything the player uses
@@ -35,7 +35,7 @@ var inputVector = Vector2.ZERO
 var dashVector = Vector2.RIGHT
 
 ## Grab the weapon and get it ready for the Attack state
-@onready var weapon = $Weapon
+@onready var weapon = $AoE/Weapon
 
 ## Animation Manager
 @onready var animationPlayer = $AnimationPlayer
@@ -65,7 +65,7 @@ func classAssignment():
 		global.plrStaminaRecharge = 2.0
 		hidden()
 
-#Check state and run according functions
+# Check state and run according functions
 func _physics_process(delta):
 	if global.attackMode == 1 && on == false:
 		on = true
@@ -96,13 +96,13 @@ func _physics_process(delta):
 			attackState()
 			
 
-#Calculate Movement when in the right state
+# Calculate Movement when in the right state
 func moveState(delta):
 	inputVector.x = Input.get_action_strength("moveRight") - Input.get_action_strength("moveLeft")
 	inputVector.y = Input.get_action_strength("moveDown") - Input.get_action_strength("moveUp")
 	inputVector = inputVector.normalized()
 	
-	#Check if we're moving then play running animation
+	# Check if we're moving then play running animation
 	if inputVector != Vector2.ZERO:
 		dashVector = inputVector
 		if inputVector.x > 0 && FRICTION != 5000 && walking == false:
@@ -130,7 +130,7 @@ func moveState(delta):
 			
 		walking = true
 		
-		#Check if we're sprinting, then manage all movement in that state until end (Perhaps speed up run animation?)
+		# Check if we're sprinting, then manage all movement in that state until end (Perhaps speed up run animation?)
 		if Input.is_action_pressed("sprint") && global.plrStamina != 0:
 			if Input.is_action_pressed("moveDown"):
 				vel = vel.move_toward(inputVector * MAX_SPEED * 2, ACCELERATION * delta)
@@ -141,26 +141,26 @@ func moveState(delta):
 			elif Input.is_action_pressed("moveRight"):
 				vel = vel.move_toward(inputVector * MAX_SPEED * 2, ACCELERATION * delta)
 		else:
-			#We aren't sprinting
+			# We aren't sprinting
 			vel = vel.move_toward(inputVector * MAX_SPEED, ACCELERATION * delta)
 	else:
 		walking = false
 		animationPlayer.play("Idle")
 		vel = vel.move_toward(Vector2.ZERO, FRICTION * delta)
 	
-	#Check if dashing and if we have enough stamina to dash
+	# Check if dashing and if we have enough stamina to dash
 	if Input.is_action_just_pressed("dash") && global.plrStamina > global.plrStaminaRecharge*30:
 		state = DASH
 	
 	move()
 	stamina()
 
-#What to do when the player attacks
+# What to do when the player attacks
 func _unhandled_input(event: InputEvent) -> void:
 		if event.is_action_pressed("primaryAttack"):
 			state = ATTACK
 	
-#Attack Extended
+# Attack Extended
 func attackState():
 	animationPlayer.play("Throwing")
 	if global.attackMode == 0:
@@ -170,17 +170,17 @@ func attackState():
 		animationPlayer.play("Idle")
 	attackStateFinished()
 
-#Reset the player to the moving state
+# Reset the player to the moving state
 func attackStateFinished():
 	state = MOVE
 	
 func move():
-	#Apply movement
+	# Apply movement
 	set_velocity(vel)
 	move_and_slide()
 	vel = velocity
 	
-#What to do when dashing
+# What to do when dashing
 @warning_ignore("unused_parameter")
 func dashState(delta):
 	$sndDash.play()
@@ -197,35 +197,35 @@ func dashState(delta):
 		move()
 		dashStateFinished()
 
-#Reset to normal state
-#For I-Frames use an if statement to avoid deloading and loading the player object
+# Reset to normal state
+# For I-Frames use an if statement to avoid deloading and loading the player object
 func dashStateFinished():
 	state = MOVE
 
-#Run these checks to refill stamina
+# Run these checks to refill stamina
 func stamina():
-	#Is the player running?
+	# Is the player running?
 	if Input.is_action_pressed("sprint") && global.plrStamina != 0:
 			FRICTION = 5000
 			if Input.is_action_pressed("moveDown") || Input.is_action_pressed("moveLeft") || Input.is_action_pressed("moveUp") || Input.is_action_pressed("moveRight"):
 				global.plrStaminaRechargeDelay = 0
 				global.plrStamina -= global.plrStaminaRecharge/2.0
 			
-	#Have they stopped running?
+	# Have they stopped running?
 	if global.plrStamina != global.plrMaxStamina && !Input.is_action_pressed("sprint") && global.plrStaminaRechargeDelay != global.plrStaminaDelayTime:
 		global.plrStaminaRechargeDelay += global.plrStaminaRecharge
 		FRICTION = 1000
 	
-	#Give them more stamina
+	# Give them more stamina
 	if global.plrStaminaRechargeDelay == global.plrStaminaDelayTime && global.plrStamina != global.plrMaxStamina:
 		global.plrStamina += global.plrStaminaRecharge
 	
-	#Reset the recharge to prevent overflow
+	# Reset the recharge to prevent overflow
 	if global.plrStamina >= global.plrMaxStamina:
 		global.plrStaminaRechargeDelay = 0
 		global.plrStamina = global.plrMaxStamina
 
-#Player is in a sightline
+# Player is in a sightline
 func seen():
 	detected = true
 	global.baseDMG = 15

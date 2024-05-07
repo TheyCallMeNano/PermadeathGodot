@@ -3,8 +3,8 @@ extends Area2D
 var statActive = false
 var statIntPrev = 0
 
-#Status Int to Name ID: Buffs: Health = 0, AttackSpeed = 1, Defense = 3, Damage = 4;
-#Debuffs: Speed = 5, Weakness = 6, Slowness = 7
+# Status Int to Name ID: Buffs: Health = 0, AttackSpeed = 1, Defense = 3, Damage = 4;
+# Debuffs: Speed = 5, Weakness = 6, Slowness = 7
 
 func active():
 	print("ran")

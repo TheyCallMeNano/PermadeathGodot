@@ -63,11 +63,12 @@ _data = {
 radius = 6.0
 height = 14.0
 
-[node name="Skeleton" type="CharacterBody2D" groups=["enemys"]]
+[node name="Skeleton" type="CharacterBody2D" node_paths=PackedStringArray("previousState") groups=["enemys"]]
 scale = Vector2(3, 3)
 collision_layer = 19
 collision_mask = 19
 script = ExtResource("1_dv13v")
+previousState = NodePath("State Machine/Idle")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)

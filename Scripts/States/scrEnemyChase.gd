@@ -36,7 +36,7 @@ func physicsUpdate(delta: float):
 		enemy.velocity = Vector2.ZERO
 
 func Exit():
-	$"../..".previousState = self.name
+	$"../..".previousState = self
 
 func _on_sight_area_entered(area):
 	if player == area.get_parent():

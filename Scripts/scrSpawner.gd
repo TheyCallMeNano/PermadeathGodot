@@ -8,6 +8,10 @@ var spawned = 0
 var region = null
 var enemy = null
 
+var myDict = {"enemy1" : preload("res://Objects/Enemys/objSkeletonMelee.tscn"),
+			"enemy2" : preload("res://Objects/Enemys/objSkeletonRanged.tscn")}
+
+
 func _on_area_entered(area):
 	region = area
 

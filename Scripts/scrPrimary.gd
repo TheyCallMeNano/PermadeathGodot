@@ -7,10 +7,10 @@ var potion = preload("res://Objects/objPotion.tscn")
 var counter = 0
 
 func attack():
-	#Assassin
+	# Assassin
 	if global.classInt == 0:
 		anim.play("Slash")
-	#Alchemist
+	# Alchemist
 	if global.classInt == 1:
 		position.x = 0
 		position.y = 0
@@ -23,11 +23,7 @@ func attack():
 			counter = 0
 
 func _physics_process(_delta):
-	var dist = global_position.distance_to(get_parent().global_position)
-	if dist <= 45:
-		global_position = get_global_mouse_position() - position
-	look_at(get_global_mouse_position())
-	
+	$"..".look_at(get_global_mouse_position())
 	if counter != 30:
 		counter += 1
 

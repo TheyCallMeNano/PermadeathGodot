@@ -46,7 +46,6 @@ func Update(delta: float):
 	
 	if wanderTime > 0:
 		wanderTime -= delta
-	
 	else:
 		randomizeWander()
 
