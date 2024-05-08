@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bvywib4hbnk0n"]
+[gd_scene load_steps=19 format=3 uid="uid://bvywib4hbnk0n"]
 
 [ext_resource type="Script" path="res://Scripts/scrEnemyGeneric.gd" id="1_2gqs6"]
 [ext_resource type="Texture2D" uid="uid://bf85nrmuejaj" path="res://Sprites/NPC'S/Skeleton/skeleton_idle.png" id="2_lp0v4"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://Scripts/States/scrEnemyIdle.gd" id="6_dghei"]
 [ext_resource type="Script" path="res://Scripts/States/scrEnemyChase.gd" id="7_4iaqu"]
 [ext_resource type="Script" path="res://Scripts/States/scrAttackMelee.gd" id="10_1wpju"]
+[ext_resource type="Texture2D" uid="uid://ccrwv0t7b8ymx" path="res://Sprites/GUI/Light.png" id="10_tw6gk"]
+[ext_resource type="PackedScene" uid="uid://cdwudv07pr2qu" path="res://Objects/Enemys/objDmgDisplayManager.tscn" id="11_37rai"]
 
 [sub_resource type="Animation" id="2"]
 resource_name = "Hit"
@@ -185,6 +187,14 @@ enemy = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_s3ugx")
 }
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -3.8)
+shadow_enabled = true
+texture = ExtResource("10_tw6gk")
+texture_scale = 0.5
+
+[node name="dmgDisplay" parent="." instance=ExtResource("11_37rai")]
 
 [connection signal="area_entered" from="Sight" to="State Machine/Idle" method="_on_sight_area_entered"]
 [connection signal="area_entered" from="Sight" to="State Machine/Chase" method="_on_sight_area_entered"]

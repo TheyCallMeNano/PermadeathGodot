@@ -16,11 +16,6 @@ func Enter():
 	player = get_tree().get_first_node_in_group("player")
 	timer.set_wait_time(2)
 
-func Update(delta: float):
-	if $"../..".beingHit == true:
-		$"../..".beingHit == false
-		Transitioned.emit(self,"handlehit")
-
 func physicsUpdate(delta: float):
 	$"../../Sight".rotation = $"../..".position.angle_to_point(player.global_position)
 	

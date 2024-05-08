@@ -1,0 +1,27 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cunlv27bjms36"]
+
+[ext_resource type="Texture2D" uid="uid://dek6ry73nyjbr" path="res://Sprites/Tileset Sprites/Grasslands/16x3/GrasslandsProps.png" id="1_vawu3"]
+[ext_resource type="Texture2D" uid="uid://cnmmexdrscn2c" path="res://Sprites/Tileset Sprites/Grasslands/16x3/GrasslandsHugeProps.png" id="2_rivd1"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tg8q2"]
+texture = ExtResource("1_vawu3")
+29:81/size_in_atlas = Vector2i(10, 9)
+29:81/0 = 0
+47:82/size_in_atlas = Vector2i(4, 8)
+47:82/0 = 0
+47:82/0/texture_origin = Vector2i(0, 63)
+107:66/size_in_atlas = Vector2i(17, 15)
+107:66/0 = 0
+126:73/size_in_atlas = Vector2i(7, 7)
+126:73/0 = 0
+1:92/size_in_atlas = Vector2i(28, 31)
+1:92/0 = 0
+1:92/0/texture_origin = Vector2i(100, 247)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_he08y"]
+texture = ExtResource("2_rivd1")
+texture_region_size = Vector2i(32, 32)
+
+[resource]
+sources/1 = SubResource("TileSetAtlasSource_tg8q2")
+sources/2 = SubResource("TileSetAtlasSource_he08y")

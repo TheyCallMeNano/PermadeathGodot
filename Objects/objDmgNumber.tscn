@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://kub73cpaokk"]
+
+[ext_resource type="Texture2D" uid="uid://bj4doto6jrw45" path="res://Sprites/Tileset Sprites/system/Damage.png" id="1_j4g0g"]
+[ext_resource type="Script" path="res://Scripts/scrDamgaeNumber.gd" id="2_kkqg1"]
+
+[node name="Damage" type="Sprite2D"]
+texture = ExtResource("1_j4g0g")
+hframes = 10
+vframes = 5
+script = ExtResource("2_kkqg1")

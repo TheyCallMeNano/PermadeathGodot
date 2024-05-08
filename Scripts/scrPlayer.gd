@@ -13,7 +13,7 @@ const ACCELERATION = 500
 ## Friction acts at the rate the speed decreases
 @export var FRICTION = 1000
 
-#Different States, adding a "," followed by a parameter adds a new state
+# Different States, adding a "," followed by a parameter adds a new state
 enum{
 	MOVE,
 	DASH,
@@ -96,7 +96,7 @@ func _physics_process(delta):
 			attackState()
 			
 
-# Calculate Movement when in the right state
+## Calculate Movement when in the right state
 func moveState(delta):
 	inputVector.x = Input.get_action_strength("moveRight") - Input.get_action_strength("moveLeft")
 	inputVector.y = Input.get_action_strength("moveDown") - Input.get_action_strength("moveUp")
@@ -155,12 +155,12 @@ func moveState(delta):
 	move()
 	stamina()
 
-# What to do when the player attacks
+## What to do when the player attacks
 func _unhandled_input(event: InputEvent) -> void:
 		if event.is_action_pressed("primaryAttack"):
 			state = ATTACK
 	
-# Attack Extended
+## Attack Extended
 func attackState():
 	animationPlayer.play("Throwing")
 	if global.attackMode == 0:
@@ -170,7 +170,7 @@ func attackState():
 		animationPlayer.play("Idle")
 	attackStateFinished()
 
-# Reset the player to the moving state
+## Reset the player to the moving state
 func attackStateFinished():
 	state = MOVE
 	
@@ -180,7 +180,7 @@ func move():
 	move_and_slide()
 	vel = velocity
 	
-# What to do when dashing
+## What to do when dashing
 @warning_ignore("unused_parameter")
 func dashState(delta):
 	$sndDash.play()
@@ -197,12 +197,12 @@ func dashState(delta):
 		move()
 		dashStateFinished()
 
-# Reset to normal state
+## Reset to normal state
 # For I-Frames use an if statement to avoid deloading and loading the player object
 func dashStateFinished():
 	state = MOVE
 
-# Run these checks to refill stamina
+## Run these checks to refill stamina
 func stamina():
 	# Is the player running?
 	if Input.is_action_pressed("sprint") && global.plrStamina != 0:
@@ -225,24 +225,24 @@ func stamina():
 		global.plrStaminaRechargeDelay = 0
 		global.plrStamina = global.plrMaxStamina
 
-# Player is in a sightline
+## Player is in a sightline
 func seen():
 	detected = true
 	global.baseDMG = 15
 	stealth()
 
-#Player is not in a sightline
+## Player is not in a sightline
 func hidden():
 	detected = false
 	global.baseDMG = 15
 	stealth()
 
-#Modify based on status of sightline/stealth
+## Modify based on status of sightline/stealth
 func stealth():
 	if detected == false:
-		global.baseDMG = global.baseDMG*3 #global.baseDMG = global.baseDMG + lvlDMG * 3
+		global.baseDMG = global.baseDMG*3 # global.baseDMG = global.baseDMG + lvlDMG * 3
 	elif detected == true:
-		global.baseDMG = global.baseDMG*0.85 #global.baseDMG = global.baseDMG + lvlDMG * 0.85
+		global.baseDMG = global.baseDMG*0.85 # global.baseDMG = global.baseDMG + lvlDMG * 0.85
 
 func _on_sight_box_area_entered(area):
 	print("Area: " + str(area))

@@ -15,15 +15,10 @@ anchors_preset = 0
 theme = ExtResource("1_ak2xu")
 script = ExtResource("2_1fu1m")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(768, 390)
-
 [node name="Rouge" type="Button" parent="."]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 32.0
-offset_right = 384.0
-offset_bottom = 73.0
+offset_right = 256.0
+offset_bottom = 41.0
 theme = ExtResource("1_ak2xu")
 text = "Assassin"
 
@@ -48,10 +43,9 @@ scroll_active = false
 
 [node name="Alchemist" type="Button" parent="."]
 layout_mode = 0
-offset_left = 624.0
-offset_top = 32.0
-offset_right = 711.0
-offset_bottom = 57.0
+offset_left = 510.0
+offset_right = 797.0
+offset_bottom = 41.0
 theme = ExtResource("1_ak2xu")
 text = "Alchemist"
 

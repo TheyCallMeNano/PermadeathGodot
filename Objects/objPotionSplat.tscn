@@ -8,6 +8,7 @@
 radius = 16.0
 
 [node name="objPotionSplat" type="Node2D"]
+scale = Vector2(3, 3)
 script = ExtResource("1_v84kx")
 
 [node name="Sprite" type="Sprite2D" parent="."]

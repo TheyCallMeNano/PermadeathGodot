@@ -49,6 +49,7 @@ func Update(delta: float):
 func physicsUpdate(delta: float):
 	if enemy:
 		enemy.velocity = moveDir * moveSpd
+		enemy.move_and_slide()
 
 
 func _on_sight_area_entered(area):

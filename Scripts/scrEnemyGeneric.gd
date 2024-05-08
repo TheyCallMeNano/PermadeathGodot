@@ -25,6 +25,8 @@ var vel = Vector2.ZERO
 @export var eHealth = 75
 @export var eDefense = 7
 
+var dmgTaken = 0
+
 func _ready():
 	if self.name == "Dummy":
 		eHealth = 9999
@@ -37,6 +39,8 @@ func handleHit():
 		animationPlayer.play("Hit")
 		eHealth -= global.baseDMG
 		print("Health: " + str(eHealth))
+		dmgTaken = global.baseDMG
+		$dmgDisplay.displayDamage(dmgTaken)
 		beingHit = false
 	
 	## Alchemist Damage Handling
@@ -50,6 +54,8 @@ func handleHit():
 				# Change these to modular values later, calculated by difficulty and plrLvl
 				attackSpeed -= 0.5
 				eHealth -= 12/eDefense
+				dmgTaken = 12/eDefense
+				$dmgDisplay.displayDamage(dmgTaken)
 				print("Acid Inflicted! Attack Speed: " + str(attackSpeed) + " Health: " + str(eHealth))
 			if acidCounter == 60:
 				attackSpeed += 1
@@ -83,6 +89,8 @@ func handleHit():
 				# Change these to modular values later, calculated by difficulty and plrLvl
 				eDefense -= 3
 				eHealth -= 21/eDefense
+				dmgTaken = 21/eDefense
+				$dmgDisplay.displayDamage(dmgTaken)
 				print("Molten Inflicted! Defense: " + str(eDefense) + " Health: " + str(eHealth))
 			if moltenCounter == 60:
 				eDefense += 6
@@ -94,7 +102,6 @@ func handleHit():
 # Elemental Int to name ID: 0 = Poison, 1 = Acid, 2 = Molten
 
 func _physics_process(delta):
-	move_and_slide()
 	
 	if beingHit == true:
 		handleHit()

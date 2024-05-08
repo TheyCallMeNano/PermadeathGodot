@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgl6txsq63o1a"
-path="res://.godot/imported/sprRouge.png-333cd50192013e679ca7c6537df3bea3.ctex"
+uid="uid://cs4v6xcqncmc0"
+path="res://.godot/imported/Weapon02.png-2471ad9ecdd5c7c876c0dbae183eba2c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Player/sprRouge.png"
-dest_files=["res://.godot/imported/sprRouge.png-333cd50192013e679ca7c6537df3bea3.ctex"]
+source_file="res://Sprites/Tileset Sprites/system/Weapon02.png"
+dest_files=["res://.godot/imported/Weapon02.png-2471ad9ecdd5c7c876c0dbae183eba2c.ctex"]
 
 [params]
 

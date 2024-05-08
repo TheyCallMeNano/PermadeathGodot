@@ -12,28 +12,28 @@ func Enter():
 	player = get_tree().get_first_node_in_group("player")
 	chasing = true
 
-func Update(delta: float):
-	if $"../..".beingHit == true:
-		$"../..".beingHit = false
-		Transitioned.emit(self,"handlehit")
-
 func physicsUpdate(delta: float):
 	var dir = player.global_position - enemy.global_position
 	
 	if chasing == true:
 		enemy.velocity = dir.normalized() * moveSpd
+		enemy.move_and_slide()
 		$"../../Sight".rotation = $"../..".position.angle_to_point(player.global_position)
 	else:
 		enemy.velocity = Vector2()
+		enemy.move_and_slide()
 	if dir.length() < 100 && get_parent().get_child(2).name == "AttackRanged":
 		enemy.velocity = Vector2()
+		enemy.move_and_slide()
 		chasing = false
 		Transitioned.emit(self,"attackranged")
 	elif dir.length() <= 30 && get_parent().get_child(2).name == "AttackMelee":
 		enemy.velocity = Vector2()
+		enemy.move_and_slide()
 		Transitioned.emit(self, "attackmelee")
 	elif chasing == false:
 		enemy.velocity = Vector2.ZERO
+		enemy.move_and_slide()
 
 func Exit():
 	$"../..".previousState = self

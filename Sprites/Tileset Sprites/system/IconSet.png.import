@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do540s8lnbdur"
-path="res://.godot/imported/sprAlchemist.png-c216e9f63f5b349810426df56b1b0095.ctex"
+uid="uid://bikaancn6vcw8"
+path="res://.godot/imported/IconSet.png-5d908296ff372b1bda1aa885f37fbbca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Player/Alchemist/sprAlchemist.png"
-dest_files=["res://.godot/imported/sprAlchemist.png-c216e9f63f5b349810426df56b1b0095.ctex"]
+source_file="res://Sprites/Tileset Sprites/system/IconSet.png"
+dest_files=["res://.godot/imported/IconSet.png-5d908296ff372b1bda1aa885f37fbbca.ctex"]
 
 [params]
 
