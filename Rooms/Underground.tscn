@@ -2,14 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://b5qbs5kbjdp7p" path="res://Objects/objPlayer.tscn" id="1"]
 [ext_resource type="TileSet" uid="uid://c27jhx0kh81i0" path="res://TileSets/tsGrasslands01.tres" id="1_3k2gp"]
-[ext_resource type="PackedScene" uid="uid://d13srdc24y1n6" path="res://Objects/objPersistentUI.tscn" id="2_5go3k"]
+[ext_resource type="PackedScene" uid="uid://b07ef833agy1f" path="res://Objects/objUIManager.tscn" id="3_fh51a"]
 [ext_resource type="PackedScene" path="res://Objects/objWarpZone.tscn" id="6_0mar8"]
 [ext_resource type="PackedScene" uid="uid://2ottw4oos3nq" path="res://Objects/objSpawner.tscn" id="7_wbub1"]
 
 [node name="Hub" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Environment" type="TileMap" parent="."]
@@ -20,11 +19,12 @@ layer_0/tile_data = PackedInt32Array(131071, 196609, 3, 65536, 196609, 3, 0, 196
 [node name="Decals" type="Node2D" parent="."]
 
 [node name="YSort" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Player" parent="YSort" instance=ExtResource("1")]
 position = Vector2(0, 672)
 
-[node name="CanvasLayer" parent="YSort/Player" instance=ExtResource("2_5go3k")]
+[node name="uiManager" parent="YSort/Player" instance=ExtResource("3_fh51a")]
 
 [node name="toOverworld" parent="." instance=ExtResource("6_0mar8")]
 position = Vector2(0, 712)

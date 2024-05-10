@@ -1,3 +1,6 @@
+CanvasLayer
+Label
+Control
 Timer
 Node2D
 AnimationPlayer
@@ -10,5 +13,3 @@ CollisionShape2D
 Node
 Area2D
 CharacterBody2D
-AudioStreamPlayer2D
-VisibleOnScreenNotifier2D

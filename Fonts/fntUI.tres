@@ -1,9 +1,0 @@
-[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://v0nqu047rej0"]
-
-[ext_resource type="FontFile" uid="uid://8drdt6fs5lbf" path="res://Fonts/fntGUI.TTF" id="1_bf2vo"]
-
-[resource]
-font = ExtResource("1_bf2vo")
-font_size = 32
-outline_size = 12
-outline_color = Color(0, 0, 0, 1)

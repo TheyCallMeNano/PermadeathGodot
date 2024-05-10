@@ -61,4 +61,4 @@ func _process(_delta):
 	if plrHP == 0:
 		plrHP = 100
 		global.path = 0
-		get_tree().change_scene_to_file("res://Rooms/MainScene.tscn")
+		get_tree().change_scene_to_file("res://Rooms/ClassSelection.tscn")

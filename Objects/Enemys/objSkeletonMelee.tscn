@@ -136,13 +136,13 @@ vframes = 4
 position = Vector2(0, -3)
 shape = SubResource("1")
 
-[node name="PotionCheck" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="."]
 light_mask = 2
 visibility_layer = 2
 collision_layer = 18
 collision_mask = 18
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PotionCheck"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_0yukw")
 
@@ -195,6 +195,7 @@ texture = ExtResource("10_tw6gk")
 texture_scale = 0.5
 
 [node name="dmgDisplay" parent="." instance=ExtResource("11_37rai")]
+position = Vector2(0, -20)
 
 [connection signal="area_entered" from="Sight" to="State Machine/Idle" method="_on_sight_area_entered"]
 [connection signal="area_entered" from="Sight" to="State Machine/Chase" method="_on_sight_area_entered"]

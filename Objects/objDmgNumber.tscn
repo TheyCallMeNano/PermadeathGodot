@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://kub73cpaokk"]
+[gd_scene load_steps=4 format=3 uid="uid://kub73cpaokk"]
 
 [ext_resource type="Texture2D" uid="uid://bj4doto6jrw45" path="res://Sprites/Tileset Sprites/system/Damage.png" id="1_j4g0g"]
 [ext_resource type="Script" path="res://Scripts/scrDamgaeNumber.gd" id="2_kkqg1"]
+[ext_resource type="Texture2D" uid="uid://ccrwv0t7b8ymx" path="res://Sprites/GUI/Light.png" id="3_4hh0p"]
 
 [node name="Damage" type="Sprite2D"]
 texture = ExtResource("1_j4g0g")
 hframes = 10
 vframes = 5
 script = ExtResource("2_kkqg1")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+shadow_enabled = true
+texture = ExtResource("3_4hh0p")
+texture_scale = 0.6

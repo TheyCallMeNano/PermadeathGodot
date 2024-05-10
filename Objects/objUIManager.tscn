@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://b07ef833agy1f"]
+
+[ext_resource type="Theme" uid="uid://bd4i748r0tyux" path="res://Fonts/Default.tres" id="1_arrtc"]
+[ext_resource type="Script" path="res://Scripts/scrText.gd" id="1_p6q2s"]
+
+[node name="uiManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p6q2s")
+
+[node name="CL" type="CanvasLayer" parent="."]
+
+[node name="Stamina" type="Label" parent="CL"]
+offset_top = 700.0
+offset_right = 130.0
+offset_bottom = 713.0
+theme = ExtResource("1_arrtc")
+text = "Stamina : 0"
+
+[node name="Health" type="Label" parent="CL"]
+offset_left = 1100.0
+offset_top = 700.0
+offset_right = 1257.0
+offset_bottom = 717.0
+theme = ExtResource("1_arrtc")
+text = "Health : 0"
+
+[node name="DebugMenu" type="Label" parent="CL"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("1_arrtc")

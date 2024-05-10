@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://o73v3nbc17lq"]
+[gd_scene load_steps=6 format=3 uid="uid://o73v3nbc17lq"]
 
 [ext_resource type="Texture2D" uid="uid://ldw05sy7x2qd" path="res://Sprites/GUI/Splatter Decals/sprPotionSplat.png" id="1_he33v"]
 [ext_resource type="Script" path="res://Scripts/scrPotionSplat.gd" id="1_v84kx"]
 [ext_resource type="AudioStream" uid="uid://dlogas8tv5vt1" path="res://Sounds/sndGlassBreak.wav" id="3_d5x5n"]
+[ext_resource type="Texture2D" uid="uid://ccrwv0t7b8ymx" path="res://Sprites/GUI/Light.png" id="4_uw5gy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b6w03"]
 radius = 16.0
@@ -25,5 +26,10 @@ shape = SubResource("CircleShape2D_b6w03")
 
 [node name="sndGlassBreak" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_d5x5n")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+shadow_enabled = true
+texture = ExtResource("4_uw5gy")
+texture_scale = 0.5
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

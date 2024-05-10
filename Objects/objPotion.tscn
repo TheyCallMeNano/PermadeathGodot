@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dh4rm8kj48oqn"]
+[gd_scene load_steps=6 format=3 uid="uid://dh4rm8kj48oqn"]
 
 [ext_resource type="Script" path="res://Scripts/scrPotion.gd" id="1_a23nr"]
 [ext_resource type="Texture2D" uid="uid://cfmlxe1uixyqv" path="res://Sprites/Player/Alchemist/sprPotions.png" id="1_vi6ll"]
+[ext_resource type="Texture2D" uid="uid://ccrwv0t7b8ymx" path="res://Sprites/GUI/Light.png" id="3_143nf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yekof"]
 radius = 7.0
@@ -36,5 +37,10 @@ collision_mask = 2
 light_mask = 2
 visibility_layer = 2
 shape = SubResource("CapsuleShape2D_nroen")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+shadow_enabled = true
+texture = ExtResource("3_143nf")
+texture_scale = 0.3
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

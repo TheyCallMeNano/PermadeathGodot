@@ -64,6 +64,10 @@ func classAssignment():
 		global.plrMaxStamina = 125.0
 		global.plrStaminaRecharge = 2.0
 		hidden()
+	if global.classInt == 1:
+		global.plrHP = 100
+		global.plrMaxStamina = 100.0
+		global.plrStaminaRecharge = 1.0
 
 # Check state and run according functions
 func _physics_process(delta):
