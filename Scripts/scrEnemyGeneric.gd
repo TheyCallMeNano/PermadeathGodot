@@ -107,8 +107,8 @@ func _physics_process(delta):
 		handleHit()
 	
 	if eHealth <= 0:
-		print("Dead!")
-		queue_free()
+		velocity = Vector2.ZERO
+		animationPlayer.play("Death")
 
 func Acid():
 	acidActive = true

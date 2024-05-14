@@ -4,6 +4,7 @@ class_name EnemyIdle
 @export var enemy: CharacterBody2D
 @export var moveSpd := 10.0
 @onready var player = get_tree().get_first_node_in_group("player")
+@onready var animationPlayer = $"../../AnimationPlayer"
 
 var moveDir : Vector2
 var wanderTime : float
@@ -47,7 +48,7 @@ func Update(delta: float):
 		randomizeWander()
 
 func physicsUpdate(delta: float):
-	if enemy:
+	if enemy && animationPlayer.get_current_animation() != "Death":
 		enemy.velocity = moveDir * moveSpd
 		enemy.move_and_slide()
 

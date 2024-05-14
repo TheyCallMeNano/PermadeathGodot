@@ -21,6 +21,10 @@ func Exit():
 func physicsUpdate(delta: float):
 	var dir = player.global_position - enemy.global_position
 	
+	if animationPlayer.get_current_animation() == "Death":
+		enemy.velocity = Vector2()
+		Transitioned.emit(self, "idle")
+	
 	if !animationPlayer.is_playing():
 		if dir.length() > 45:
 			Transitioned.emit(self,"chase")

@@ -19,6 +19,10 @@ func Enter():
 func physicsUpdate(delta: float):
 	$"../../Sight".rotation = $"../..".position.angle_to_point(player.global_position)
 	
+	if animationPlayer.get_current_animation() == "Death":
+		enemy.velocity = Vector2()
+		Transitioned.emit(self, "idle")
+	
 	if canFire == true:
 		var projectileInst = projectile.instantiate()
 		projectileInst.rotation = $"../../Sight".rotation

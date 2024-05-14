@@ -15,6 +15,11 @@ func Enter():
 func physicsUpdate(delta: float):
 	var dir = player.global_position - enemy.global_position
 	
+	if animationPlayer.get_current_animation() == "Death":
+		chasing = false
+		enemy.velocity = Vector2()
+		Transitioned.emit(self, "idle")
+	
 	if chasing == true:
 		enemy.velocity = dir.normalized() * moveSpd
 		enemy.move_and_slide()
