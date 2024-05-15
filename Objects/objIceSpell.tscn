@@ -52,7 +52,7 @@ libraries = {
 "": SubResource("AnimationLibrary_i35b7")
 }
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="." groups=["lights"]]
 shadow_enabled = true
 texture = ExtResource("3_e8dgy")
 texture_scale = 0.7

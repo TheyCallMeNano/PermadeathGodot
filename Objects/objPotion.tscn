@@ -38,7 +38,7 @@ light_mask = 2
 visibility_layer = 2
 shape = SubResource("CapsuleShape2D_nroen")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="." groups=["lights"]]
 shadow_enabled = true
 texture = ExtResource("3_143nf")
 texture_scale = 0.3

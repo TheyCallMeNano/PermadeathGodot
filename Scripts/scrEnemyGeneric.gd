@@ -31,13 +31,17 @@ var dmgTaken = 0
 func _ready():
 	if self.name == "Dummy":
 		eHealth = 9999
+	if global.path == 1:
+		$PointLight2D.visible = true
+	else:
+		$PointLight2D.visible = false
 
 func handleHit():
 	velocity = Vector2.ZERO # Might remove this if it becomes too unbalanced
 	
 	## Assassin Damage Handling
 	if global.classInt == 0:
-		animationPlayer.play("Hit")
+		animationPlayer.queue("Hit")
 		eHealth -= global.baseDMG
 		print("Health: " + str(eHealth))
 		dmgTaken = global.baseDMG
@@ -51,11 +55,13 @@ func handleHit():
 			# Acid should reduce "accuracy" or make the enemy attack slower
 			acidCounter += 1
 			if acidCounter == 30 || acidCounter == 60:
-				animationPlayer.play("Hit")
+				animationPlayer.queue("Hit")
 				# Change these to modular values later, calculated by difficulty and plrLvl
 				attackSpeed -= 0.5
-				eHealth -= 12/eDefense
-				dmgTaken = 12/eDefense
+				@warning_ignore("integer_division")
+				eHealth -= global.baseDMG/eDefense
+				@warning_ignore("integer_division")
+				dmgTaken = global.baseDMG/eDefense
 				$dmgDisplay.displayDamage(dmgTaken)
 				print("Acid Inflicted! Attack Speed: " + str(attackSpeed) + " Health: " + str(eHealth))
 			if acidCounter == 60:
@@ -69,7 +75,7 @@ func handleHit():
 			# Poison should give the enemy weakness or less damage
 			poisonCounter += 1
 			if poisonCounter == 30 || poisonCounter == 60:
-				animationPlayer.play("Hit")
+				animationPlayer.queue("Hit")
 				# Change these to modular values later, calculated by difficulty and plrLvl
 				eDefense -= 2
 				attackDMG -= 0.5
@@ -86,11 +92,13 @@ func handleHit():
 			# Molten should slow the enemy and deal massive damage to health/armor
 			moltenCounter += 1
 			if moltenCounter == 30 || moltenCounter == 60:
-				animationPlayer.play("Hit")
+				animationPlayer.queue("Hit")
 				# Change these to modular values later, calculated by difficulty and plrLvl
 				eDefense -= 3
-				eHealth -= 21/eDefense
-				dmgTaken = 21/eDefense
+				@warning_ignore("integer_division")
+				eHealth -= global.baseDMG/eDefense
+				@warning_ignore("integer_division")
+				dmgTaken = global.baseDMG/eDefense
 				$dmgDisplay.displayDamage(dmgTaken)
 				print("Molten Inflicted! Defense: " + str(eDefense) + " Health: " + str(eHealth))
 			if moltenCounter == 60:
@@ -109,7 +117,7 @@ func _physics_process(delta):
 	
 	if eHealth <= 0:
 		velocity = Vector2.ZERO
-		animationPlayer.play("Death")
+		animationPlayer.queue("Death")
 
 func Acid():
 	acidActive = true

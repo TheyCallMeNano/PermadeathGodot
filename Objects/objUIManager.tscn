@@ -15,17 +15,26 @@ script = ExtResource("1_p6q2s")
 [node name="CL" type="CanvasLayer" parent="."]
 
 [node name="Stamina" type="Label" parent="CL"]
-offset_top = 700.0
-offset_right = 130.0
-offset_bottom = 713.0
+offset_left = 8.0
+offset_top = 696.0
+offset_right = 272.0
+offset_bottom = 721.0
 theme = ExtResource("1_arrtc")
 text = "Stamina : 0"
 
+[node name="Element Type" type="Label" parent="CL"]
+offset_left = 8.0
+offset_top = 632.0
+offset_right = 272.0
+offset_bottom = 657.0
+theme = ExtResource("1_arrtc")
+text = "Element: Acid"
+
 [node name="Health" type="Label" parent="CL"]
-offset_left = 1100.0
-offset_top = 700.0
-offset_right = 1257.0
-offset_bottom = 717.0
+offset_left = 8.0
+offset_top = 664.0
+offset_right = 248.0
+offset_bottom = 689.0
 theme = ExtResource("1_arrtc")
 text = "Health : 0"
 
@@ -33,3 +42,4 @@ text = "Health : 0"
 offset_right = 40.0
 offset_bottom = 23.0
 theme = ExtResource("1_arrtc")
+theme_override_font_sizes/font_size = 16

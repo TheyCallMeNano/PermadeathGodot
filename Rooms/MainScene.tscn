@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://c27jhx0kh81i0" path="res://TileSets/tsGrasslands01.tres" id="1_v2vgr"]
 [ext_resource type="PackedScene" uid="uid://b5qbs5kbjdp7p" path="res://Objects/objPlayer.tscn" id="3_48xei"]
 [ext_resource type="PackedScene" uid="uid://b07ef833agy1f" path="res://Objects/objUIManager.tscn" id="4_ua3hr"]
-[ext_resource type="PackedScene" path="res://Objects/objWarpZone.tscn" id="8_ulqtq"]
+[ext_resource type="PackedScene" uid="uid://dqr1lw1muqp35" path="res://Objects/objWarpZone.tscn" id="8_ulqtq"]
 [ext_resource type="PackedScene" uid="uid://dd4cd6ffeqpsb" path="res://Objects/Enemys/objDummy.tscn" id="10"]
 
 [node name="Hub" type="Node2D"]

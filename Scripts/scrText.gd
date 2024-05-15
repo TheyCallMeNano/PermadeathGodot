@@ -3,6 +3,7 @@ var on = false
 @onready var stamina = $CL/Stamina
 @onready var hp = $CL/Health
 @onready var debugMenu = $CL/DebugMenu
+@onready var et = $"CL/Element Type"
 
 func _process(_delta):
 	## Print debug variables for in game tracking.
@@ -36,5 +37,10 @@ func _process(_delta):
 	## Reset to normal when not active
 	else:
 		stamina.add_theme_color_override("font_color", Color(1,1,1,1))
+	
+	if global.classInt == 1 || global.elementalInt < 0:
+		et.set_text("Element: " + str(global.elementalName))
+	else:
+		et.set_text("")
 	
 	hp.set_text("Health: " + str(global.plrHP))

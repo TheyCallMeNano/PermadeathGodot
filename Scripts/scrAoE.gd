@@ -14,53 +14,76 @@ var spdDebuff = 25
 func active():
 	statActive = true
 	statIntPrev = global.statusInt
-	statPositive()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if global.attackMode == 1:
 		if statIntPrev != global.statusInt && Input.is_action_just_released("changeStatusUp") || statIntPrev != global.statusInt && Input.is_action_just_released("changeStatusDown"):
-			statNegative()
-			statIntPrev = global.statusInt
-			active()
+			if !entityDict.is_empty() && statIntPrev > 3:
+				for i in entityDict.size():
+					statPositive(entityDict[i])
+					statChange(entityDict[i])
+			elif statIntPrev < 4 && entityDict.is_empty():
+				statPositive(null)
+				statChange(null)
+			else:
+				statIntPrev = global.statusInt
+			statActive = true
+			print("Status is changing!\n" + str(global.statusName[global.statusInt]))
 		if monitoring == false && statActive == true:
 			statActive = false
-			statNegative()
+			#statChange()
 		if entityDict.is_empty():
 			entityAmt = 0
 
-func statNegative():
+func statPositive(target):
+	if target == null:
+		if statIntPrev == 0:
+			global.plrHP += 20
+		elif statIntPrev == 1:
+			global.plrAttackSpd += 5
+		elif statIntPrev == 2:
+			global.plrDefense += 2
+		elif statIntPrev == 3:
+			global.baseDMG += 10
+	else:
+		if statIntPrev == 4:
+			target.attackSpeed += 2
+			print("Atk Speed: " + str(target.attackSpeed))
+		elif statIntPrev == 5:
+			target.eDefense += 2
+			print("Defense: " + str(target.eDefense))
+		elif statIntPrev == 6:
+			target.moveSpd += 15
+			print("Move Speed: " + str(target.moveSpd))
+	statIntPrev = global.statusInt
+
+func statChange(target):
+	if target == null:
 		if statIntPrev == 0:
 			global.plrHP -= 20
-			print(global.plrHP)
 		elif statIntPrev == 1:
 			global.plrAttackSpd -= 5
-			print(global.plrAttackSpd)
 		elif statIntPrev == 2:
 			global.plrDefense -= 2
-			print(global.plrDefense)
 		elif statIntPrev == 3:
 			global.baseDMG -= 10
-			print(global.baseDMG)
-
-func statPositive():
-	if statIntPrev == 0:
-		global.plrHP += 20
-		print(global.plrHP)
-	elif statIntPrev == 1:
-		global.plrAttackSpd += 5
-		print(global.plrAttackSpd)
-	elif statIntPrev == 2:
-		global.plrDefense += 2
-		print(global.plrDefense)
-	elif statIntPrev == 3:
-		global.baseDMG += 10
-		print(global.baseDMG)
+	else:
+		if statIntPrev == 4:
+			target.attackSpeed -= 2
+			print("Atk Speed: " + str(target.attackSpeed))
+		elif statIntPrev == 5:
+			target.eDefense -= 2
+			print("Defense: " + str(target.eDefense))
+		elif statIntPrev == 6:
+			target.moveSpd -= 15
+			print("Move Speed: " + str(target.moveSpd))
 
 
 func _on_area_entered(area):
 	if area.name == "Hurtbox":
 		entityDict[entityAmt] = area.get_parent()
+		statChange(entityDict[entityAmt])
 		entityAmt += 1
 		print("Entity Dict: " + str(entityDict))
 
@@ -69,15 +92,7 @@ func _on_area_exited(area):
 	var entityTotal = 0
 	while entityTotal != entityAmt:
 		if area.get_parent() == entityDict.get(entityTotal):
-			if statIntPrev == 4:
-				area.get_parent().attackSpeed += 2
-				print(area.get_parent().attackSpeed)
-			elif statIntPrev == 5:
-				area.get_parent().eDefense += 2
-				print(area.get_parent().eDefense)
-			elif statIntPrev == 6:
-				area.get_parent().moveSpd += 15
-				print(area.get_parent().moveSpd)
+			statChange(entityDict[entityTotal])
 			entityDict.erase(entityTotal)
 			print("Entity Dict: " + str(entityDict))
 		else:

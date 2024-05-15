@@ -245,13 +245,14 @@ func stealth():
 	if detected == false:
 		global.baseDMG = global.baseDMG*3 # global.baseDMG = global.baseDMG + lvlDMG * 3
 	elif detected == true:
+		@warning_ignore("narrowing_conversion")
 		global.baseDMG = global.baseDMG*0.85 # global.baseDMG = global.baseDMG + lvlDMG * 0.85
 
 func _on_sight_box_area_entered(area):
 	print("Area: " + str(area))
-	if area.name == "Sight":
+	if area.name == "Sight" && global.classInt == 0:
 		seen()
 
 func _on_sight_box_area_exited(area):
-	if area.name == "Sight":
+	if area.name == "Sight" && global.classInt == 0:
 		hidden()

@@ -5,14 +5,6 @@ res://TileSets/tsGrasslands01.tres
 res://Rooms/MainScene.tscn
 res://Rooms/Underground.tscn
 res://Objects/objPlayer.tscn
-res://Scripts/scrGlobals.gd
-res://Scripts/scrPrimary.gd
-res://Scripts/scrPlayer.gd
 res://Scripts/scrAoE.gd
-res://Scripts/States/scrEnemyChase.gd
-res://Scripts/scrEnemyGeneric.gd
-res://Scripts/States/scrEnemyIdle.gd
-res://Scripts/States/scrAttackRanged.gd
-res://Objects/Enemys/objSkeletonMelee.tscn
-res://Objects/Enemys/objSkeletonRanged.tscn
-res://Objects/objSpawner.tscn
+res://Scripts/scrGlobals.gd
+res://Scripts/scrPlayer.gd

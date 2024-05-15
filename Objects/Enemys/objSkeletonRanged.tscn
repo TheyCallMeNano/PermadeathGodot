@@ -241,7 +241,7 @@ enemy = NodePath("../..")
 
 [node name="Cooldown" type="Timer" parent="State Machine/AttackRanged"]
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="." groups=["lights"]]
 position = Vector2(0, -3.8)
 shadow_enabled = true
 texture = ExtResource("9_ty472")

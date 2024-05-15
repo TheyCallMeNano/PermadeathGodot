@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dd4cd6ffeqpsb"]
+[gd_scene load_steps=15 format=3 uid="uid://dd4cd6ffeqpsb"]
 
 [ext_resource type="Script" path="res://Scripts/scrEnemyGeneric.gd" id="1_xta57"]
 [ext_resource type="Texture2D" uid="uid://wjxynqaoxomk" path="res://Sprites/NPC'S/sprDummy.png" id="2_ilciq"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/States/scrStateMachine.gd" id="5_iuiw4"]
 [ext_resource type="Script" path="res://Scripts/States/scrEnemyIdle.gd" id="7_p1dt6"]
 [ext_resource type="PackedScene" uid="uid://cdwudv07pr2qu" path="res://Objects/Enemys/objDmgDisplayManager.tscn" id="7_y0x7w"]
+[ext_resource type="Texture2D" uid="uid://ccrwv0t7b8ymx" path="res://Sprites/GUI/Light.png" id="9_82wkc"]
 
 [sub_resource type="Animation" id="Animation_8bxn4"]
 resource_name = "Death"
@@ -157,3 +158,9 @@ script = ExtResource("7_p1dt6")
 
 [node name="dmgDisplay" parent="." instance=ExtResource("7_y0x7w")]
 position = Vector2(0, -20)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -3.8)
+shadow_enabled = true
+texture = ExtResource("9_82wkc")
+texture_scale = 0.5

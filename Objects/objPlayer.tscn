@@ -154,6 +154,7 @@ collision_mask = 2
 script = ExtResource("2_md7p6")
 
 [node name="Weapon" parent="AoE" instance=ExtResource("4_3ugyl")]
+z_index = 1
 position = Vector2(16, 0)
 scale = Vector2(1.5, 1.5)
 

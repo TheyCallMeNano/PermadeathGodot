@@ -27,7 +27,7 @@ shape = SubResource("CircleShape2D_b6w03")
 [node name="sndGlassBreak" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_d5x5n")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="." groups=["lights"]]
 shadow_enabled = true
 texture = ExtResource("4_uw5gy")
 texture_scale = 0.5

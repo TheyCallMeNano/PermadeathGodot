@@ -3,7 +3,6 @@ extends Node2D
 var dmgNumber = preload("res://Objects/objDmgNumber.tscn")
 
 func displayDamage(dmgTaken):
-	print(dmgTaken)
 	if dmgTaken < 10 && dmgTaken > 0:
 		var dmgInst = dmgNumber.instantiate()
 		dmgInst.position = global_position
@@ -11,12 +10,14 @@ func displayDamage(dmgTaken):
 		$/root/Hub.add_child(dmgInst)
 	elif dmgTaken > 10:
 		var mod = 10
+		@warning_ignore("unassigned_variable")
 		var children : Array[int]
 		while dmgTaken != 0:
 			if dmgTaken % mod < 10:
 				children.append(dmgTaken % mod)
 				dmgTaken -= dmgTaken % mod
 			elif dmgTaken % mod >= 10:
+				@warning_ignore("integer_division")
 				children.append((dmgTaken % mod) / (mod/10))
 				dmgTaken -= dmgTaken % mod
 			if dmgTaken % mod == 0:

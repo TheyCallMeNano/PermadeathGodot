@@ -5,12 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://ccrwv0t7b8ymx" path="res://Sprites/GUI/Light.png" id="3_4hh0p"]
 
 [node name="Damage" type="Sprite2D"]
+z_index = 2
 texture = ExtResource("1_j4g0g")
 hframes = 10
 vframes = 5
 script = ExtResource("2_kkqg1")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="." groups=["lights"]]
 shadow_enabled = true
 texture = ExtResource("3_4hh0p")
 texture_scale = 0.6
