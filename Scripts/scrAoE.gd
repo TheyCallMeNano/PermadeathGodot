@@ -2,12 +2,16 @@ extends Area2D
 
 var statActive = false
 var statIntPrev = 0
+var entityDict = {}
+var entityAmt = 0
 
-# Status Int to Name ID: Buffs: Health = 0, AttackSpeed = 1, Defense = 3, Damage = 4;
-# Debuffs: Speed = 5, Weakness = 6, Slowness = 7
+# Status Int to Name ID: Buffs: Health = 0, AttackSpeed = 1, Defense = 2, Damage = 3;
+# Debuffs: Speed = 4, Weakness = 5, Slowness = 6
+var atkSpdDebuff = 2
+var defenseDebuff = 5
+var spdDebuff = 25
 
 func active():
-	print("ran")
 	statActive = true
 	statIntPrev = global.statusInt
 	statPositive()
@@ -22,6 +26,8 @@ func _process(delta):
 		if monitoring == false && statActive == true:
 			statActive = false
 			statNegative()
+		if entityDict.is_empty():
+			entityAmt = 0
 
 func statNegative():
 		if statIntPrev == 0:
@@ -36,14 +42,6 @@ func statNegative():
 		elif statIntPrev == 3:
 			global.baseDMG -= 10
 			print(global.baseDMG)
-		elif statIntPrev == 4:
-			pass
-		elif statIntPrev == 5:
-			pass
-		elif statIntPrev == 6:
-			pass
-		elif statIntPrev == 7:
-			pass
 
 func statPositive():
 	if statIntPrev == 0:
@@ -58,11 +56,29 @@ func statPositive():
 	elif statIntPrev == 3:
 		global.baseDMG += 10
 		print(global.baseDMG)
-	elif statIntPrev == 4:
-		pass
-	elif statIntPrev == 5:
-		pass
-	elif statIntPrev == 6:
-		pass
-	elif statIntPrev == 7:
-		pass
+
+
+func _on_area_entered(area):
+	if area.name == "Hurtbox":
+		entityDict[entityAmt] = area.get_parent()
+		entityAmt += 1
+		print("Entity Dict: " + str(entityDict))
+
+
+func _on_area_exited(area):
+	var entityTotal = 0
+	while entityTotal != entityAmt:
+		if area.get_parent() == entityDict.get(entityTotal):
+			if statIntPrev == 4:
+				area.get_parent().attackSpeed += 2
+				print(area.get_parent().attackSpeed)
+			elif statIntPrev == 5:
+				area.get_parent().eDefense += 2
+				print(area.get_parent().eDefense)
+			elif statIntPrev == 6:
+				area.get_parent().moveSpd += 15
+				print(area.get_parent().moveSpd)
+			entityDict.erase(entityTotal)
+			print("Entity Dict: " + str(entityDict))
+		else:
+			entityTotal += 1

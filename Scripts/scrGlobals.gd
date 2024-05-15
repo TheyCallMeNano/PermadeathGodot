@@ -44,21 +44,25 @@ func _process(_delta):
 		styleEquipped = 1
 	elif Input.get_action_strength("styleThree") && classInt == 1 && attackMode != 1:
 		styleEquipped = 2
-	if Input.is_action_just_released("changeStatusUp") && statusInt != 7:
+		
+	if Input.is_action_just_released("changeStatusUp") && classInt == 1:
 		statusInt += 1
-	elif Input.is_action_just_released("changeStatusDown") && statusInt != 7:
+	elif Input.is_action_just_released("changeStatusDown") && classInt == 1:
 		statusInt -= 1
+		
 	if statusInt > 6:
 		statusInt = 0
 	elif statusInt < 0:
 		statusInt = 6
-	if Input.is_action_just_pressed("switchMode") && toggled == true:
-		attackMode = 1
-		toggled = false
-	elif toggled == false && Input.is_action_just_pressed("switchMode"):
+		
+	if Input.is_action_just_pressed("switchMode") && toggled == true && classInt == 1:
 		attackMode = 0
+		toggled = false
+	elif toggled == false && Input.is_action_just_pressed("switchMode") && classInt == 1:
+		attackMode = 1
 		toggled = true
-	if plrHP == 0:
-		plrHP = 100
+		
+	if plrHP <= 0:
+		plrHP = 1
 		global.path = 0
 		get_tree().change_scene_to_file("res://Rooms/ClassSelection.tscn")

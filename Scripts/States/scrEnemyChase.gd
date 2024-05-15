@@ -5,7 +5,6 @@ class_name EnemyChase
 
 var chasing = true
 @export var enemy: CharacterBody2D
-@export var moveSpd := 75.0
 var player: CharacterBody2D
 
 func Enter():
@@ -21,7 +20,7 @@ func physicsUpdate(delta: float):
 		Transitioned.emit(self, "idle")
 	
 	if chasing == true:
-		enemy.velocity = dir.normalized() * moveSpd
+		enemy.velocity = dir.normalized() * enemy.moveSpd
 		enemy.move_and_slide()
 		$"../../Sight".rotation = $"../..".position.angle_to_point(player.global_position)
 	else:

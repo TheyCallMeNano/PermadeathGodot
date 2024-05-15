@@ -11,7 +11,7 @@ func attack():
 	if global.classInt == 0:
 		anim.play("Slash")
 	# Alchemist
-	if global.classInt == 1:
+	if global.classInt == 1 && global.attackMode == 0:
 		position.x = 0
 		position.y = 0
 		var potionInst = potion.instantiate()

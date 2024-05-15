@@ -162,7 +162,6 @@ shape = SubResource("CircleShape2D_tet4p")
 
 [node name="Sprite2D" type="Sprite2D" parent="AoE"]
 visible = false
-position = Vector2(7.7486e-07, -0.999999)
 scale = Vector2(0.472441, 0.472441)
 texture = ExtResource("6_sis3a")
 
@@ -209,5 +208,7 @@ stream = ExtResource("6_usm3q")
 [node name="sndTileStep" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_xthyu")
 
+[connection signal="area_entered" from="AoE" to="AoE" method="_on_area_entered"]
+[connection signal="area_exited" from="AoE" to="AoE" method="_on_area_exited"]
 [connection signal="area_entered" from="SightBox" to="." method="_on_sight_box_area_entered"]
 [connection signal="area_exited" from="SightBox" to="." method="_on_sight_box_area_exited"]
