@@ -24,7 +24,7 @@ var vel = Vector2.ZERO
 @export var attackDMG = 5
 @export var eHealth = 75
 @export var eDefense = 7
-@export var moveSpd := 75.0
+@export var moveSpd := 100.0
 
 var dmgTaken = 0
 

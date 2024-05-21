@@ -1,13 +1,12 @@
 extends Node2D
 
 var counter = 0
-var element = -1
+var element
 
 ##### ELEMENTAL DICTIONARY #####
 # Elemental Int to name ID: 0 = Poison, 1 = Acid, 2 = Molten
 
 func _ready():
-	element = global.elementalInt
 	$sndGlassBreak.play()
 	if element == 0:
 		$Sprite.set_modulate("00ff00")

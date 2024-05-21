@@ -10,7 +10,7 @@ var version = "PREVIEW 0.0.0.9b"
 # Player Vars
 ## Int to name ID: -1 = N/A, 0 = Assassin, 1 = Alchemist, 2 = Dualist, 3 = Paladin
 var classInt = -1
-var className = ""
+var className = {0 : "Assassin", 1 : "Alchemist", 2 : "Dualist", 3 : "Paladin"}
 var plrHP = 100
 var plrMaxStamina = 100.0
 var plrStamina = 100.0
@@ -22,7 +22,7 @@ var plrStaminaDelayTime = 120
 var baseDMG : int = 15
 ## Elemental Int to name ID: 0 = Poison, 1 = Acid, 2 = Molten // More at some point
 var elementalInt = -1
-var elementalName = ""
+var elementalName = {0 : "Poison", 1 : "Acid", 2 : "Molten"}
 ## Status Int to Name ID: Buffs: Health = 0, AttackSpeed = 1, Defense = 2, Damage = 3;
 ## Debuffs: Speed = 4, Weakness = 5, Slowness = 6
 var statusInt = -1
@@ -40,13 +40,10 @@ var toggled = false
 func _process(_delta):
 	if Input.get_action_strength("styleOne"):
 		elementalInt = 0
-		elementalName = "Poison"
 	elif Input.get_action_strength("styleTwo"):
 		elementalInt = 1
-		elementalName = "Acid"
 	elif Input.get_action_strength("styleThree") && classInt == 1 && attackMode != 1:
 		elementalInt = 2
-		elementalName = "Molten"
 		
 	if Input.is_action_just_released("changeStatusUp") && classInt == 1:
 		statusInt += 1

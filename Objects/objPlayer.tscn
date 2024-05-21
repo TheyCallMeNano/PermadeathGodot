@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b5qbs5kbjdp7p"]
+[gd_scene load_steps=18 format=3 uid="uid://b5qbs5kbjdp7p"]
 
 [ext_resource type="Script" path="res://Scripts/scrPlayer.gd" id="2"]
 [ext_resource type="Script" path="res://Scripts/scrAoE.gd" id="2_md7p6"]
@@ -7,8 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cy1tsewrqiynd" path="res://Sprites/Player/char_a_p1_0bas_humn_v01.png" id="4_ybxrc"]
 [ext_resource type="AudioStream" uid="uid://bsjrpyiqfgo1f" path="res://Sounds/sndDash.wav" id="5_r3g85"]
 [ext_resource type="Texture2D" uid="uid://bfl8gt8b1611i" path="res://Sprites/Player/Alchemist/sprBuffRadius.png" id="6_sis3a"]
-[ext_resource type="AudioStream" uid="uid://cj0lvt7ciqgdf" path="res://Sounds/sndDirtStep.wav" id="6_usm3q"]
-[ext_resource type="AudioStream" uid="uid://bujbtwgucwi2r" path="res://Sounds/sndTileStep.wav" id="7_xthyu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tet4p"]
 radius = 30.0167
@@ -202,12 +200,6 @@ shape = SubResource("4")
 [node name="sndDash" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_r3g85")
 volume_db = 8.0
-
-[node name="sndDirtStep" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_usm3q")
-
-[node name="sndTileStep" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_xthyu")
 
 [connection signal="area_entered" from="AoE" to="AoE" method="_on_area_entered"]
 [connection signal="area_exited" from="AoE" to="AoE" method="_on_area_exited"]

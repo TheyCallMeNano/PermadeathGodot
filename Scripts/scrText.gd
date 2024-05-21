@@ -17,7 +17,7 @@ func _process(_delta):
 		"\nFPS: " + str(Performance.get_monitor(Performance.TIME_FPS)) +
 		"\nRaw Damage: " + str(global.baseDMG) + 
 		"\nVersion: " + str(global.version) +
-		"\nClassInt: " + str(global.classInt))
+		"\nClass Name: " + str(global.className))
 	if Input.is_action_just_pressed("debugMenu") && on == false:
 		on = true
 	## Reset text to nothing so that the player doesn't have the debug info
@@ -38,8 +38,8 @@ func _process(_delta):
 	else:
 		stamina.add_theme_color_override("font_color", Color(1,1,1,1))
 	
-	if global.classInt == 1 || global.elementalInt < 0:
-		et.set_text("Element: " + str(global.elementalName))
+	if global.classInt == 1 && global.elementalInt >= 0:
+		et.set_text("Element: " + str(global.elementalName[global.elementalInt]))
 	else:
 		et.set_text("")
 	

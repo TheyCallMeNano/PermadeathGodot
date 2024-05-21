@@ -7,8 +7,8 @@ extends CharacterBody2D
 
 ## These vars configure how ice like the surface is
 ## Maximum speed that the player can reach
-@export var MAX_SPEED = 150
-const ACCELERATION = 500
+@export var MAX_SPEED = 100
+const ACCELERATION = 200
 
 ## Friction acts at the rate the speed decreases
 @export var FRICTION = 1000
@@ -63,7 +63,7 @@ func classAssignment():
 		global.plrMaxStamina = 125.0
 		global.plrStaminaRecharge = 2.0
 		hidden()
-	if global.classInt == 1:
+	elif global.classInt == 1:
 		global.plrHP = 100
 		global.plrMaxStamina = 100.0
 		global.plrStaminaRecharge = 1.0
@@ -108,46 +108,32 @@ func moveState(delta):
 	# Check if we're moving then play running animation
 	if inputVector != Vector2.ZERO:
 		dashVector = inputVector
-		if inputVector.x > 0 && FRICTION != 5000 && walking == false:
-			get_node("Sprite2D").set_flip_h(false)
-			animationPlayer.play("Run")
-		elif inputVector.x > 0 && FRICTION == 5000 && global.plrStamina != 0:
-			get_node("Sprite2D").set_flip_h(false)
-			animationPlayer.play("Sprint")
-		elif global.plrStamina == 0 && walking == false:
-			get_node("Sprite2D").set_flip_h(false)
-			animationPlayer.play("Run")
-		if inputVector.x < 0 && FRICTION != 5000 && walking == false:
+		if inputVector.x < 0:
+			if FRICTION != 5000:
+				animationPlayer.play("Run")
+			else:
+				animationPlayer.play("Sprint")
 			get_node("Sprite2D").set_flip_h(true)
-			animationPlayer.play("Run")
-		elif inputVector.x < 0 && FRICTION == 5000 && global.plrStamina != 0:
-			get_node("Sprite2D").set_flip_h(true)
-			animationPlayer.play("Sprint")
-		elif global.plrStamina == 0 && walking == false:
-			get_node("Sprite2D").set_flip_h(true)
-			animationPlayer.play("Run")
-		if inputVector.y > 0 && walking == false:
-			animationPlayer.play("RunDown")
-		if inputVector.y < 0 && walking == false:
+		elif inputVector.x > 0:
+			if FRICTION != 5000:
+				animationPlayer.play("Run")
+			else:
+				animationPlayer.play("Sprint")
+			get_node("Sprite2D").set_flip_h(false)
+		
+		if inputVector.y < 0:
 			animationPlayer.play("RunUp")
-			
-		walking = true
+		elif inputVector.y > 0:
+			animationPlayer.play("RunDown")
 		
 		# Check if we're sprinting, then manage all movement in that state until end (Perhaps speed up run animation?)
 		if Input.is_action_pressed("sprint") && global.plrStamina != 0:
-			if Input.is_action_pressed("moveDown"):
-				vel = vel.move_toward(inputVector * MAX_SPEED * 2, ACCELERATION * delta)
-			elif Input.is_action_pressed("moveLeft"):
-				vel = vel.move_toward(inputVector * MAX_SPEED * 2, ACCELERATION * delta)
-			elif Input.is_action_pressed("moveUp"):
-				vel = vel.move_toward(inputVector * MAX_SPEED * 2, ACCELERATION * delta)
-			elif Input.is_action_pressed("moveRight"):
-				vel = vel.move_toward(inputVector * MAX_SPEED * 2, ACCELERATION * delta)
+			if Input.is_action_pressed("moveDown") || Input.is_action_pressed("moveUp") || Input.is_action_pressed("moveLeft") || Input.is_action_pressed("moveRight"):
+				vel = vel.move_toward(inputVector * MAX_SPEED * 6, ACCELERATION * delta)
 		else:
 			# We aren't sprinting
 			vel = vel.move_toward(inputVector * MAX_SPEED, ACCELERATION * delta)
 	else:
-		walking = false
 		animationPlayer.play("Idle")
 		vel = vel.move_toward(Vector2.ZERO, FRICTION * delta)
 	
@@ -188,13 +174,13 @@ func move():
 func dashState(delta):
 	$sndDash.play()
 	if global.classInt == 0:
-		vel = dashVector * MAX_SPEED * 3
+		vel = dashVector * MAX_SPEED * 7
 		global.plrStaminaRechargeDelay = 0
 		global.plrStamina -= global.plrStaminaRecharge*15
 		move()
 		dashStateFinished()
 	else:
-		vel = dashVector * MAX_SPEED * 2.5
+		vel = dashVector * MAX_SPEED * 6.5
 		global.plrStaminaRechargeDelay = 0
 		global.plrStamina -= global.plrStaminaRecharge*30
 		move()

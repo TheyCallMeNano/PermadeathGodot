@@ -246,10 +246,10 @@ libraries = {
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -7)
-texture = ExtResource("2_lp0v4")
-hframes = 4
+texture = ExtResource("2_t3di2")
+hframes = 2
 vframes = 4
-frame = 3
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
@@ -310,6 +310,7 @@ libraries = {
 }
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 position = Vector2(0, -3.8)
 shadow_enabled = true
 texture = ExtResource("10_tw6gk")

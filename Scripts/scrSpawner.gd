@@ -1,9 +1,9 @@
 extends Area2D
 
-var xRange = randi_range(-1200,960)
-var yRange = randi_range(-720,720)
+var xRange = randi_range(-6240,12960)
+var yRange = randi_range(-5280,1920)
 var spawning = true
-var spawnTotal = 25
+var spawnTotal = 100
 var spawned = 0
 var region = null
 var enemy = null
@@ -38,8 +38,8 @@ func _physics_process(delta):
 	if spawned == spawnTotal:
 		spawning = false
 	if spawning == true:
-		xRange = randi_range(-1200,960)
-		yRange = randi_range(-720,720)
+		xRange = randi_range(-6240,12960)
+		yRange = randi_range(-5280,1920)
 		position.x = xRange
 		position.y = yRange
 

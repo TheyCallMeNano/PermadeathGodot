@@ -1,5 +1,6 @@
-[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://c27jhx0kh81i0"]
+[gd_resource type="TileSet" load_steps=12 format=3 uid="uid://c27jhx0kh81i0"]
 
+[ext_resource type="Texture2D" uid="uid://dkd0sps6wpt4v" path="res://Sprites/Tileset Sprites/blackPanel.png" id="1_e5o8s"]
 [ext_resource type="Texture2D" uid="uid://dnoyapv6pw2d0" path="res://Sprites/Tileset Sprites/Grasslands/16x3/GrasslandsTextures.png" id="1_ryshj"]
 [ext_resource type="Texture2D" uid="uid://kyb6jrb65bsm" path="res://Sprites/Tileset Sprites/sprPathBase.png" id="3_j4x86"]
 
@@ -14,6 +15,13 @@ tile_data = PackedInt32Array(0, 1048576, 3, 65536, 1048576, 4, 131072, 983040, 0
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_eti4j"]
 tile_data = PackedInt32Array(0, 1507328, 3, 65536, 1507328, 4, 131072, 1507328, 5, 196608, 1245184, 11, 262144, 1245184, 12, 327680, 1900544, 11, 393216, 983040, 0, 458752, 983040, 0, 1, 1572864, 3, 65537, 983040, 5, 131073, 1114112, 9, 196609, 1376256, 8, 262145, 1441792, 12, 327681, 983040, 0, 393217, 983040, 0, 458753, 983040, 0, 2, 1638400, 3, 65538, 1638400, 14, 131074, 1179648, 9, 196610, 1310720, 268435467, 262146, 1310720, 12, 327682, 983040, 6, 393218, 1507328, 5, 458754, 1900544, 11, 3, 983040, 0, 65539, 1769472, 6, 131075, 1769472, 7, 196611, 1179648, 3, 262147, 1245184, 7, 327683, 1310720, 12, 393219, 1310720, 13, 458755, 983040, 0, 4, 983040, 0, 65540, 1835008, 5, 131076, 1703936, 3, 196612, 1835008, 4, 262148, 1703936, 6, 327684, 1245184, 9, 393220, 1638400, 268435464, 458756, 983040, 0, 5, 983040, 0, 65541, 1507328, 10, 131077, 1835008, 2, 196613, 983040, 0, 262149, 983040, 0, 327685, 1900544, 10, 393221, 1900544, 11, 458757, 983040, 0, 6, 983040, 0, 65542, 983040, 0, 131078, 1310720, 4, 196614, 983040, 0, 262150, 983040, 0, 327686, 983040, 0, 393222, 983040, 0, 458758, 983040, 0)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ej2ol"]
+texture = ExtResource("1_e5o8s")
+texture_region_size = Vector2i(240, 240)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ytcxd"]
 resource_name = "BigTileTerrain"
@@ -15981,6 +15989,7 @@ terrain_set_0/terrain_0/color = Color(1, 0, 0, 1)
 sources/1 = SubResource("TileSetAtlasSource_ytcxd")
 sources/2 = SubResource("TileSetAtlasSource_fe7ba")
 sources/3 = SubResource("TileSetAtlasSource_knh24")
+sources/0 = SubResource("TileSetAtlasSource_ej2ol")
 pattern_0 = SubResource("TileMapPattern_j4j0m")
 pattern_1 = SubResource("TileMapPattern_exggu")
 pattern_2 = SubResource("TileMapPattern_001n3")

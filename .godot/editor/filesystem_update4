@@ -5,6 +5,12 @@ res://TileSets/tsGrasslands01.tres
 res://Rooms/MainScene.tscn
 res://Rooms/Underground.tscn
 res://Objects/objPlayer.tscn
-res://Scripts/scrAoE.gd
-res://Scripts/scrGlobals.gd
+res://Objects/Enemys/objSkeletonMelee.tscn
+res://Scripts/scrEnemyGeneric.gd
 res://Scripts/scrPlayer.gd
+res://Scripts/scrGlobals.gd
+res://Scripts/scrText.gd
+res://Scripts/scrPotion.gd
+res://Scripts/scrPotionSplat.gd
+res://Scripts/scrDamageNum.gd
+res://Scripts/scrSpawner.gd

@@ -160,6 +160,7 @@ script = ExtResource("7_p1dt6")
 position = Vector2(0, -20)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 position = Vector2(0, -3.8)
 shadow_enabled = true
 texture = ExtResource("9_82wkc")

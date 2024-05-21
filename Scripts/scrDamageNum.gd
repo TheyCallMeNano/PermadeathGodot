@@ -1,6 +1,6 @@
 extends Sprite2D
-var counter = 0
 
+var counter = 0
 
 func _ready():
 	if global.path == 1:
