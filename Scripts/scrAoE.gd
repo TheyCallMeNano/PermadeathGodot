@@ -19,33 +19,36 @@ func active():
 func _process(delta):
 	if global.attackMode == 1:
 		if statIntPrev != global.statusInt && Input.is_action_just_released("changeStatusUp") || statIntPrev != global.statusInt && Input.is_action_just_released("changeStatusDown"):
-			if !entityDict.is_empty() && statIntPrev > 3:
+			if !entityDict.is_empty():
 				for i in entityDict.size():
-					statPositive(entityDict[i])
-					statChange(entityDict[i])
-			elif statIntPrev < 4 && entityDict.is_empty():
+					if entityDict.get(i):
+						statPositive(entityDict[i])
+						statChange(entityDict[i])
+			elif entityDict.is_empty():
 				statPositive(null)
 				statChange(null)
-			else:
-				statIntPrev = global.statusInt
 			statActive = true
-			print("Status is changing!\n" + str(global.statusName[global.statusInt]))
-		if monitoring == false && statActive == true:
+			print("Status is changing: " + str(global.statusName[global.statusInt]))
+	if monitoring == false && statActive == true:
 			statActive = false
-			#statChange()
-		if entityDict.is_empty():
+			for i in entityDict.size():
+				if entityDict.get(i):
+					statPositive(entityDict[i])
+					statChange(entityDict[i])
+	if entityDict.is_empty():
 			entityAmt = 0
 
 func statPositive(target):
 	if target == null:
 		if statIntPrev == 0:
-			global.plrHP += 20
+			global.plrHP -= 20
+			print("ran")
 		elif statIntPrev == 1:
-			global.plrAttackSpd += 5
+			global.plrAttackSpd -= 5
 		elif statIntPrev == 2:
-			global.plrDefense += 2
+			global.plrDefense -= 2
 		elif statIntPrev == 3:
-			global.baseDMG += 10
+			global.baseDMG -= 10
 	else:
 		if statIntPrev == 4:
 			target.attackSpeed += 2
@@ -61,13 +64,13 @@ func statPositive(target):
 func statChange(target):
 	if target == null:
 		if statIntPrev == 0:
-			global.plrHP -= 20
+			global.plrHP += 20
 		elif statIntPrev == 1:
-			global.plrAttackSpd -= 5
+			global.plrAttackSpd += 5
 		elif statIntPrev == 2:
-			global.plrDefense -= 2
+			global.plrDefense += 2
 		elif statIntPrev == 3:
-			global.baseDMG -= 10
+			global.baseDMG += 10
 	else:
 		if statIntPrev == 4:
 			target.attackSpeed -= 2
@@ -92,7 +95,7 @@ func _on_area_exited(area):
 	var entityTotal = 0
 	while entityTotal != entityAmt:
 		if area.get_parent() == entityDict.get(entityTotal):
-			statChange(entityDict[entityTotal])
+			statPositive(entityDict[entityTotal])
 			entityDict.erase(entityTotal)
 			print("Entity Dict: " + str(entityDict))
 		else:

@@ -26,7 +26,7 @@ func physicsUpdate(delta: float):
 	else:
 		enemy.velocity = Vector2()
 		enemy.move_and_slide()
-	if dir.length() < 100 && get_parent().get_child(2).name == "AttackRanged":
+	if dir.length() < 300 && get_parent().get_child(2).name == "AttackRanged":
 		enemy.velocity = Vector2()
 		enemy.move_and_slide()
 		chasing = false
