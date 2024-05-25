@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bf85nrmuejaj" path="res://Sprites/NPC'S/Skeleton/skeleton_idle.png" id="2_lp0v4"]
 [ext_resource type="Texture2D" uid="uid://pcbrt6ey8e3t" path="res://Sprites/NPC'S/Skeleton/skeleton_hurt.png" id="2_t3di2"]
 [ext_resource type="Texture2D" uid="uid://dgk8rfp8gqt7r" path="res://Sprites/GUI/sprSlash.png" id="3_1c687"]
-[ext_resource type="PackedScene" uid="uid://dxse2i1fgne8v" path="res://Objects/objSight.tscn" id="3_wsjic"]
+[ext_resource type="PackedScene" uid="uid://bi0flhxmybj4e" path="res://Objects/objSight.tscn" id="3_wsjic"]
 [ext_resource type="AudioStream" uid="uid://btskinrjw706e" path="res://Sounds/sndGenericHit1.wav" id="4_o01vs"]
 [ext_resource type="Texture2D" uid="uid://ct7nrk7xtfn43" path="res://Sprites/NPC'S/Skeleton/skeleton_death.png" id="4_o3f2b"]
 [ext_resource type="Script" path="res://Scripts/States/scrStateMachine.gd" id="5_8huen"]
@@ -232,6 +232,7 @@ _data = {
 }
 
 [node name="Skeleton" type="CharacterBody2D" node_paths=PackedStringArray("previousState") groups=["enemys"]]
+y_sort_enabled = true
 scale = Vector2(3, 3)
 collision_layer = 19
 collision_mask = 19
@@ -319,8 +320,4 @@ texture_scale = 0.5
 [node name="dmgDisplay" parent="." instance=ExtResource("11_37rai")]
 position = Vector2(0, -20)
 
-[connection signal="area_entered" from="Sight" to="State Machine/Idle" method="_on_sight_area_entered"]
-[connection signal="area_entered" from="Sight" to="State Machine/Chase" method="_on_sight_area_entered"]
-[connection signal="area_exited" from="Sight" to="State Machine/Idle" method="_on_sight_area_exited"]
-[connection signal="area_exited" from="Sight" to="State Machine/Chase" method="_on_sight_area_exited"]
 [connection signal="area_entered" from="Sight/Weapon" to="." method="_on_weapon_area_entered"]

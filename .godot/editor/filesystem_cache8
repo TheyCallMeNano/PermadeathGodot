@@ -1,40 +1,42 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1716344834
+::res://::1716611560
 export_presets.cfg::TextFile::-1::1716264501::0::1::::<><>::
 icon.png::CompressedTexture2D::6694149691922213159::1702699169::1702699169::1::::<><>::
-::res://Fonts/::1716315300
-Default.tres::Theme::2657398625784305831::1716315300::0::1::::<><>::uid://8drdt6fs5lbf::::res://Fonts/fntGUI.TTF
+::res://Fonts/::1716611805
+Default.tres::Theme::2657398625784305831::1716611805::0::1::::<><>::uid://8drdt6fs5lbf::::res://Fonts/fntGUI.TTF
 fntGUI.TTF::FontFile::2323463565661005251::1702699169::1702699169::1::::<><>::
-::res://Objects/::1716316893
+::res://Objects/::1716618471
+objChimney.tscn::PackedScene::6602253709646832136::1716360239::0::1::::<><>::uid://ch2fjwa07yd8a::::res://Sprites/Tileset Sprites/Grasslands/16x3/$Chimney.png<>uid://ccrwv0t7b8ymx::::res://Sprites/GUI/Light.png
 objCollisionRectangle.tscn::PackedScene::-1::1702699169::0::1::::<><>::
 objDebugMenu.tscn::PackedScene::8738136591838157867::1702699169::0::1::::<><>::res://Scripts/scrText.gd<>uid://bd4i748r0tyux::::res://Fonts/Default.tres
 objDmgNumber.tscn::PackedScene::21861627302492614::1716084496::0::1::::<><>::uid://bj4doto6jrw45::::res://Sprites/Tileset Sprites/system/Damage.png<>res://Scripts/scrDamageNum.gd<>uid://ccrwv0t7b8ymx::::res://Sprites/GUI/Light.png
 objIceSpell.tscn::PackedScene::7792500157834991305::1715748169::0::1::::<><>::res://Scripts/scrDamageCalculator.gd<>uid://diluna26tgyy0::::res://Sprites/Projectiles/sprIceSpell.png<>uid://ccrwv0t7b8ymx::::res://Sprites/GUI/Light.png
-objPlayer.tscn::PackedScene::4525210489388230867::1716316893::0::1::::<><>::res://Scripts/scrPlayer.gd<>res://Scripts/scrAoE.gd<>uid://ccrwv0t7b8ymx::::res://Sprites/GUI/Light.png<>uid://dy537m37wlcyt::::res://Objects/objWeapon.tscn<>uid://cy1tsewrqiynd::::res://Sprites/Player/char_a_p1_0bas_humn_v01.png<>uid://bsjrpyiqfgo1f::::res://Sounds/sndDash.wav<>uid://bfl8gt8b1611i::::res://Sprites/Player/Alchemist/sprBuffRadius.png
+objPlayer.tscn::PackedScene::4525210489388230867::1716618417::0::1::::<><>::res://Scripts/scrPlayer.gd<>res://Scripts/scrAoE.gd<>uid://ccrwv0t7b8ymx::::res://Sprites/GUI/Light.png<>uid://dy537m37wlcyt::::res://Objects/objWeapon.tscn<>uid://cy1tsewrqiynd::::res://Sprites/Player/char_a_p1_0bas_humn_v01.png<>uid://bsjrpyiqfgo1f::::res://Sounds/sndDash.wav<>uid://bfl8gt8b1611i::::res://Sprites/Player/Alchemist/sprBuffRadius.png
 objPotion.tscn::PackedScene::7711506278984737245::1715748120::0::1::::<><>::res://Scripts/scrPotion.gd<>uid://cfmlxe1uixyqv::::res://Sprites/Player/Alchemist/sprPotions.png<>uid://ccrwv0t7b8ymx::::res://Sprites/GUI/Light.png
 objPotionSplat.tscn::PackedScene::1050442967317258838::1715748191::0::1::::<><>::uid://ldw05sy7x2qd::::res://Sprites/GUI/Splatter Decals/sprPotionSplat.png<>res://Scripts/scrPotionSplat.gd<>uid://dlogas8tv5vt1::::res://Sounds/sndGlassBreak.wav<>uid://ccrwv0t7b8ymx::::res://Sprites/GUI/Light.png
-objSight.tscn::PackedScene::8811055799321049839::1702699169::0::1::::<><>::
+objSightPrototype.tscn::PackedScene::2999864509116941130::1716618417::0::1::::<><>::res://Scripts/scrSight.gd
 objSpawner.tscn::PackedScene::1925188820699043242::1715747168::0::1::::<><>::res://Scripts/scrSpawner.gd
 objUIManager.tscn::PackedScene::4207455437511948553::1715750598::0::1::::<><>::uid://bd4i748r0tyux::::res://Fonts/Default.tres<>res://Scripts/scrText.gd
 objWarpZone.tscn::PackedScene::8318977452902936402::1715747498::0::1::::<><>::res://Scripts/scrWarpZone.gd
 objWeapon.tscn::PackedScene::8907483527234785155::1715747349::0::1::::<><>::res://Scripts/scrPrimary.gd<>uid://dgk8rfp8gqt7r::::res://Sprites/GUI/sprSlash.png
-::res://Objects/Enemys/::1716316893
+::res://Objects/Enemys/::1716618417
 objDmgDisplayManager.tscn::PackedScene::5030045049211800280::1716084496::0::1::::<><>::res://Scripts/scrVisualDamage.gd
-objDummy.tscn::PackedScene::7429823964409427265::1716084496::0::1::::<><>::res://Scripts/scrEnemyGeneric.gd<>uid://wjxynqaoxomk::::res://Sprites/NPC'S/sprDummy.png<>uid://dxse2i1fgne8v::::res://Objects/objSight.tscn<>uid://btskinrjw706e::::res://Sounds/sndGenericHit1.wav<>uid://wbfrdlb7qupv::::res://Sounds/sndGenericDeath.wav<>res://Scripts/States/scrStateMachine.gd<>res://Scripts/States/scrEnemyIdle.gd<>uid://cdwudv07pr2qu::::res://Objects/Enemys/objDmgDisplayManager.tscn<>uid://ccrwv0t7b8ymx::::res://Sprites/GUI/Light.png
-objSkeletonMelee.tscn::PackedScene::3911281624023903007::1716316893::0::1::::<><>::res://Scripts/scrEnemyGeneric.gd<>uid://bf85nrmuejaj::::res://Sprites/NPC'S/Skeleton/skeleton_idle.png<>uid://pcbrt6ey8e3t::::res://Sprites/NPC'S/Skeleton/skeleton_hurt.png<>uid://dgk8rfp8gqt7r::::res://Sprites/GUI/sprSlash.png<>uid://dxse2i1fgne8v::::res://Objects/objSight.tscn<>uid://btskinrjw706e::::res://Sounds/sndGenericHit1.wav<>uid://ct7nrk7xtfn43::::res://Sprites/NPC'S/Skeleton/skeleton_death.png<>res://Scripts/States/scrStateMachine.gd<>res://Scripts/States/scrEnemyIdle.gd<>res://Scripts/States/scrEnemyChase.gd<>uid://wbfrdlb7qupv::::res://Sounds/sndGenericDeath.wav<>res://Scripts/States/scrAttackMelee.gd<>uid://ccrwv0t7b8ymx::::res://Sprites/GUI/Light.png<>uid://cdwudv07pr2qu::::res://Objects/Enemys/objDmgDisplayManager.tscn
-objSkeletonRanged.tscn::PackedScene::2549477133898154756::1715747354::0::1::::<><>::res://Scripts/scrEnemyGeneric.gd<>uid://pcbrt6ey8e3t::::res://Sprites/NPC'S/Skeleton/skeleton_hurt.png<>uid://bf85nrmuejaj::::res://Sprites/NPC'S/Skeleton/skeleton_idle.png<>uid://dxse2i1fgne8v::::res://Objects/objSight.tscn<>uid://btskinrjw706e::::res://Sounds/sndGenericHit1.wav<>uid://ct7nrk7xtfn43::::res://Sprites/NPC'S/Skeleton/skeleton_death.png<>res://Scripts/States/scrStateMachine.gd<>res://Scripts/States/scrEnemyIdle.gd<>res://Scripts/States/scrEnemyChase.gd<>res://Scripts/States/scrAttackRanged.gd<>uid://ccrwv0t7b8ymx::::res://Sprites/GUI/Light.png<>uid://cdwudv07pr2qu::::res://Objects/Enemys/objDmgDisplayManager.tscn<>uid://wbfrdlb7qupv::::res://Sounds/sndGenericDeath.wav
-::res://Rooms/::1716317017
-ClassSelection.tscn::PackedScene::2197557534354749364::1716316892::0::1::::<><>::uid://bd4i748r0tyux::::res://Fonts/Default.tres<>uid://chnb5u7uj5wob::::res://Sprites/Parallax/sky.png<>res://Scripts/scrSlidingBackground.gd<>res://Scripts/scrClassSelection.gd<>uid://bo757rphgp6ya::::res://Sprites/Parallax/clouds_front.png<>uid://bjfsfsg8hdh4v::::res://Sprites/Parallax/far_mountains.png<>uid://byqdvwy5h1som::::res://Sprites/Parallax/grassy_mountains.png<>uid://d2hql6am6hww0::::res://Sprites/Parallax/hill.png
-MainScene.tscn::PackedScene::5891897409667934592::1716317017::0::1::::<><>::uid://cunlv27bjms36::::res://TileSets/tsGrasslands02.tres<>uid://c27jhx0kh81i0::::res://TileSets/tsGrasslands01.tres<>uid://b5qbs5kbjdp7p::::res://Objects/objPlayer.tscn<>uid://b07ef833agy1f::::res://Objects/objUIManager.tscn<>uid://dqr1lw1muqp35::::res://Objects/objWarpZone.tscn<>uid://dd4cd6ffeqpsb::::res://Objects/Enemys/objDummy.tscn
-Underground.tscn::PackedScene::5081210118438115624::1716316893::0::1::::<><>::uid://b5qbs5kbjdp7p::::res://Objects/objPlayer.tscn<>uid://c27jhx0kh81i0::::res://TileSets/tsGrasslands01.tres<>uid://cunlv27bjms36::::res://TileSets/tsGrasslands02.tres<>uid://b07ef833agy1f::::res://Objects/objUIManager.tscn<>uid://dqr1lw1muqp35::::res://Objects/objWarpZone.tscn<>uid://2ottw4oos3nq::::res://Objects/objSpawner.tscn
-::res://Scripts/::1716315346
-scrAoE.gd::GDScript::-1::1716315346::0::1::::<>Area2D<>::
+objDummy.tscn::PackedScene::7429823964409427265::1716618475::0::1::::<><>::res://Scripts/scrEnemyGeneric.gd<>uid://wjxynqaoxomk::::res://Sprites/NPC'S/sprDummy.png<>uid://bi0flhxmybj4e::::res://Objects/objSightPrototype.tscn<>uid://btskinrjw706e::::res://Sounds/sndGenericHit1.wav<>uid://wbfrdlb7qupv::::res://Sounds/sndGenericDeath.wav<>res://Scripts/States/scrStateMachine.gd<>res://Scripts/States/scrEnemyIdle.gd<>uid://cdwudv07pr2qu::::res://Objects/Enemys/objDmgDisplayManager.tscn<>uid://ccrwv0t7b8ymx::::res://Sprites/GUI/Light.png
+objSkeletonMelee.tscn::PackedScene::3911281624023903007::1716612294::0::1::::<><>::res://Scripts/scrEnemyGeneric.gd<>uid://bf85nrmuejaj::::res://Sprites/NPC'S/Skeleton/skeleton_idle.png<>uid://pcbrt6ey8e3t::::res://Sprites/NPC'S/Skeleton/skeleton_hurt.png<>uid://dgk8rfp8gqt7r::::res://Sprites/GUI/sprSlash.png<>uid://dxse2i1fgne8v::::res://Objects/objSight.tscn<>uid://btskinrjw706e::::res://Sounds/sndGenericHit1.wav<>uid://ct7nrk7xtfn43::::res://Sprites/NPC'S/Skeleton/skeleton_death.png<>res://Scripts/States/scrStateMachine.gd<>res://Scripts/States/scrEnemyIdle.gd<>res://Scripts/States/scrEnemyChase.gd<>uid://wbfrdlb7qupv::::res://Sounds/sndGenericDeath.wav<>res://Scripts/States/scrAttackMelee.gd<>uid://ccrwv0t7b8ymx::::res://Sprites/GUI/Light.png<>uid://cdwudv07pr2qu::::res://Objects/Enemys/objDmgDisplayManager.tscn
+objSkeletonRanged.tscn::PackedScene::2549477133898154756::1716618417::0::1::::<><>::res://Scripts/scrEnemyGeneric.gd<>uid://pcbrt6ey8e3t::::res://Sprites/NPC'S/Skeleton/skeleton_hurt.png<>uid://bf85nrmuejaj::::res://Sprites/NPC'S/Skeleton/skeleton_idle.png<>uid://dxse2i1fgne8v::::res://Objects/objSight.tscn<>uid://btskinrjw706e::::res://Sounds/sndGenericHit1.wav<>uid://ct7nrk7xtfn43::::res://Sprites/NPC'S/Skeleton/skeleton_death.png<>res://Scripts/States/scrStateMachine.gd<>res://Scripts/States/scrEnemyIdle.gd<>res://Scripts/States/scrEnemyChase.gd<>res://Scripts/States/scrAttackRanged.gd<>uid://ccrwv0t7b8ymx::::res://Sprites/GUI/Light.png<>uid://cdwudv07pr2qu::::res://Objects/Enemys/objDmgDisplayManager.tscn<>uid://wbfrdlb7qupv::::res://Sounds/sndGenericDeath.wav
+::res://Rooms/::1716618417
+ClassSelection.tscn::PackedScene::2197557534354749364::1716618417::0::1::::<><>::uid://bd4i748r0tyux::::res://Fonts/Default.tres<>uid://chnb5u7uj5wob::::res://Sprites/Parallax/sky.png<>res://Scripts/scrSlidingBackground.gd<>res://Scripts/scrClassSelection.gd<>uid://bo757rphgp6ya::::res://Sprites/Parallax/clouds_front.png<>uid://bjfsfsg8hdh4v::::res://Sprites/Parallax/far_mountains.png<>uid://byqdvwy5h1som::::res://Sprites/Parallax/grassy_mountains.png<>uid://d2hql6am6hww0::::res://Sprites/Parallax/hill.png
+MainScene.tscn::PackedScene::5891897409667934592::1716618417::0::1::::<><>::uid://cunlv27bjms36::::res://TileSets/tsGrasslands02.tres<>uid://c27jhx0kh81i0::::res://TileSets/tsGrasslands01.tres<>uid://b5qbs5kbjdp7p::::res://Objects/objPlayer.tscn<>uid://b07ef833agy1f::::res://Objects/objUIManager.tscn<>uid://dqr1lw1muqp35::::res://Objects/objWarpZone.tscn<>uid://dd4cd6ffeqpsb::::res://Objects/Enemys/objDummy.tscn
+Underground.tscn::PackedScene::5081210118438115624::1716618417::0::1::::<><>::uid://b5qbs5kbjdp7p::::res://Objects/objPlayer.tscn<>uid://c27jhx0kh81i0::::res://TileSets/tsGrasslands01.tres<>uid://cunlv27bjms36::::res://TileSets/tsGrasslands02.tres<>uid://b07ef833agy1f::::res://Objects/objUIManager.tscn<>uid://dqr1lw1muqp35::::res://Objects/objWarpZone.tscn<>uid://2ottw4oos3nq::::res://Objects/objSpawner.tscn
+::res://Scripts/::1716618415
+scrSight.gd::GDScript::-1::1716618415::0::1::::<>Area2D<>::
+scrAoE.gd::GDScript::-1::1716345106::0::1::::<>Area2D<>::
 scrClassSelection.gd::GDScript::-1::1702699169::0::1::::<>Control<>::
 scrDamageCalculator.gd::GDScript::-1::1715749659::0::1::::<>CharacterBody2D<>::
 scrDamageNum.gd::GDScript::-1::1716260073::0::1::::<>Sprite2D<>::
-scrEnemyGeneric.gd::GDScript::-1::1716257079::0::1::::<>CharacterBody2D<>::
-scrGlobals.gd::GDScript::-1::1716259492::0::1::::<>Node<>::
-scrPlayer.gd::GDScript::-1::1716259178::0::1::::<>CharacterBody2D<>::
+scrEnemyGeneric.gd::GDScript::-1::1716613240::0::1::::<>CharacterBody2D<>::
+scrGlobals.gd::GDScript::-1::1716617885::0::1::::<>Node<>::
+scrPlayer.gd::GDScript::-1::1716618345::0::1::::<>CharacterBody2D<>::
 scrPotion.gd::GDScript::-1::1716259955::0::1::::<>CharacterBody2D<>::
 scrPotionSplat.gd::GDScript::-1::1716259685::0::1::::<>Node2D<>::
 scrPrimary.gd::GDScript::-1::1715735434::0::1::::<>Area2D<>::
@@ -43,11 +45,11 @@ scrSpawner.gd::GDScript::-1::1716263944::0::1::::<>Area2D<>::
 scrText.gd::GDScript::-1::1716259554::0::1::::<>Control<>::
 scrVisualDamage.gd::GDScript::-1::1715749831::0::1::::<>Node2D<>::
 scrWarpZone.gd::GDScript::-1::1715051081::0::1::::<>Area2D<>::
-::res://Scripts/States/::1715737557
+::res://Scripts/States/::1716613290
 scrAttackMelee.gd::GDScript::-1::1715726854::0::1::::EnemyAttackMelee<>State<>::
 scrAttackRanged.gd::GDScript::-1::1715737557::0::1::::EnemyRangedAttack<>State<>::
-scrEnemyChase.gd::GDScript::-1::1715737474::0::1::::EnemyChase<>State<>::
-scrEnemyIdle.gd::GDScript::-1::1715737502::0::1::::EnemyIdle<>State<>::
+scrEnemyChase.gd::GDScript::-1::1716345259::0::1::::EnemyChase<>State<>::
+scrEnemyIdle.gd::GDScript::-1::1716613290::0::1::::EnemyIdle<>State<>::
 scrStateMachine.gd::GDScript::-1::1715052905::0::1::::<>Node<>::
 scrStates.gd::GDScript::-1::1702699169::0::1::::State<>Node<>::
 ::res://Sounds/::1715725021
@@ -166,6 +168,6 @@ Weapon01.png::CompressedTexture2D::8475388982088753860::1633090168::1715194762::
 Weapon02.png::CompressedTexture2D::6097439136068759917::1633090111::1715194762::1::::<><>::
 Window.png::CompressedTexture2D::7682075222786705396::1629414092::1715194762::1::::<><>::
 WindowArrow.png::CompressedTexture2D::5561968711843148354::1632359190::1715194762::1::::<><>::
-::res://TileSets/::1716317017
-tsGrasslands01.tres::TileSet::6734560434357421449::1716315301::0::1::::<><>::uid://dkd0sps6wpt4v::::res://Sprites/Tileset Sprites/blackPanel.png<>uid://dnoyapv6pw2d0::::res://Sprites/Tileset Sprites/Grasslands/16x3/GrasslandsTextures.png<>uid://kyb6jrb65bsm::::res://Sprites/Tileset Sprites/sprPathBase.png
-tsGrasslands02.tres::TileSet::6204162007164211887::1716317017::0::1::::<><>::uid://bxohcmgrslbxh::::res://Sprites/Tileset Sprites/sprTown01.png<>uid://dek6ry73nyjbr::::res://Sprites/Tileset Sprites/Grasslands/16x3/GrasslandsProps.png<>uid://cnmmexdrscn2c::::res://Sprites/Tileset Sprites/Grasslands/16x3/GrasslandsHugeProps.png<>uid://ctgtg011qv6a::::res://Sprites/Tileset Sprites/AutumnHills/16x3/AutomnHills_Props.png<>uid://dkd0sps6wpt4v::::res://Sprites/Tileset Sprites/blackPanel.png
+::res://TileSets/::1716617326
+tsGrasslands01.tres::TileSet::6734560434357421449::1716617326::0::1::::<><>::uid://dkd0sps6wpt4v::::res://Sprites/Tileset Sprites/blackPanel.png<>uid://dnoyapv6pw2d0::::res://Sprites/Tileset Sprites/Grasslands/16x3/GrasslandsTextures.png<>uid://kyb6jrb65bsm::::res://Sprites/Tileset Sprites/sprPathBase.png
+tsGrasslands02.tres::TileSet::6204162007164211887::1716617325::0::1::::<><>::uid://bxohcmgrslbxh::::res://Sprites/Tileset Sprites/sprTown01.png<>uid://dek6ry73nyjbr::::res://Sprites/Tileset Sprites/Grasslands/16x3/GrasslandsProps.png<>uid://cnmmexdrscn2c::::res://Sprites/Tileset Sprites/Grasslands/16x3/GrasslandsHugeProps.png<>uid://ctgtg011qv6a::::res://Sprites/Tileset Sprites/AutumnHills/16x3/AutomnHills_Props.png<>uid://dkd0sps6wpt4v::::res://Sprites/Tileset Sprites/blackPanel.png<>uid://c1cgfiaxej1fo::::res://Objects/objChimney.tscn

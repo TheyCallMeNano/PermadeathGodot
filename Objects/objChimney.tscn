@@ -1,0 +1,106 @@
+[gd_scene load_steps=16 format=3 uid="uid://c1cgfiaxej1fo"]
+
+[ext_resource type="Texture2D" uid="uid://ch2fjwa07yd8a" path="res://Sprites/Tileset Sprites/Grasslands/16x3/$Chimney.png" id="1_5yb7h"]
+[ext_resource type="Texture2D" uid="uid://ccrwv0t7b8ymx" path="res://Sprites/GUI/Light.png" id="2_f18xn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flmhu"]
+atlas = ExtResource("1_5yb7h")
+region = Rect2(108, 0, 108, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqq74"]
+atlas = ExtResource("1_5yb7h")
+region = Rect2(216, 0, 108, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrmq8"]
+atlas = ExtResource("1_5yb7h")
+region = Rect2(0, 81, 108, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nii1r"]
+atlas = ExtResource("1_5yb7h")
+region = Rect2(108, 81, 108, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72kuj"]
+atlas = ExtResource("1_5yb7h")
+region = Rect2(0, 0, 108, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spwh7"]
+atlas = ExtResource("1_5yb7h")
+region = Rect2(216, 81, 108, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_302by"]
+atlas = ExtResource("1_5yb7h")
+region = Rect2(0, 162, 108, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43ikf"]
+atlas = ExtResource("1_5yb7h")
+region = Rect2(108, 162, 108, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmfjc"]
+atlas = ExtResource("1_5yb7h")
+region = Rect2(216, 162, 108, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tekis"]
+atlas = ExtResource("1_5yb7h")
+region = Rect2(0, 243, 108, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0emy"]
+atlas = ExtResource("1_5yb7h")
+region = Rect2(108, 243, 108, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivsts"]
+atlas = ExtResource("1_5yb7h")
+region = Rect2(216, 243, 108, 81)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aektu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flmhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqq74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrmq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nii1r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72kuj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spwh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_302by")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43ikf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmfjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tekis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0emy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivsts")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="Chimney" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_aektu")
+autoplay = "default"
+frame_progress = 0.183345
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0.631373, 0, 1)
+texture = ExtResource("2_f18xn")
+texture_scale = 3.0

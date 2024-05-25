@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxse2i1fgne8v"]
+[gd_scene load_steps=3 format=3 uid="uid://bi0flhxmybj4e"]
+
+[ext_resource type="Script" path="res://Scripts/scrSight.gd" id="1_ly0cw"]
 
 [sub_resource type="CircleShape2D" id="1"]
 radius = 8.0
@@ -8,11 +10,62 @@ visibility_layer = 4
 position = Vector2(0, -8)
 collision_layer = 4
 collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(8, 5)
-rotation = 4.71239
-polygon = PackedVector2Array(5, -5, 61.0002, 184, -66.9998, 184)
+script = ExtResource("1_ly0cw")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+light_mask = 4
+visibility_layer = 4
 shape = SubResource("1")
+
+[node name="Cone1" type="RayCast2D" parent="."]
+target_position = Vector2(193, 0)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="Cone2" type="RayCast2D" parent="."]
+target_position = Vector2(193, 16)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="Cone3" type="RayCast2D" parent="."]
+target_position = Vector2(193, -16)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="Cone4" type="RayCast2D" parent="."]
+target_position = Vector2(193, 8)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="Cone5" type="RayCast2D" parent="."]
+target_position = Vector2(193, -8)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="Cone6" type="RayCast2D" parent="."]
+target_position = Vector2(193, 12)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="Cone7" type="RayCast2D" parent="."]
+target_position = Vector2(193, -12)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="Cone8" type="RayCast2D" parent="."]
+target_position = Vector2(193, 4)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="Cone9" type="RayCast2D" parent="."]
+target_position = Vector2(193, -4)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

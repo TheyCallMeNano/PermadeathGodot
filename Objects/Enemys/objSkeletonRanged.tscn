@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/scrEnemyGeneric.gd" id="1_dv13v"]
 [ext_resource type="Texture2D" uid="uid://pcbrt6ey8e3t" path="res://Sprites/NPC'S/Skeleton/skeleton_hurt.png" id="2_6diwn"]
 [ext_resource type="Texture2D" uid="uid://bf85nrmuejaj" path="res://Sprites/NPC'S/Skeleton/skeleton_idle.png" id="2_t6bfo"]
-[ext_resource type="PackedScene" uid="uid://dxse2i1fgne8v" path="res://Objects/objSight.tscn" id="3_rc6sn"]
+[ext_resource type="PackedScene" uid="uid://bi0flhxmybj4e" path="res://Objects/objSight.tscn" id="3_rc6sn"]
 [ext_resource type="AudioStream" uid="uid://btskinrjw706e" path="res://Sounds/sndGenericHit1.wav" id="4_g0la5"]
 [ext_resource type="Texture2D" uid="uid://ct7nrk7xtfn43" path="res://Sprites/NPC'S/Skeleton/skeleton_death.png" id="4_ptivn"]
 [ext_resource type="Script" path="res://Scripts/States/scrStateMachine.gd" id="5_v5pto"]
@@ -183,6 +183,7 @@ radius = 6.0
 height = 14.0
 
 [node name="Skeleton" type="CharacterBody2D" node_paths=PackedStringArray("previousState") groups=["enemys"]]
+y_sort_enabled = true
 scale = Vector2(3, 3)
 collision_layer = 19
 collision_mask = 19

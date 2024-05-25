@@ -14,6 +14,13 @@ func Enter():
 func physicsUpdate(delta: float):
 	var dir = player.global_position - enemy.global_position
 	
+	if $"../../Sight".inSightAmt >= 9/2:
+		chasing = true
+	elif $"../../Sight".inSightAmt < 9/2:
+		chasing = false
+		enemy.velocity = Vector2()
+		Transitioned.emit(self, "idle")
+	
 	if animationPlayer.get_current_animation() == "Death":
 		chasing = false
 		enemy.velocity = Vector2()

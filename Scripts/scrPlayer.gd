@@ -11,7 +11,7 @@ extends CharacterBody2D
 const ACCELERATION = 200
 
 ## Friction acts at the rate the speed decreases
-@export var FRICTION = 1000
+@export var FRICTION = 10000
 
 # Different States, adding a "," followed by a parameter adds a new state
 enum{
@@ -89,6 +89,10 @@ func _physics_process(delta):
 		$Camera2D.zoom.x += .02
 		$Camera2D.zoom.y += .02
 	
+	if global.plrSpotted == true && global.classInt == 0:
+		seen()
+	elif global.plrSpotted == false && global.classInt == 0:
+		hidden()
 	
 	match state:
 		MOVE:
@@ -109,13 +113,13 @@ func moveState(delta):
 	if inputVector != Vector2.ZERO:
 		dashVector = inputVector
 		if inputVector.x < 0:
-			if FRICTION != 5000:
+			if FRICTION != 50000:
 				animationPlayer.play("Run")
 			else:
 				animationPlayer.play("Sprint")
 			get_node("Sprite2D").set_flip_h(true)
 		elif inputVector.x > 0:
-			if FRICTION != 5000:
+			if FRICTION != 50000:
 				animationPlayer.play("Run")
 			else:
 				animationPlayer.play("Sprint")
@@ -195,7 +199,7 @@ func dashStateFinished():
 func stamina():
 	# Is the player running?
 	if Input.is_action_pressed("sprint") && global.plrStamina != 0:
-			FRICTION = 5000
+			FRICTION = 50000
 			if Input.is_action_pressed("moveDown") || Input.is_action_pressed("moveLeft") || Input.is_action_pressed("moveUp") || Input.is_action_pressed("moveRight"):
 				global.plrStaminaRechargeDelay = 0
 				global.plrStamina -= global.plrStaminaRecharge/2.0
@@ -203,7 +207,7 @@ func stamina():
 	# Have they stopped running?
 	if global.plrStamina != global.plrMaxStamina && !Input.is_action_pressed("sprint") && global.plrStaminaRechargeDelay != global.plrStaminaDelayTime:
 		global.plrStaminaRechargeDelay += global.plrStaminaRecharge
-		FRICTION = 1000
+		FRICTION = 10000
 	
 	# Give them more stamina
 	if global.plrStaminaRechargeDelay == global.plrStaminaDelayTime && global.plrStamina != global.plrMaxStamina:
@@ -233,12 +237,3 @@ func stealth():
 	elif detected == true:
 		@warning_ignore("narrowing_conversion")
 		global.baseDMG = global.baseDMG*0.85 # global.baseDMG = global.baseDMG + lvlDMG * 0.85
-
-func _on_sight_box_area_entered(area):
-	print("Area: " + str(area))
-	if area.name == "Sight" && global.classInt == 0:
-		seen()
-
-func _on_sight_box_area_exited(area):
-	if area.name == "Sight" && global.classInt == 0:
-		hidden()

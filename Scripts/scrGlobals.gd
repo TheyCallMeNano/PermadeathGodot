@@ -5,7 +5,7 @@ var gameSaveSlot = 0
 var path = 0
 var eID = [0,1]
 var randEID:int = randi() % eID.size()
-var version = "PREVIEW 0.0.0.9b"
+var version = "PREVIEW 0.0.0.9c"
 
 # Player Vars
 ## Int to name ID: -1 = N/A, 0 = Assassin, 1 = Alchemist, 2 = Dualist, 3 = Paladin
@@ -19,6 +19,7 @@ var plrDefense = 10
 var plrStaminaRecharge = 1.0
 var plrStaminaRechargeDelay = 0.0
 var plrStaminaDelayTime = 120
+var plrSpotted = false
 var baseDMG : int = 15
 ## Elemental Int to name ID: 0 = Poison, 1 = Acid, 2 = Molten // More at some point
 var elementalInt = -1

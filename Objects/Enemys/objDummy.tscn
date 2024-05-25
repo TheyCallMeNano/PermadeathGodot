@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/scrEnemyGeneric.gd" id="1_xta57"]
 [ext_resource type="Texture2D" uid="uid://wjxynqaoxomk" path="res://Sprites/NPC'S/sprDummy.png" id="2_ilciq"]
-[ext_resource type="PackedScene" uid="uid://dxse2i1fgne8v" path="res://Objects/objSight.tscn" id="3_dxrs8"]
+[ext_resource type="PackedScene" uid="uid://bi0flhxmybj4e" path="res://Objects/objSight.tscn" id="3_dxrs8"]
 [ext_resource type="AudioStream" uid="uid://btskinrjw706e" path="res://Sounds/sndGenericHit1.wav" id="4_ux0sg"]
 [ext_resource type="AudioStream" uid="uid://wbfrdlb7qupv" path="res://Sounds/sndGenericDeath.wav" id="5_a7cy4"]
 [ext_resource type="Script" path="res://Scripts/States/scrStateMachine.gd" id="5_iuiw4"]
@@ -140,7 +140,7 @@ collision_mask = 18
 shape = SubResource("CapsuleShape2D_0yukw")
 
 [node name="Sight" parent="." instance=ExtResource("3_dxrs8")]
-position = Vector2(0, -6)
+light_mask = 4
 
 [node name="sndGenericHit1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ux0sg")
@@ -165,3 +165,6 @@ position = Vector2(0, -3.8)
 shadow_enabled = true
 texture = ExtResource("9_82wkc")
 texture_scale = 0.5
+
+[connection signal="area_entered" from="Sight" to="State Machine/Idle" method="_on_sight_area_entered"]
+[connection signal="area_exited" from="Sight" to="State Machine/Idle" method="_on_sight_area_exited"]

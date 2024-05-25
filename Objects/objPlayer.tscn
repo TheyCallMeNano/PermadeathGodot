@@ -8,6 +8,10 @@
 [ext_resource type="AudioStream" uid="uid://bsjrpyiqfgo1f" path="res://Sounds/sndDash.wav" id="5_r3g85"]
 [ext_resource type="Texture2D" uid="uid://bfl8gt8b1611i" path="res://Sprites/Player/Alchemist/sprBuffRadius.png" id="6_sis3a"]
 
+[sub_resource type="CapsuleShape2D" id="4"]
+radius = 3.5
+height = 14.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_tet4p"]
 radius = 30.0167
 
@@ -136,15 +140,20 @@ _data = {
 radius = 6.0
 height = 12.0
 
-[sub_resource type="CapsuleShape2D" id="4"]
-radius = 3.5
-height = 14.0
-
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(2, 2)
-collision_layer = 5
-collision_mask = 5
 script = ExtResource("2")
+
+[node name="SightBox" type="Area2D" parent="."]
+position = Vector2(0, -9)
+scale = Vector2(2, 2)
+collision_layer = 13
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SightBox"]
+light_mask = 4
+visibility_layer = 4
+shape = SubResource("4")
 
 [node name="AoE" type="Area2D" parent="."]
 scale = Vector2(3, 3)
@@ -177,7 +186,6 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5708
 shape = SubResource("1")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -185,16 +193,7 @@ visible = false
 position = Vector2(0, -3.8)
 shadow_enabled = true
 texture = ExtResource("3")
-texture_scale = 3.0
-
-[node name="SightBox" type="Area2D" parent="."]
-position = Vector2(0, -9)
-scale = Vector2(2, 2)
-collision_layer = 13
-collision_mask = 13
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SightBox"]
-shape = SubResource("4")
+texture_scale = 5.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -204,5 +203,3 @@ volume_db = 8.0
 
 [connection signal="area_entered" from="AoE" to="AoE" method="_on_area_entered"]
 [connection signal="area_exited" from="AoE" to="AoE" method="_on_area_exited"]
-[connection signal="area_entered" from="SightBox" to="." method="_on_sight_box_area_entered"]
-[connection signal="area_exited" from="SightBox" to="." method="_on_sight_box_area_exited"]

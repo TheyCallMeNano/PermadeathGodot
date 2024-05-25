@@ -50,6 +50,8 @@ func physicsUpdate(delta: float):
 	if enemy && animationPlayer.get_current_animation() != "Death":
 		enemy.velocity = moveDir * enemy.moveSpd
 		enemy.move_and_slide()
+	if $"../../Sight".inSightAmt >= 9/2:
+		Transitioned.emit(self,"chase")
 
 
 func _on_sight_area_entered(area):
