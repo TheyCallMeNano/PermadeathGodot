@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dh4rm8kj48oqn"]
 
-[ext_resource type="Script" path="res://Scripts/scrPotion.gd" id="1_a23nr"]
+[ext_resource type="Script" path="res://Scripts/Player/Projectiles/scrPotion.gd" id="1_a23nr"]
 [ext_resource type="Texture2D" uid="uid://cfmlxe1uixyqv" path="res://Sprites/Player/Alchemist/sprPotions.png" id="1_vi6ll"]
 [ext_resource type="Texture2D" uid="uid://ccrwv0t7b8ymx" path="res://Sprites/GUI/Light.png" id="3_143nf"]
 

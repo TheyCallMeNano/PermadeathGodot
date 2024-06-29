@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dja0lsaa5wuv6"]
 
-[ext_resource type="Script" path="res://Scripts/scrDamageCalculator.gd" id="1_48y52"]
+[ext_resource type="Script" path="res://Scripts/Utility/scrDamageCalculator.gd" id="1_48y52"]
 [ext_resource type="Texture2D" uid="uid://diluna26tgyy0" path="res://Sprites/Projectiles/sprIceSpell.png" id="1_ji08w"]
 [ext_resource type="Texture2D" uid="uid://ccrwv0t7b8ymx" path="res://Sprites/GUI/Light.png" id="3_e8dgy"]
 

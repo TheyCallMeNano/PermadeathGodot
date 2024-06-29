@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://o73v3nbc17lq"]
 
 [ext_resource type="Texture2D" uid="uid://ldw05sy7x2qd" path="res://Sprites/GUI/Splatter Decals/sprPotionSplat.png" id="1_he33v"]
-[ext_resource type="Script" path="res://Scripts/scrPotionSplat.gd" id="1_v84kx"]
+[ext_resource type="Script" path="res://Scripts/Player/Projectiles/scrPotionSplat.gd" id="1_v84kx"]
 [ext_resource type="AudioStream" uid="uid://dlogas8tv5vt1" path="res://Sounds/sndGlassBreak.wav" id="3_d5x5n"]
 [ext_resource type="Texture2D" uid="uid://ccrwv0t7b8ymx" path="res://Sprites/GUI/Light.png" id="4_uw5gy"]
 

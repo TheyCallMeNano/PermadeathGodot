@@ -2,8 +2,8 @@
 
 [ext_resource type="Theme" uid="uid://bd4i748r0tyux" path="res://Fonts/Default.tres" id="1_ak2xu"]
 [ext_resource type="Texture2D" uid="uid://chnb5u7uj5wob" path="res://Sprites/Parallax/sky.png" id="1_gjh6t"]
-[ext_resource type="Script" path="res://Scripts/scrSlidingBackground.gd" id="1_orcrc"]
-[ext_resource type="Script" path="res://Scripts/scrClassSelection.gd" id="2_1fu1m"]
+[ext_resource type="Script" path="res://Scripts/Utility/scrSlidingBackground.gd" id="1_orcrc"]
+[ext_resource type="Script" path="res://Scripts/Utility/scrClassSelection.gd" id="2_1fu1m"]
 [ext_resource type="Texture2D" uid="uid://bo757rphgp6ya" path="res://Sprites/Parallax/clouds_front.png" id="2_kat4b"]
 [ext_resource type="Texture2D" uid="uid://bjfsfsg8hdh4v" path="res://Sprites/Parallax/far_mountains.png" id="6_iqah1"]
 [ext_resource type="Texture2D" uid="uid://byqdvwy5h1som" path="res://Sprites/Parallax/grassy_mountains.png" id="7_hrvl8"]

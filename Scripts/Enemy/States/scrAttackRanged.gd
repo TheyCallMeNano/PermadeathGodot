@@ -14,6 +14,7 @@ var canFire = true
 func Enter():
 	player = get_tree().get_first_node_in_group("player")
 	timer.set_wait_time(2)
+	global.plrSpotted = true
 
 func physicsUpdate(delta: float):
 	$"../../Sight".rotation = $"../..".position.angle_to_point(player.global_position)
@@ -35,6 +36,7 @@ func physicsUpdate(delta: float):
 
 func Exit():
 	$"../..".previousState = self
+	global.plrSpotted = false
 
 func _on_timer_timeout():
 	canFire = true

@@ -7,8 +7,8 @@ extends CharacterBody2D
 
 ## These vars configure how ice like the surface is
 ## Maximum speed that the player can reach
-@export var MAX_SPEED = 100
-const ACCELERATION = 200
+@export var MAX_SPEED = 300
+const ACCELERATION = 500
 
 ## Friction acts at the rate the speed decreases
 @export var FRICTION = 10000
@@ -70,11 +70,11 @@ func classAssignment():
 
 # Check state and run according functions
 func _physics_process(delta):
-	if global.attackMode == 1 && on == false:
+	if global.attackMode == 1 && on == false && global.classInt == 1:
 		on = true
 		$AoE.monitoring = true
 		$AoE/Sprite2D.visible = true
-	if global.attackMode == 0 && on == true:
+	elif global.attackMode == 0 && on == true && global.classInt == 1:
 		$AoE.monitoring = false
 		$AoE/Sprite2D.visible = false
 		on = false

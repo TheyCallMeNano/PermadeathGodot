@@ -10,7 +10,8 @@ func _process(_delta):
 	## This is super messy and requires one giant set_text function decreasing framerate. This is terrible, too bad!
 	## Debug key is "F4" (Check Project > Project Settings for all keybindings)
 	if on == true:
-		debugMenu.set_text("Max Stamina: " + str(global.plrMaxStamina) + 
+		debugMenu.set_text(
+		"Max Stamina: " + str(global.plrMaxStamina) + 
 		"\nRecharge Rate: " + str(global.plrStaminaRecharge) + 
 		"\nRecharge Delay: " + str(global.plrStaminaRechargeDelay) + 
 		"\nMouse X/Y: " + str(get_viewport().get_mouse_position()) + 

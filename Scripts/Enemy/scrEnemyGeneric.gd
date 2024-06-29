@@ -29,8 +29,6 @@ var vel = Vector2.ZERO
 var dmgTaken = 0
 
 func _ready():
-	if self.name == "Dummy":
-		eHealth = 9999
 	if global.path == 1:
 		$PointLight2D.visible = true
 	else:

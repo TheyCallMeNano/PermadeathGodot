@@ -1,0 +1,68 @@
+[gd_scene load_steps=12 format=3 uid="uid://humwa7nueg3m"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy/scrEnemyGeneric.gd" id="1_re2u0"]
+[ext_resource type="PackedScene" uid="uid://bi0flhxmybj4e" path="res://Objects/UI/objSight.tscn" id="4_548vi"]
+[ext_resource type="AudioStream" uid="uid://btskinrjw706e" path="res://Sounds/sndGenericHit1.wav" id="6_64by0"]
+[ext_resource type="AudioStream" uid="uid://wbfrdlb7qupv" path="res://Sounds/sndGenericDeath.wav" id="7_mdprq"]
+[ext_resource type="Script" path="res://Scripts/Utility/scrStateMachine.gd" id="8_b4ukf"]
+[ext_resource type="Script" path="res://Scripts/Enemy/States/scrEnemyIdle.gd" id="9_5ebk5"]
+[ext_resource type="Script" path="res://Scripts/Enemy/States/scrEnemyChase.gd" id="10_8r8u7"]
+[ext_resource type="Texture2D" uid="uid://ccrwv0t7b8ymx" path="res://Sprites/GUI/Light.png" id="12_kpqso"]
+[ext_resource type="PackedScene" uid="uid://cdwudv07pr2qu" path="res://Objects/Utility/objDmgDisplayManager.tscn" id="13_28ddi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g7b7m"]
+radius = 4.0
+height = 8.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f2msi"]
+radius = 6.0
+height = 14.0
+
+[node name="EnemyBase" type="CharacterBody2D"]
+script = ExtResource("1_re2u0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+hframes = 4
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CapsuleShape2D_g7b7m")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+collision_layer = 18
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -7)
+shape = SubResource("CapsuleShape2D_f2msi")
+
+[node name="Sight" parent="." instance=ExtResource("4_548vi")]
+
+[node name="sndGenericHit1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_64by0")
+
+[node name="sndGenericDeath1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_mdprq")
+
+[node name="State Machine" type="Node" parent="."]
+script = ExtResource("8_b4ukf")
+
+[node name="Idle" type="Node" parent="State Machine"]
+script = ExtResource("9_5ebk5")
+
+[node name="Chase" type="Node" parent="State Machine"]
+script = ExtResource("10_8r8u7")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(0, -3.8)
+shadow_enabled = true
+texture = ExtResource("12_kpqso")
+texture_scale = 0.5
+
+[node name="dmgDisplay" parent="." instance=ExtResource("13_28ddi")]
+position = Vector2(0, -20)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dy537m37wlcyt"]
 
-[ext_resource type="Script" path="res://Scripts/scrPrimary.gd" id="1_xip8s"]
+[ext_resource type="Script" path="res://Scripts/Player/scrPrimary.gd" id="1_xip8s"]
 [ext_resource type="Texture2D" uid="uid://dgk8rfp8gqt7r" path="res://Sprites/GUI/sprSlash.png" id="2_ds6t2"]
 
 [sub_resource type="RectangleShape2D" id="1"]

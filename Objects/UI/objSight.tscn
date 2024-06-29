@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bi0flhxmybj4e"]
+[gd_scene load_steps=4 format=3 uid="uid://bi0flhxmybj4e"]
 
-[ext_resource type="Script" path="res://Scripts/scrSight.gd" id="1_ly0cw"]
+[ext_resource type="Script" path="res://Scripts/Enemy/scrSight.gd" id="1_ly0cw"]
+[ext_resource type="Texture2D" uid="uid://craop0tyy3w72" path="res://Sprites/NPC'S/Skeleton/sightMask.png" id="2_uddpt"]
 
 [sub_resource type="CircleShape2D" id="1"]
 radius = 8.0
@@ -63,9 +64,13 @@ collision_mask = 4
 collide_with_areas = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.125
 autostart = true
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[node name="PointLight2D" type="PointLight2D" parent="."]
+light_mask = 4
+position = Vector2(110, 0)
+energy = 0.2
+texture = ExtResource("2_uddpt")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

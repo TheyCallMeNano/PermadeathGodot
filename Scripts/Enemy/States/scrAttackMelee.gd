@@ -11,12 +11,14 @@ func Enter():
 	animationPlayer.play("Slash")
 	enemy.velocity = Vector2.ZERO
 	$"../..".previousState = $"../..".previousState
+	global.plrSpotted = true
 
 func Update(delta: float):
 	$"../../Sight".rotation = $"../..".position.angle_to_point(player.global_position)
 
 func Exit():
 	$"../..".previousState = self
+	global.plrSpotted = false
 
 func physicsUpdate(delta: float):
 	var dir = player.global_position - enemy.global_position
@@ -26,7 +28,7 @@ func physicsUpdate(delta: float):
 		Transitioned.emit(self, "idle")
 	
 	if !animationPlayer.is_playing():
-		if dir.length() > 45:
+		if dir.length() > 80:
 			Transitioned.emit(self,"chase")
 		else:
 			animationPlayer.play("Slash")

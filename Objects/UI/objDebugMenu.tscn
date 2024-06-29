@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dwq23k7vbk8bf"]
 
-[ext_resource type="Script" path="res://Scripts/scrText.gd" id="1"]
+[ext_resource type="Script" path="res://Scripts/UI/scrText.gd" id="1"]
 [ext_resource type="Theme" uid="uid://bd4i748r0tyux" path="res://Fonts/Default.tres" id="1_bevve"]
 
 [node name="DebugMenu" type="Label"]

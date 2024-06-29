@@ -10,8 +10,10 @@ var player: CharacterBody2D
 func Enter():
 	player = get_tree().get_first_node_in_group("player")
 	chasing = true
+	global.plrSpotted = true
 
 func physicsUpdate(delta: float):
+	$"../..".moveSpd = 300
 	var dir = player.global_position - enemy.global_position
 	
 	if $"../../Sight".inSightAmt >= 9/2:
@@ -47,7 +49,9 @@ func physicsUpdate(delta: float):
 		enemy.move_and_slide()
 
 func Exit():
+	$"../..".moveSpd = 100
 	$"../..".previousState = self
+	global.plrSpotted = false
 
 func _on_sight_area_entered(area):
 	if player == area.get_parent():

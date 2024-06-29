@@ -1,16 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://dd4cd6ffeqpsb"]
+[gd_scene load_steps=7 format=3 uid="uid://c218foyjnhyy0"]
 
-[ext_resource type="Script" path="res://Scripts/scrEnemyGeneric.gd" id="1_xta57"]
+[ext_resource type="PackedScene" uid="uid://humwa7nueg3m" path="res://Objects/Enemys/objEnemyBase.tscn" id="1_8tk3u"]
+[ext_resource type="Script" path="res://Scripts/Enemy/scrDummy.gd" id="2_71orv"]
 [ext_resource type="Texture2D" uid="uid://wjxynqaoxomk" path="res://Sprites/NPC'S/sprDummy.png" id="2_ilciq"]
-[ext_resource type="PackedScene" uid="uid://bi0flhxmybj4e" path="res://Objects/objSight.tscn" id="3_dxrs8"]
-[ext_resource type="AudioStream" uid="uid://btskinrjw706e" path="res://Sounds/sndGenericHit1.wav" id="4_ux0sg"]
-[ext_resource type="AudioStream" uid="uid://wbfrdlb7qupv" path="res://Sounds/sndGenericDeath.wav" id="5_a7cy4"]
-[ext_resource type="Script" path="res://Scripts/States/scrStateMachine.gd" id="5_iuiw4"]
-[ext_resource type="Script" path="res://Scripts/States/scrEnemyIdle.gd" id="7_p1dt6"]
-[ext_resource type="PackedScene" uid="uid://cdwudv07pr2qu" path="res://Objects/Enemys/objDmgDisplayManager.tscn" id="7_y0x7w"]
-[ext_resource type="Texture2D" uid="uid://ccrwv0t7b8ymx" path="res://Sprites/GUI/Light.png" id="9_82wkc"]
 
-[sub_resource type="Animation" id="Animation_8bxn4"]
+[sub_resource type="Animation" id="Animation_ybu2f"]
 resource_name = "Death"
 length = 0.62
 tracks/0/type = "value"
@@ -25,10 +19,52 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 4, 5, 6]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../sndGenericDeath1:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="2"]
+resource_name = "Hit"
+length = 0.32
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.996078, 0, 0.14902, 1), Color(1, 1, 1, 1)]
+}
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../sndGenericDeath1:playing")
+tracks/1/path = NodePath("../sndGenericHit1:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -37,134 +73,36 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("..")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.62),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"queue_free"
-}]
-}
-
-[sub_resource type="Animation" id="2"]
-resource_name = "Hit"
-length = 0.31
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 5, 4, 0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Sprite2D:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.996078, 0, 0.14902, 1), Color(1, 1, 1, 1)]
-}
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../sndGenericHit1:playing")
+tracks/2/path = NodePath("../Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true]
+"values": [0, 4, 0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kaudh"]
 _data = {
-"Death": SubResource("Animation_8bxn4"),
+"Death": SubResource("Animation_ybu2f"),
 "Hit": SubResource("2")
 }
 
-[sub_resource type="CapsuleShape2D" id="1"]
-radius = 4.0
-height = 8.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0yukw"]
-radius = 5.0
-height = 16.0
-
-[node name="Dummy" type="CharacterBody2D" node_paths=PackedStringArray("previousState") groups=["enemys"]]
+[node name="Dummy" instance=ExtResource("1_8tk3u")]
 scale = Vector2(3, 3)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("1_xta57")
-previousState = NodePath("State Machine/Idle")
+script = ExtResource("2_71orv")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 root_node = NodePath("../CollisionShape2D")
 libraries = {
 "": SubResource("AnimationLibrary_kaudh")
 }
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -10)
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(0, -12)
 texture = ExtResource("2_ilciq")
-hframes = 4
 vframes = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
-shape = SubResource("1")
-
-[node name="Hurtbox" type="Area2D" parent="."]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(0, -6)
-collision_layer = 18
-collision_mask = 18
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource("CapsuleShape2D_0yukw")
-
-[node name="Sight" parent="." instance=ExtResource("3_dxrs8")]
-light_mask = 4
-
-[node name="sndGenericHit1" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_ux0sg")
-
-[node name="sndGenericDeath1" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(0.333333, 0.333333)
-stream = ExtResource("5_a7cy4")
-
-[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
-script = ExtResource("5_iuiw4")
-initialState = NodePath("Idle")
-
-[node name="Idle" type="Node" parent="State Machine"]
-script = ExtResource("7_p1dt6")
-
-[node name="dmgDisplay" parent="." instance=ExtResource("7_y0x7w")]
-position = Vector2(0, -20)
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
-position = Vector2(0, -3.8)
-shadow_enabled = true
-texture = ExtResource("9_82wkc")
-texture_scale = 0.5
-
-[connection signal="area_entered" from="Sight" to="State Machine/Idle" method="_on_sight_area_entered"]
-[connection signal="area_exited" from="Sight" to="State Machine/Idle" method="_on_sight_area_exited"]
