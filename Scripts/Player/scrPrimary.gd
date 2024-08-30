@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var anim = $AnimationPlayer
-var potion = preload("res://Objects/objPotion.tscn")
+var potion = preload("res://Objects/Player/Projectiles/objPotion.tscn")
 ## Speed at which the potion travels
 @export var potionSpeed = 200
 var counter = 0

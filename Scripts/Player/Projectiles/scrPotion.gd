@@ -3,7 +3,7 @@ extends CharacterBody2D
 var speed = 500
 var counter = 0
 var element
-var splatter = preload("res://Objects/objPotionSplat.tscn")
+var splatter = preload("res://Objects/Player/Projectiles/objPotionSplat.tscn")
 
 func _ready():
 	if global.path == 1:
@@ -26,10 +26,12 @@ func _physics_process(delta):
 		$/root/Hub/Decals.add_child(splatInst)
 		queue_free()
 
-func _on_area_2d_body_entered(_body):
-	var splatInst = splatter.instantiate()
-	splatInst.position = get_global_position()
-	splatInst.rotation_degrees = rotation_degrees
-	splatInst.element = element
-	$/root/Hub/Decals.call_deferred("add_child" , splatInst)
-	queue_free()
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.get_parent().is_in_group("Enemys"):
+		var splatInst = splatter.instantiate()
+		splatInst.position = get_global_position()
+		splatInst.rotation_degrees = rotation_degrees
+		splatInst.element = element
+		$/root/Hub/Decals.call_deferred("add_child" , splatInst)
+		queue_free()

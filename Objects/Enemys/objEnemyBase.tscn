@@ -18,7 +18,9 @@ height = 8.0
 radius = 6.0
 height = 14.0
 
-[node name="EnemyBase" type="CharacterBody2D"]
+[node name="EnemyBase" type="CharacterBody2D" groups=["Enemys"]]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_re2u0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -33,8 +35,8 @@ shape = SubResource("CapsuleShape2D_g7b7m")
 [node name="Hurtbox" type="Area2D" parent="."]
 light_mask = 2
 visibility_layer = 2
-collision_layer = 18
-collision_mask = 18
+collision_layer = 26
+collision_mask = 26
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, -7)

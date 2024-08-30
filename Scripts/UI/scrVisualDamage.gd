@@ -1,6 +1,6 @@
 extends Node2D
 
-var dmgNumber = preload("res://Objects/objDmgNumber.tscn")
+var dmgNumber = preload("res://Objects/UI/objDmgNumber.tscn")
 
 func displayDamage(dmgTaken):
 	if dmgTaken < 10 && dmgTaken > 0:

@@ -7,7 +7,7 @@ class_name EnemyRangedAttack
 @export var enemy: CharacterBody2D
 ## For randomized projectiles use the method we use to find the player in the Enter fucntion
 ## however, use a random number for the projectile to use.
-@export var projectile = preload("res://Objects/objIceSpell.tscn")
+@export var projectile = preload("res://Objects/Enemys/Projectiles/objIceSpell.tscn")
 var player: CharacterBody2D
 var canFire = true
 

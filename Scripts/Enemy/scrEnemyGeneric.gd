@@ -1,11 +1,10 @@
 extends CharacterBody2D
-## Enemy Controller for generic/non boss or special enemies
-
+## Enemy Controller for generic/non-boss or special enemies
 
 # Animation Manager
 @onready var animationPlayer = $AnimationPlayer
 
-# Controllers
+# Elemental States
 var acidActive = false
 var poisonActive = false
 var moltenActive = false
@@ -24,42 +23,36 @@ var vel = Vector2.ZERO
 @export var attackDMG = 5
 @export var eHealth = 75
 @export var eDefense = 7
-@export var moveSpd := 100.0
+@export var moveSpd = 100.0
 
 var dmgTaken = 0
 
 func _ready():
-	if global.path == 1:
-		$PointLight2D.visible = true
-	else:
-		$PointLight2D.visible = false
+	$PointLight2D.visible = global.path == 1
 
 func handleHit():
-	velocity = Vector2.ZERO # Might remove this if it becomes too unbalanced
+	velocity = Vector2.ZERO # Might remove if it unbalances gameplay
 	
-	## Assassin Damage Handling
+	# Assassin Damage Handling
 	if global.classInt == 0:
 		animationPlayer.queue("Hit")
 		eHealth -= global.baseDMG
-		print("Health: " + str(eHealth))
 		dmgTaken = global.baseDMG
 		$dmgDisplay.displayDamage(dmgTaken)
 		beingHit = false
 	
-	## Alchemist Damage Handling
+	# Alchemist Damage Handling
 	elif global.classInt == 1:
 		# Acid State
-		if acidActive == true:
-			# Acid should reduce "accuracy" or make the enemy attack slower
+		if acidActive:
 			acidCounter += 1
-			if acidCounter == 30 || acidCounter == 60:
+			if acidCounter in [30, 60]:
 				animationPlayer.queue("Hit")
-				# Change these to modular values later, calculated by difficulty and plrLvl
 				attackSpeed -= 0.5
 				@warning_ignore("integer_division")
-				eHealth -= global.baseDMG/eDefense
+				eHealth -= global.baseDMG / eDefense
 				@warning_ignore("integer_division")
-				dmgTaken = global.baseDMG/eDefense
+				dmgTaken = global.baseDMG / eDefense
 				$dmgDisplay.displayDamage(dmgTaken)
 				print("Acid Inflicted! Attack Speed: " + str(attackSpeed) + " Health: " + str(eHealth))
 			if acidCounter == 60:
@@ -69,12 +62,10 @@ func handleHit():
 				beingHit = false
 		
 		# Poison State
-		elif poisonActive == true:
-			# Poison should give the enemy weakness or less damage
+		elif poisonActive:
 			poisonCounter += 1
-			if poisonCounter == 30 || poisonCounter == 60:
+			if poisonCounter in [30, 60]:
 				animationPlayer.queue("Hit")
-				# Change these to modular values later, calculated by difficulty and plrLvl
 				eDefense -= 2
 				attackDMG -= 0.5
 				print("Poison Inflicted! Defense: " + str(eDefense) + " Attack Damage: " + str(attackDMG))
@@ -86,17 +77,15 @@ func handleHit():
 				beingHit = false
 			
 		# Molten State
-		elif moltenActive == true:
-			# Molten should slow the enemy and deal massive damage to health/armor
+		elif moltenActive:
 			moltenCounter += 1
-			if moltenCounter == 30 || moltenCounter == 60:
+			if moltenCounter in [30, 60]:
 				animationPlayer.queue("Hit")
-				# Change these to modular values later, calculated by difficulty and plrLvl
 				eDefense -= 3
 				@warning_ignore("integer_division")
-				eHealth -= global.baseDMG/eDefense
+				eHealth -= global.baseDMG / eDefense
 				@warning_ignore("integer_division")
-				dmgTaken = global.baseDMG/eDefense
+				dmgTaken = global.baseDMG / eDefense
 				$dmgDisplay.displayDamage(dmgTaken)
 				print("Molten Inflicted! Defense: " + str(eDefense) + " Health: " + str(eHealth))
 			if moltenCounter == 60:
@@ -109,8 +98,7 @@ func handleHit():
 # Elemental Int to name ID: 0 = Poison, 1 = Acid, 2 = Molten
 
 func _physics_process(delta):
-	
-	if beingHit == true:
+	if beingHit:
 		handleHit()
 	
 	if eHealth <= 0:
@@ -131,7 +119,6 @@ func Molten():
 	moltenActive = true
 	beingHit = true
 	handleHit()
-
 
 func _on_weapon_area_entered(area):
 	if player == area.get_parent():

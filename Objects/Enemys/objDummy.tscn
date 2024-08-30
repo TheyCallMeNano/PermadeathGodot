@@ -92,9 +92,10 @@ _data = {
 "Hit": SubResource("2")
 }
 
-[node name="Dummy" instance=ExtResource("1_8tk3u")]
+[node name="Dummy" node_paths=PackedStringArray("previousState") instance=ExtResource("1_8tk3u")]
 scale = Vector2(3, 3)
 script = ExtResource("2_71orv")
+previousState = NodePath("State Machine/Idle")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 root_node = NodePath("../CollisionShape2D")

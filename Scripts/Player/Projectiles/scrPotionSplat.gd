@@ -25,12 +25,12 @@ func _process(delta):
 		counter = 0
 		queue_free()
 
-func _on_area_2d_body_entered(body):
-	print("Body: " + str(body))
-	if body.is_in_group("enemys"):
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	print("Body: " + str(area))
+	if area.get_parent().is_in_group("Enemys"):
 		if element == 0:
-			body.Poison()
+			area.get_parent().Poison()
 		if element == 1:
-			body.Acid()
+			area.get_parent().Acid()
 		if element == 2:
-			body.Molten()
+			area.get_parent().Molten()

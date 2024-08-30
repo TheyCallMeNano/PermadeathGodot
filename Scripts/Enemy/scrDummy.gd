@@ -1,4 +1,4 @@
-extends "res://Scripts/scrEnemyGeneric.gd"
+extends "res://Scripts/Enemy/scrEnemyGeneric.gd"
 
 func _ready():
 	eHealth = 9999
